@@ -4,6 +4,8 @@ D:\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01/NaveReab_1.h
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\NaveReabastecimiento.h
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\NaveEnemiga.h
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\MovimientoNaves.h
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\MovimientoNaves.generated.h
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\NaveEnemiga.generated.h
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\NaveReabastecimiento.generated.h
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\NaveReab_1.generated.h

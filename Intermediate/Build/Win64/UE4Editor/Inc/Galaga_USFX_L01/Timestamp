@@ -1,13 +1,13 @@
-C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\Bomba.h
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\EscudoActor.h
-C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\EscudoEscena.h
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\Bomba.h
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\Galaga_USFX_L01GameMode.h
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\Galaga_USFX_L01Pawn.h
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\EscudoEscena.h
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\MovimientoNaves.h
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\NaveCaza.h
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\NaveCaza_1.h
-C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\NaveCaza_2.h
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\Galaga_USFX_L01Projectile.h
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\NaveEnemiga.h
-C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\NaveEspia.h
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\NaveEspia_1.h
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\NaveEspia_2.h
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\NaveNodriza.h
@@ -19,4 +19,5 @@ C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\NaveTransporte.h
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\NaveTransporte_1.h
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\NaveTransporte_2.h
-C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\Galaga_USFX_L01Projectile.h
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\NaveCaza_2.h
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\NaveEspia.h

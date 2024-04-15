@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h" //Incluye la definicion de la clase AActor para que los objetos puedan ser colocados en UE.
+#include "MovimientoNaves.h"
 #include "NaveEnemiga.generated.h"
 class UstaticMeshComponent; //Definiendo la clase para generar un puntero (direccion de memoria).
 //Declarando la case Enemy como abstracta.
@@ -58,6 +59,8 @@ protected:
 public:
 	//Esta funcion se llama en cada fotograma del juego (Tick) y es un metodo heredado de la clase 'AActor'.
 	//Se introduce el dato 'DeltaTime' como el tiempo transcurrido desde el fotograma anterior.
+	UPROPERTY(VisibleAnywhere);
+	UMovimientoNaves* ComponenteMovimiento;
 	virtual void Tick(float DeltaTime) override;
 
 protected:

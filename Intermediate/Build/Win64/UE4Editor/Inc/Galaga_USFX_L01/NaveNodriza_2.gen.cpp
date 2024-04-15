@@ -72,7 +72,7 @@ void EmptyLinkFunctionForGeneratedCodeNaveNodriza_2() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ANaveNodriza_2, 3404902044);
+	IMPLEMENT_CLASS(ANaveNodriza_2, 1601614977);
 	template<> GALAGA_USFX_L01_API UClass* StaticClass<ANaveNodriza_2>()
 	{
 		return ANaveNodriza_2::StaticClass();
