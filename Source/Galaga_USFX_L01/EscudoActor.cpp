@@ -16,8 +16,9 @@ AEscudoActor::AEscudoActor()
 
     static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_Trim.Shape_Trim'"));
 
-    mallaBarrera->SetStaticMesh(ShipMesh.Object);
-
+    mallaBarrera->SetStaticMesh(ShipMesh.Object);//esta linea nos permite asignar la malla a nuestro objeto
+	movimiento = true;
+	velocidad = 100.0f;
 }
 // Called when the game starts or when spawned
 void AEscudoActor::BeginPlay()
@@ -31,4 +32,36 @@ void AEscudoActor::Tick(float DeltaTime)
 {
     Super::Tick(DeltaTime);
 
+    if (movimiento)
+    {
+        FVector NewPosition = GetActorLocation() + FVector(0.0f, 0.0f, velocidad) * DeltaTime;
+        SetActorLocation(NewPosition);
+
+        // Control de movimiento en el eje Y
+        if (GetActorLocation().Y >= 1800)
+        {
+            movimiento = false;
+        }
+    }
+    else
+    {
+        FVector NewPosition = GetActorLocation() - FVector(0.0f, 0.0f, velocidad) * DeltaTime;
+        SetActorLocation(NewPosition);
+
+        // Control de movimiento en el eje Y
+        if (GetActorLocation().Y <= -1800)
+        {
+            movimiento = true;
+        }
+    }
+
+    // Control de movimiento en el eje X
+    if (GetActorLocation().X >= 700)
+    {
+        movimiento = false;
+    }
+    else if (GetActorLocation().X <= -700)
+    {
+        movimiento = true;
+    }
 }

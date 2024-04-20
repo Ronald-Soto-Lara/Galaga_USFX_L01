@@ -12,7 +12,7 @@ ANaveEnemiga::ANaveEnemiga()
 	EnemyMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ShipMesh"));
 	EnemyMesh->SetupAttachment(RootComponent);
 	RootComponent = EnemyMesh;
-	velocidad = 1;
+	velocidad = 1.0f;
 }
 
 // Esta funcion se llama al comienzo del juego y es donde se colocan las inicializaciones y configuraciones iniciales del juego.

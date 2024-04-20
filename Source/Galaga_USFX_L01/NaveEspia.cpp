@@ -4,11 +4,12 @@
 #include "NaveEspia.h"
 
 ANaveEspia::ANaveEspia() {
-	static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_NarrowCapsule.Shape_NarrowCapsule'"));
+	static ConstructorHelpers::FObjectFinder<UStaticMesh> 
+	ShipMesh(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_Sphere.Shape_Sphere'"));
 	EnemyMesh->SetStaticMesh(ShipMesh.Object);
 }
 void ANaveEspia::Mover(float DeltaTime) {
-	velocidad = 0.25;
+	velocidad = 1.0f;
 	SetActorLocation(FVector(GetActorLocation().X - velocidad, GetActorLocation().Y, GetActorLocation().Z));
 }
 void ANaveEspia::Vida() {

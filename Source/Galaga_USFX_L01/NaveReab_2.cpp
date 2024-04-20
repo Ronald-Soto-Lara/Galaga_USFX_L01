@@ -4,13 +4,14 @@
 #include "NaveReab_2.h"
 
 ANaveReab_2::ANaveReab_2() {
-	static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_Cone.Shape_Cone'"));
+	static ConstructorHelpers::FObjectFinder<UStaticMesh> 
+	ShipMesh(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_WideCapsule.Shape_WideCapsule'"));
 	EnemyMesh->SetStaticMesh(ShipMesh.Object);
 }
 void ANaveReab_2::Mover(float DeltaTime) {
 	FVector PActual = GetActorLocation();
-	velocidad = 0.25;
-	SetActorLocation(FVector(GetActorLocation().X - velocidad, GetActorLocation().Y, GetActorLocation().Z));
+	velocidad = 1.0f;
+	SetActorLocation(FVector(GetActorLocation().X , GetActorLocation().Y, GetActorLocation().Z));
 }
 void ANaveReab_2::Vida() {
 

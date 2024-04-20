@@ -20,6 +20,8 @@ private:
 	float peso;
 	float volumen;
 	FVector posicion;
+	float velocidad;
+	float movimiento;
 public:
 	// Sets default values for this actor's properties
 	AEscudoActor();

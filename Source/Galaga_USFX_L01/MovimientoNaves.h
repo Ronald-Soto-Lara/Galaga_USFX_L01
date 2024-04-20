@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+//Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
 
@@ -15,13 +15,9 @@ class GALAGA_USFX_L01_API UMovimientoNaves : public UActorComponent
 public:
 	// Sets default values for this component's properties
 	UMovimientoNaves();
-
 	UPROPERTY(EditAnywhere)
-	float MovimientoSig;
-
-	//	UPROPERTY(EditAnywhere)
-		//float MovimientoSag;
-
+	float velocidad;
+	bool movimiento;
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
@@ -29,7 +25,6 @@ protected:
 public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
-private:
-	bool bMovimientoDerecha;
-	bool bMovimientoArriba;
+
+
 };

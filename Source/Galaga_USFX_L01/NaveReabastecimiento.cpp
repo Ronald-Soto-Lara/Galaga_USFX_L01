@@ -4,12 +4,13 @@
 #include "NaveReabastecimiento.h"
 
 ANaveReabastecimiento::ANaveReabastecimiento() {
-	static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_Cone.Shape_Cone'"));
+	static ConstructorHelpers::FObjectFinder<UStaticMesh> 
+	ShipMesh(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_WideCapsule.Shape_WideCapsule'"));
 	EnemyMesh->SetStaticMesh(ShipMesh.Object);
 }
 void ANaveReabastecimiento::Mover(float DeltaTime) {
-	velocidad = 0.25;
-	SetActorLocation(FVector(GetActorLocation().X - velocidad, GetActorLocation().Y, GetActorLocation().Z));
+	velocidad = 1.0f;
+	SetActorLocation(FVector(GetActorLocation().X , GetActorLocation().Y, GetActorLocation().Z));
 }
 void ANaveReabastecimiento::Vida() {
 

@@ -4,11 +4,12 @@
 #include "NaveCaza.h"
 
 ANaveCaza::ANaveCaza() {
-	static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_TriPyramid.Shape_TriPyramid'"));
+	static ConstructorHelpers::FObjectFinder<UStaticMesh> 
+	ShipMesh(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_Tube.Shape_Tube'"));
 	EnemyMesh->SetStaticMesh(ShipMesh.Object);
 }
 void ANaveCaza::Mover(float DeltaTime) {
-	velocidad = 0.25;
+	velocidad = 1.0f;
 	SetActorLocation(FVector(GetActorLocation().X - velocidad, GetActorLocation().Y, GetActorLocation().Z));
 	/*FVector PActual = GetActorLocation(); //Obtenemos la posicion actual del objeto.
 	float NewX = FMath::RandRange(-1000.0f, 1000.0f) * DeltaTime * velocidad; //Generamos un numero aleatorio para la nueva posicion en el eje X.

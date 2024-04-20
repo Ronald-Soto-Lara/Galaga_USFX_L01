@@ -8,7 +8,7 @@ ANaveTransporte_1::ANaveTransporte_1() {
 	EnemyMesh->SetStaticMesh(ShipMesh.Object);
 }
 void ANaveTransporte_1::Mover(float DeltaTime) {
-	velocidad = 0.25;
+	velocidad = 1.0f;
 	//Movimiento Circular.
 	float Radio = 100.0f;
 	float Angulo = GetWorld()->GetTimeSeconds() * velocidad;

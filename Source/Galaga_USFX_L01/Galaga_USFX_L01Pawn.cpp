@@ -192,27 +192,40 @@ void AGalaga_USFX_L01Pawn::CrearBarrera()
 	}
 	FVector Location = GetActorLocation() + FVector(100.0f, 0.0f, 0.0f);
 	FRotator Rotation = GetActorRotation();
-
-	UEscudoEscena* CrearBarreraComponent = GetWorld()->SpawnActor<UEscudoEscena>(UEscudoEscena::StaticClass(), Location, Rotation);
-
-	if (CrearBarreraComponent != nullptr)
-	{
-		CrearBarreraComponent->SetWorldLocation(Location);
-		CrearBarreraComponent->SetWorldRotation(Rotation);
-	}
 	AEscudoActor* CrearBarreraActor = GetWorld()->SpawnActor<AEscudoActor>(AEscudoActor::StaticClass(), Location, Rotation);
+	AEscudoActor* CrearBarreraActor1 = GetWorld()->SpawnActor<AEscudoActor>(AEscudoActor::StaticClass(), Location, Rotation);
+	AEscudoActor* CrearBarreraActor2 = GetWorld()->SpawnActor<AEscudoActor>(AEscudoActor::StaticClass(), Location, Rotation);
+	AEscudoActor* CrearBarreraActor3 = GetWorld()->SpawnActor<AEscudoActor>(AEscudoActor::StaticClass(), Location, Rotation);
 	if (CrearBarreraActor != nullptr)
 	{
 		CrearBarreraActor->SetActorLocation(Location);
 		CrearBarreraActor->SetActorRotation(Rotation);
+		CrearBarreraActor1->SetActorLocation(Location + FVector(-100.0f, 100.0f, 0.0f));
+		CrearBarreraActor1->SetActorRotation(Rotation + FRotator(0.0f, 90.0f, 0.0f));
+		CrearBarreraActor2->SetActorLocation(Location + FVector(-100.0f, -100.0f, 0.0f));
+		CrearBarreraActor2->SetActorRotation(Rotation + FRotator(0.0f, -90.0f, 0.0f));
+		CrearBarreraActor3->SetActorLocation(Location + FVector(-200.0f, 0.0f, 0.0f));
+		CrearBarreraActor3->SetActorRotation(Rotation);
 
 		// Crear un delegado de temporizador
 		FTimerDelegate TimerDel;
-		TimerDel.BindLambda([CrearBarreraActor]()
+		TimerDel.BindLambda([CrearBarreraActor, CrearBarreraActor1, CrearBarreraActor2, CrearBarreraActor3]()
 			{
 				if (CrearBarreraActor && CrearBarreraActor->IsValidLowLevel())
 				{
 					CrearBarreraActor->Destroy();
+				}
+				if (CrearBarreraActor1 && CrearBarreraActor1->IsValidLowLevel())
+				{
+					CrearBarreraActor1->Destroy();
+				}
+				if (CrearBarreraActor2 && CrearBarreraActor2->IsValidLowLevel())
+				{
+					CrearBarreraActor2->Destroy();
+				}
+				if (CrearBarreraActor3 && CrearBarreraActor3->IsValidLowLevel())
+				{
+					CrearBarreraActor3->Destroy();
 				}
 			});
 
@@ -227,7 +240,6 @@ void AGalaga_USFX_L01Pawn::ResetCrearBarrera()
 {
 	bCrearBarr = true;
 }
-
 void AGalaga_USFX_L01Pawn::devolverAlPrincipio()
 {
 	movimiento = true;

@@ -5,7 +5,8 @@
 #include "Bomba.h"
 
 ANaveCaza_2::ANaveCaza_2() {
-	static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_TriPyramid.Shape_TriPyramid'"));
+	static ConstructorHelpers::FObjectFinder<UStaticMesh>
+	ShipMesh(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_Tube.Shape_Tube'"));
 	EnemyMesh->SetStaticMesh(ShipMesh.Object);
 	BombaDist = 100.0f;
 }

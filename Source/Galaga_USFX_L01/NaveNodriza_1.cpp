@@ -4,11 +4,12 @@
 #include "NaveNodriza_1.h"
 
 ANaveNodriza_1::ANaveNodriza_1() {
-	static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_NarrowCapsule.Shape_NarrowCapsule'"));
+	static ConstructorHelpers::FObjectFinder<UStaticMesh> 
+	ShipMesh(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_WideCapsule.Shape_WideCapsule'"));
 	EnemyMesh->SetStaticMesh(ShipMesh.Object);
 }
 void ANaveNodriza_1::Mover(float DeltaTime) {
-	velocidad = 0.25;
+	velocidad = 1.0f;
 	//Movimiento Diagonal Arriba-Derecha.
 	SetActorLocation(GetActorLocation() + FVector(velocidad, velocidad, 0.0f));
 

@@ -37,7 +37,6 @@ void UEscudoEscena::CrearBarrera()
 
 }
 
-
 // Called when the game starts
 void UEscudoEscena::BeginPlay()
 {

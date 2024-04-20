@@ -8,8 +8,8 @@ ANaveTransporte_2::ANaveTransporte_2() {
 	EnemyMesh->SetStaticMesh(ShipMesh.Object);
 }
 void ANaveTransporte_2::Mover(float DeltaTime) {
-	velocidad = 0.25;
-	SetActorLocation(FVector(GetActorLocation().X - velocidad, GetActorLocation().Y, GetActorLocation().Z));
+	velocidad = 1.0f;
+	SetActorLocation(FVector(GetActorLocation().X , GetActorLocation().Y, GetActorLocation().Z));
 }
 void ANaveTransporte_2::Vida() {
 

@@ -18,8 +18,13 @@
 #include "NaveReabastecimiento.h"
 #include "NaveReab_1.h"
 #include "NaveReab_2.h"
+#include "NaveAleatoriaAcuatica.h"
+#include "NaveAlatoriaAerea.h"
+#include "NaveAleatoriaTerrestre.h"
 #include "Components/SceneComponent.h"
 #include "EscudoEscena.h"
+#include "TimerManager.h"
+
 
 AGalaga_USFX_L01GameMode::AGalaga_USFX_L01GameMode()
 {
@@ -34,17 +39,61 @@ void AGalaga_USFX_L01GameMode::BeginPlay()
 {
 	Super::BeginPlay();
 	//set the game satate to playing
-	FVector ubicacionInicioNavesEnemigasCaza = FVector(-500.0f, 500.0f, 200.0f);
-	FVector ubicacionInicioNavesEnemigasTransporte = FVector(500.0f, 500.0f, 200.0f);
-	FVector ubicacionInicioNAvesEnemigasReabastecimiento = FVector(1000.0f, 500.0f, 200.0f);
+	FVector ubicacionInicioNavesEnemigasCaza = FVector(-500.0f, -500.0f, 150.0f);
+	FVector ubicacionInicioNavesEnemigasTransporte = FVector(0.0f, 0.0f, 150.0f);
+	FVector ubicacionInicioNavesEnemigasReabastecimiento = FVector(500.0f, 500.0f, 150.0f);
+	FVector NaveAleatoriaAcuaticaUbicacion = FVector(-1000.0f, 0.0f, 150.0f);
+	FVector NaveAleatoriaAereaUbicacion = FVector(-1200.0f, 0.0f, 700.0f);
+	FVector NaveAleatoriaTerrestreUbicacion = FVector(-1400.0f, 0.0f, 150.0f);
 
 	FRotator rotacionNave = FRotator(0.0f, 0.0f, 0.0f);
 
 	UWorld* const World = GetWorld();
-
-
+	int a = 350;
+	int b = -450;
+	int c = 0;
+	int x = 0;
 	if (World != nullptr)
 	{
+			FTimerDelegate TimerDel;
+				int32 RandomNumber = FMath::RandRange(1, 3);
+				if (RandomNumber == 1)
+				{
+					ANaveAleatoriaAcuatica* NaveAleatoriaAcuaticaTemp = World->SpawnActor<ANaveAleatoriaAcuatica>(NaveAleatoriaAcuaticaUbicacion, rotacionNave);
+					TimerDel.BindLambda([NaveAleatoriaAcuaticaTemp]()
+						{
+							if (NaveAleatoriaAcuaticaTemp && NaveAleatoriaAcuaticaTemp->IsValidLowLevel())
+							{
+								NaveAleatoriaAcuaticaTemp->Destroy();
+							}
+						});
+					GetWorld()->GetTimerManager().SetTimer(EliminarNaveAcuatica, TimerDel, 10.0f, false);
+				}
+				else if (RandomNumber == 2)
+				{
+					ANaveAlatoriaAerea* NaveAleatoriaAereaTemp = World->SpawnActor<ANaveAlatoriaAerea>(NaveAleatoriaAereaUbicacion, rotacionNave);
+					TimerDel.BindLambda([NaveAleatoriaAereaTemp]()
+						{
+							if (NaveAleatoriaAereaTemp && NaveAleatoriaAereaTemp->IsValidLowLevel())
+							{
+								NaveAleatoriaAereaTemp->Destroy();
+							}
+						});
+					GetWorld()->GetTimerManager().SetTimer(EliminarNaveAerea, TimerDel, 10.0f, false);
+				}
+				else if (RandomNumber == 3)
+				{
+					ANaveAleatoriaTerrestre* NaveAleatoriaTerrestreTemp = World->SpawnActor<ANaveAleatoriaTerrestre>(NaveAleatoriaTerrestreUbicacion, rotacionNave);
+					TimerDel.BindLambda([NaveAleatoriaTerrestreTemp]()
+						{
+							if (NaveAleatoriaTerrestreTemp && NaveAleatoriaTerrestreTemp->IsValidLowLevel())
+							{
+								NaveAleatoriaTerrestreTemp->Destroy();
+							}
+						});
+					GetWorld()->GetTimerManager().SetTimer(EliminarNaveTerrestre, TimerDel, 10.0f, false);
+				}
+
 		TArray<TSubclassOf<ANaveEnemiga>> claseNave = {
 		ANaveCaza_1::StaticClass(), ANaveCaza_2::StaticClass(),
 		ANaveEspia_1::StaticClass(),ANaveEspia_2::StaticClass(),
@@ -52,18 +101,22 @@ void AGalaga_USFX_L01GameMode::BeginPlay()
 		ANaveReab_1::StaticClass(),ANaveReab_2::StaticClass(),
 		ANaveTransporte_1::StaticClass(),ANaveTransporte_2::StaticClass() };
 
-		FVector InicialSpawnLocation = FVector(100.f, -500.f, 200.f);
+		FVector InicialSpawnLocation = FVector(-350.f, -450.f, 150.f);
 
 		for (int i = 0; i < 30; i++)
 		{
-			TSubclassOf<ANaveEnemiga> ClaseRandom = claseNave[FMath::RandRange(0, claseNave.Num() - 1)];
-
-			FVector SpawnLocation = InicialSpawnLocation + FVector(0.f, i * 80.f, 0.f);
-
-			FRotator SpawnRotation = FRotator::ZeroRotator;
-			ANaveEnemiga* NuevaNaveSpawn = GetWorld()->SpawnActor<ANaveEnemiga>(ClaseRandom, SpawnLocation, SpawnRotation);
-
-			if (NuevaNaveSpawn) {}
+				TSubclassOf<ANaveEnemiga> ClaseRandom = claseNave[FMath::RandRange(0, claseNave.Num() - 1)];
+				FVector SpawnLocation = InicialSpawnLocation + FVector(a, b, 0.f);
+				FRotator SpawnRotation = FRotator::ZeroRotator;
+				ANaveEnemiga* NuevaNaveSpawn = GetWorld()->
+				SpawnActor<ANaveEnemiga>(ClaseRandom, SpawnLocation, SpawnRotation);
+				b = b + 300;
+				c = c + 1;
+			if (c == 6) {
+				c = 0;
+				a = a+300;
+				b = -450;
+			}
 		}
 	}
 	TMapPowerUp.Add(3000, "escudo");
