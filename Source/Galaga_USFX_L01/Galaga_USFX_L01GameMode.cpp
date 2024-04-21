@@ -33,6 +33,7 @@ AGalaga_USFX_L01GameMode::AGalaga_USFX_L01GameMode()
 	DefaultPawnClass = AGalaga_USFX_L01Pawn::StaticClass();
 
 	//NaveEnemiga01 = nullptr;
+	naves = true;
 }
 
 void AGalaga_USFX_L01GameMode::BeginPlay()
@@ -52,12 +53,11 @@ void AGalaga_USFX_L01GameMode::BeginPlay()
 	int a = 350;
 	int b = -450;
 	int c = 0;
-	int x = 0;
 	if (World != nullptr)
 	{
 			FTimerDelegate TimerDel;
-				int32 RandomNumber = FMath::RandRange(1, 3);
-				if (RandomNumber == 1)
+				int32 RandomNumber = FMath::RandRange(0, 2);
+				if (RandomNumber == 0)
 				{
 					ANaveAleatoriaAcuatica* NaveAleatoriaAcuaticaTemp = World->SpawnActor<ANaveAleatoriaAcuatica>(NaveAleatoriaAcuaticaUbicacion, rotacionNave);
 					TimerDel.BindLambda([NaveAleatoriaAcuaticaTemp]()
@@ -69,7 +69,7 @@ void AGalaga_USFX_L01GameMode::BeginPlay()
 						});
 					GetWorld()->GetTimerManager().SetTimer(EliminarNaveAcuatica, TimerDel, 10.0f, false);
 				}
-				else if (RandomNumber == 2)
+				else if (RandomNumber == 1)
 				{
 					ANaveAlatoriaAerea* NaveAleatoriaAereaTemp = World->SpawnActor<ANaveAlatoriaAerea>(NaveAleatoriaAereaUbicacion, rotacionNave);
 					TimerDel.BindLambda([NaveAleatoriaAereaTemp]()
@@ -81,7 +81,7 @@ void AGalaga_USFX_L01GameMode::BeginPlay()
 						});
 					GetWorld()->GetTimerManager().SetTimer(EliminarNaveAerea, TimerDel, 10.0f, false);
 				}
-				else if (RandomNumber == 3)
+				else if (RandomNumber == 2)
 				{
 					ANaveAleatoriaTerrestre* NaveAleatoriaTerrestreTemp = World->SpawnActor<ANaveAleatoriaTerrestre>(NaveAleatoriaTerrestreUbicacion, rotacionNave);
 					TimerDel.BindLambda([NaveAleatoriaTerrestreTemp]()
@@ -132,8 +132,6 @@ void AGalaga_USFX_L01GameMode::BeginPlay()
 	PowerUpStatusMap.Add(500, false);
 	score = 0;
 }
-
-
 void AGalaga_USFX_L01GameMode::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
@@ -169,7 +167,75 @@ void AGalaga_USFX_L01GameMode::Tick(float DeltaTime)
 				GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, StatusMessage);
 			}
 		}
-
+			if (naves)
+			{
+				ActTiempo();
+				naves = false;
+			}
 	}
+}
+int x = 0;
+void AGalaga_USFX_L01GameMode::CrearNaves() 
+{
+	naves = false;
+	UWorld* const World = GetWorld();
+	if (World != nullptr)
+	{
+		FVector NaveAleatoriaAcuaticaUbicacion = FVector(-1000.0f, 0.0f, 150.0f);
+		FVector NaveAleatoriaAereaUbicacion = FVector(-1200.0f, 0.0f, 700.0f);
+		FVector NaveAleatoriaTerrestreUbicacion = FVector(-1400.0f, 0.0f, 150.0f);
 
+		FRotator rotacionNave = FRotator(0.0f, 0.0f, 0.0f);
+		if (x < 3) {
+			FTimerDelegate TimerDel;
+			int32 RandomNumber = FMath::RandRange(1, 3);
+			if (RandomNumber == 1)
+			{
+				ANaveAleatoriaAcuatica* NaveAleatoriaAcuaticaTemp = World->SpawnActor<ANaveAleatoriaAcuatica>(NaveAleatoriaAcuaticaUbicacion, rotacionNave);
+				TimerDel.BindLambda([NaveAleatoriaAcuaticaTemp]()
+					{
+						if (NaveAleatoriaAcuaticaTemp && NaveAleatoriaAcuaticaTemp->IsValidLowLevel())
+						{
+							NaveAleatoriaAcuaticaTemp->Destroy();
+						}
+					});
+				GetWorld()->GetTimerManager().SetTimer(EliminarNaveAcuatica, TimerDel, 10.0f, false);
+				naves = true;
+				x++;
+			}
+			else if (RandomNumber == 2)
+			{
+				ANaveAlatoriaAerea* NaveAleatoriaAereaTemp = World->SpawnActor<ANaveAlatoriaAerea>(NaveAleatoriaAereaUbicacion, rotacionNave);
+				TimerDel.BindLambda([NaveAleatoriaAereaTemp]()
+					{
+						if (NaveAleatoriaAereaTemp && NaveAleatoriaAereaTemp->IsValidLowLevel())
+						{
+							NaveAleatoriaAereaTemp->Destroy();
+						}
+					});
+				GetWorld()->GetTimerManager().SetTimer(EliminarNaveAerea, TimerDel, 10.0f, false);
+				naves = true;
+				x++;
+			}
+			else if (RandomNumber == 3)
+			{
+				ANaveAleatoriaTerrestre* NaveAleatoriaTerrestreTemp = World->SpawnActor<ANaveAleatoriaTerrestre>(NaveAleatoriaTerrestreUbicacion, rotacionNave);
+				TimerDel.BindLambda([NaveAleatoriaTerrestreTemp]()
+					{
+						if (NaveAleatoriaTerrestreTemp && NaveAleatoriaTerrestreTemp->IsValidLowLevel())
+						{
+							NaveAleatoriaTerrestreTemp->Destroy();
+						}
+					});
+				GetWorld()->GetTimerManager().SetTimer(EliminarNaveTerrestre, TimerDel, 10.0f, false);
+				naves = true;
+				x++;
+			}
+		}
+	}
+}
+void AGalaga_USFX_L01GameMode::ActTiempo() {
+	FTimerHandle TimerDel1;
+	GetWorldTimerManager().SetTimer(TimerDel1, this, &AGalaga_USFX_L01GameMode::CrearNaves, 11.0f, false);
+	//naves = true;
 }

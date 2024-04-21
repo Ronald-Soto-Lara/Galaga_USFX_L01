@@ -1,7 +1,7 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
-#include "Galaga_USFX_L01GameMode.h"
 #include "Galaga_USFX_L01Pawn.h"
+#include "Galaga_USFX_L01GameMode.h"
 #include "Galaga_USFX_L01Projectile.h"
 #include "TimerManager.h"
 #include "UObject/ConstructorHelpers.h"
@@ -167,12 +167,12 @@ void AGalaga_USFX_L01Pawn::movMDer(float Value)
 
 void AGalaga_USFX_L01Pawn::Salto()
 {
-	const float FuerzaSalto = 11000.0f;
-	const FVector Impulso = FVector(0.0f, 0.0f, 1.0f) * FuerzaSalto;
+	const float FuerzaSalto = 11000;
+		const FVector Impulso = FVector(0.0f, 0.0f, 1.0f) * FuerzaSalto;
 
-	AddActorLocalOffset(FVector(0.0f, 0.0f, FuerzaSalto * GetWorld()->GetDeltaSeconds()), true);
+		AddActorLocalOffset(FVector(0.0f, 0.0f, FuerzaSalto * GetWorld()->GetDeltaSeconds()), true);
 
-	GetWorldTimerManager().SetTimer(TimerHandle_Salto, this, &AGalaga_USFX_L01Pawn::descender, 0.4f, false);
+		GetWorldTimerManager().SetTimer(TimerHandle_Salto, this, &AGalaga_USFX_L01Pawn::descender, 0.4f, false);
 
 }
 
@@ -253,7 +253,7 @@ void AGalaga_USFX_L01Pawn::soltarBomba()
 	{
 		return;
 	}
-	FVector Location = GetActorLocation() + FVector(0.0f, 0.0f, 0.0f);
+	FVector Location = GetActorLocation();
 	FRotator Rotation = GetActorRotation();
 
 
@@ -261,7 +261,7 @@ void AGalaga_USFX_L01Pawn::soltarBomba()
 
 	if (SoltarBombaActor != nullptr)
 	{
-		SoltarBombaActor->SetActorLocation(Location);
+		SoltarBombaActor->SetActorLocation(Location+FVector(0.0f,0.0f,0.0f));
 		SoltarBombaActor->SetActorRotation(Rotation);
 
 		FTimerDelegate Timer;

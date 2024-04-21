@@ -50,9 +50,12 @@ public:
 protected:
 	//Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+	virtual void CrearNaves();
+	virtual void ActTiempo();
 	FTimerHandle EliminarNaveAcuatica;
 	FTimerHandle EliminarNaveAerea;
 	FTimerHandle EliminarNaveTerrestre;
+	bool naves;
 public:
 	TArray<ANaveEnemiga*> TANavesEnemigas;
 	TArray<ANaveCaza*> TANavesEnemigasCaza;
