@@ -21,6 +21,11 @@
 #include "NaveAleatoriaAcuatica.h"
 #include "NaveAlatoriaAerea.h"
 #include "NaveAleatoriaTerrestre.h"
+#include "GrupoNavesBuilder.h"
+#include "Director_NJ.h"
+#include "NaveJefe_Nivel_1.h"
+#include "NaveJefe_Nivel_2.h"
+#include "EscuadronApoyo.h"
 #include "Components/SceneComponent.h"
 #include "EscudoEscena.h"
 #include "TimerManager.h"
@@ -34,6 +39,7 @@ AGalaga_USFX_L01GameMode::AGalaga_USFX_L01GameMode()
 
 	//NaveEnemiga01 = nullptr;
 	naves = true;
+	
 }
 
 void AGalaga_USFX_L01GameMode::BeginPlay()
@@ -94,7 +100,7 @@ void AGalaga_USFX_L01GameMode::BeginPlay()
 					GetWorld()->GetTimerManager().SetTimer(EliminarNaveTerrestre, TimerDel, 10.0f, false);
 				}
 
-		TArray<TSubclassOf<ANaveEnemiga>> claseNave = {
+		/*TArray<TSubclassOf<ANaveEnemiga>> claseNave = {
 		ANaveCaza_1::StaticClass(), ANaveCaza_2::StaticClass(),
 		ANaveEspia_1::StaticClass(),ANaveEspia_2::StaticClass(),
 		ANaveNodriza_1::StaticClass(),ANaveNodriza_2::StaticClass(),
@@ -108,8 +114,7 @@ void AGalaga_USFX_L01GameMode::BeginPlay()
 				TSubclassOf<ANaveEnemiga> ClaseRandom = claseNave[FMath::RandRange(0, claseNave.Num() - 1)];
 				FVector SpawnLocation = InicialSpawnLocation + FVector(a, b, 0.f);
 				FRotator SpawnRotation = FRotator::ZeroRotator;
-				ANaveEnemiga* NuevaNaveSpawn = GetWorld()->
-				SpawnActor<ANaveEnemiga>(ClaseRandom, SpawnLocation, SpawnRotation);
+				ANaveEnemiga* NuevaNaveSpawn = GetWorld()->SpawnActor<ANaveEnemiga>(ClaseRandom, SpawnLocation, SpawnRotation);
 				b = b + 300;
 				c = c + 1;
 			if (c == 6) {
@@ -117,7 +122,11 @@ void AGalaga_USFX_L01GameMode::BeginPlay()
 				a = a+300;
 				b = -450;
 			}
-		}
+		}*/
+				Director_nj = World->SpawnActor<ADirector_NJ>();
+				ANaveJefe_Nivel_1* va = World->SpawnActor<ANaveJefe_Nivel_1>();
+				ANaveJefe_Nivel_2* ve = World->SpawnActor<ANaveJefe_Nivel_2>();
+				AEscuadronApoyo* j = Director_nj->getEscAPoyoooooo(va);
 	}
 	TMapPowerUp.Add(3000, "escudo");
 	TMapPowerUp.Add(200, "doble tiro");
@@ -131,6 +140,7 @@ void AGalaga_USFX_L01GameMode::BeginPlay()
 	PowerUpStatusMap.Add(1500, false);
 	PowerUpStatusMap.Add(500, false);
 	score = 0;
+	FVector ubiNaveEje = FVector(0.0f, 0.0f, 150.0f);
 }
 void AGalaga_USFX_L01GameMode::Tick(float DeltaTime)
 {

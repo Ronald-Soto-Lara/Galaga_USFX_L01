@@ -7,7 +7,6 @@
 // Sets default values
 AEscudoActor::AEscudoActor()
 {
-
     // Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
     PrimaryActorTick.bCanEverTick = true;
 
@@ -31,7 +30,6 @@ void AEscudoActor::BeginPlay()
 void AEscudoActor::Tick(float DeltaTime)
 {
     Super::Tick(DeltaTime);
-
     if (movimiento)
     {
         FVector NewPosition = GetActorLocation() + FVector(0.0f, 0.0f, velocidad) * DeltaTime;

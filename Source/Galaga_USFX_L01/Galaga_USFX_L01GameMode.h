@@ -22,6 +22,7 @@ class ANaveNodriza_2;
 class ANaveReabastecimiento;
 class ANaveReab_1;
 class ANaveReab_2;
+class ADiretor_NJ;
 
 UCLASS(MinimalAPI)
 class AGalaga_USFX_L01GameMode : public AGameModeBase
@@ -47,6 +48,7 @@ public:
 	ANaveReabastecimiento* NaveEnemigaReabastecimiento01;
 	ANaveReab_1* NaveEnemigaReabastecimientoG101;
 	ANaveReab_2* NaveEnemigaReabastecimientoG201;
+	ADirector_NJ* Director_nj;
 protected:
 	//Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -70,7 +72,6 @@ public:
 
 public:
 	virtual void Tick(float DeltaTime) override;
-
 public:
 	FString powerUp;
 	TMap<int, FString>TMapPowerUp;
