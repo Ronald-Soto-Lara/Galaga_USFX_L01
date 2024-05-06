@@ -10,7 +10,7 @@ ANaveCaza::ANaveCaza() {
 }
 void ANaveCaza::Mover(float DeltaTime) {
 	velocidad = 1.0f;
-	SetActorLocation(FVector(GetActorLocation().X - velocidad, GetActorLocation().Y, GetActorLocation().Z));
+	SetActorLocation(FVector(GetActorLocation().X, GetActorLocation().Y, GetActorLocation().Z));
 	/*FVector PActual = GetActorLocation(); //Obtenemos la posicion actual del objeto.
 	float NewX = FMath::RandRange(-1000.0f, 1000.0f) * DeltaTime * velocidad; //Generamos un numero aleatorio para la nueva posicion en el eje X.
 	float NewY = FMath::RandRange(-1000.0f, 1000.0f) * DeltaTime * velocidad; //Generamos un numero aleatorio para la nueva posicion en el eje Y.

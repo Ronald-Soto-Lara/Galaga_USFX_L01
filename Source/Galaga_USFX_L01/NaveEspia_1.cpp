@@ -9,7 +9,7 @@ ANaveEspia_1::ANaveEspia_1() {
 	EnemyMesh->SetStaticMesh(ShipMesh.Object);
 }
 void ANaveEspia_1::Mover(float DeltaTime) {
-	velocidad = 1.0f;
+	velocidad = 0.0f;
 	//Movimiento Diagonal Arriba-Derecha.
 	SetActorLocation(GetActorLocation() + FVector(velocidad, velocidad, 0.0f));
 

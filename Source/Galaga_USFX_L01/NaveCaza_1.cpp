@@ -9,9 +9,9 @@ ANaveCaza_1::ANaveCaza_1() {
 	EnemyMesh->SetStaticMesh(ShipMesh.Object);
 }
 void ANaveCaza_1::Mover(float DeltaTime) {
-	velocidad = 1.0f ;//Establecemos la velocidad ya heredada de la clase 'ANaveEnemiga' abstracta.
+	velocidad = 0.0f ;//Establecemos la velocidad ya heredada de la clase 'ANaveEnemiga' abstracta.
 	//SetActorLoacation y GetActorLocation son metodos usador por UE para con Set obtener y con Get establecer la posicion de un objeto.
-	SetActorLocation(FVector(GetActorLocation().X - velocidad, GetActorLocation().Y, GetActorLocation().Z));
+	SetActorLocation(FVector(GetActorLocation().X, GetActorLocation().Y, GetActorLocation().Z));
 }
 void ANaveCaza_1::Ataque() {
 

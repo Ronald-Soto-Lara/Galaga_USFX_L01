@@ -8,13 +8,13 @@ ANaveCaza_2::ANaveCaza_2() {
 	static ConstructorHelpers::FObjectFinder<UStaticMesh>
 	ShipMesh(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_WideCapsule.Shape_WideCapsule'"));
 	EnemyMesh->SetStaticMesh(ShipMesh.Object);
-	BombaDist = 100.0f;
+	BombaDist = 1000.0f;
 }
 void ANaveCaza_2::Mover(float DeltaTime) {
-	velocidad = 1.0f;
+	velocidad = 0.0f;
 
 	static float TiempoInicio = GetWorld()->GetTimeSeconds();
-	float DesplazamientoVertical = FMath::Sin(GetWorld()->GetTimeSeconds() - TiempoInicio) * velocidad;
+	float DesplazamientoVertical = FMath::Sin(GetWorld()->GetTimeSeconds() - TiempoInicio);
 
 	FVector NewLocation = GetActorLocation();
 	NewLocation.Y += DesplazamientoVertical;

@@ -9,9 +9,9 @@ ANaveReab_1::ANaveReab_1() {
 	EnemyMesh->SetStaticMesh(ShipMesh.Object);
 }
 void ANaveReab_1::Mover(float DeltaTime) {
-	velocidad = 1.0f;
+	velocidad = 0.0f;
 	//Movimiento Diagonal Arriba-Izquierda.
-	SetActorLocation(GetActorLocation() + FVector(velocidad, -velocidad, 0.0f));
+	SetActorLocation(GetActorLocation() + FVector(0.0f, 0.0f, 0.0f));
 
 }
 void ANaveReab_1::Vida() {

@@ -10,7 +10,7 @@ ANaveReab_2::ANaveReab_2() {
 }
 void ANaveReab_2::Mover(float DeltaTime) {
 	FVector PActual = GetActorLocation();
-	velocidad = 1.0f;
+	velocidad = 0.0f;
 	SetActorLocation(FVector(GetActorLocation().X , GetActorLocation().Y, GetActorLocation().Z));
 }
 void ANaveReab_2::Vida() {

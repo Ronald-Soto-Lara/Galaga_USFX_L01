@@ -15,7 +15,7 @@ ANaveJefe_Nivel_1::ANaveJefe_Nivel_1()
 void ANaveJefe_Nivel_1::BeginPlay()
 {
 	Super::BeginPlay();
-	EscFinal = GetWorld()->SpawnActor<AEscuadronApoyo>();
+	Escuadron1 = GetWorld()->SpawnActor<AEscuadronApoyo>();
 	
 }
 
@@ -29,12 +29,21 @@ void ANaveJefe_Nivel_1::Tick(float DeltaTime)
 void ANaveJefe_Nivel_1::BuildNum_Vidas()
 {
 	float Num_Vidas = 3;
-	FVector P11 = FVector(-700.0f, -500.0f, 300.0f);
-	FRotator R11 = FRotator(0.0f, 0.0f, 0.0f);
-	ANaveCaza_1* navecaza1 = GetWorld()->SpawnActor<ANaveCaza_1>(P11, R11);
-	FVector Posicion21 = FVector(-700.0f, -500.0f, 150.0f);
-	FRotator Rotacion21 = FRotator(0.0f, 0.0f, 0.0f);
-	ANaveCaza_2* navecaza2 = GetWorld()->SpawnActor<ANaveCaza_2>(Posicion21, Rotacion21);
+		FVector Posicion = FVector(0.0f, 500.0f, 200.0f);
+		FVector Posicion_1 = FVector(0.0f, 500.0f, 200.0f);
+		FVector a = FVector(0.0f, 200.0f, 0.0f);
+		FVector P= FVector(-200.0f, 0.0f, 0.0f);
+		FVector p0001 = FVector(0.0f, 500.0f, 200.0f);
+		FRotator Rotacion = FRotator(0.0f, 0.0f, 0.0f);
+		for (int i = 0; i < 5; i++) {
+			Posicion = p0001;
+			Posicion_1 = p0001;
+			p0001 += P;
+			for (int j = 0; j < 5; j++) {
+				ANaveCaza_1* navecaza1 = GetWorld()->SpawnActor<ANaveCaza_1>(Posicion += a, Rotacion);
+				ANaveEspia_1* navecaza2 = GetWorld()->SpawnActor<ANaveEspia_1>(Posicion_1 += a, Rotacion);
+			}
+		}
 }
 
 void ANaveJefe_Nivel_1::BuildRes_Escudo()

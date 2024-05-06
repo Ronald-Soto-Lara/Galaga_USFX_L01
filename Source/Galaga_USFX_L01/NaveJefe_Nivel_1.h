@@ -7,7 +7,7 @@
 #include "EscuadronApoyo.h"
 #include "GrupoNavesBuilder.h"
 #include "NaveCaza_1.h"
-#include "NaveCaza_2.h"
+#include "NaveEspia_1.h"
 #include "NaveJefe_Nivel_1.generated.h"
 
 UCLASS()
@@ -33,5 +33,5 @@ public:
 	virtual void BuildCant_Balas() override;
 	virtual AEscuadronApoyo* SetGrupoNavesBuilder() ;
 private:
-	AEscuadronApoyo* EscFinal;
+	AEscuadronApoyo* Escuadron1;
 };

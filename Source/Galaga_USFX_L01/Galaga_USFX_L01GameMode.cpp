@@ -127,6 +127,7 @@ void AGalaga_USFX_L01GameMode::BeginPlay()
 				ANaveJefe_Nivel_1* va = World->SpawnActor<ANaveJefe_Nivel_1>();
 				ANaveJefe_Nivel_2* ve = World->SpawnActor<ANaveJefe_Nivel_2>();
 				AEscuadronApoyo* j = Director_nj->getEscAPoyoooooo(va);
+				AEscuadronApoyo* k = Director_nj->getEscAPoyoooooo(ve);
 	}
 	TMapPowerUp.Add(3000, "escudo");
 	TMapPowerUp.Add(200, "doble tiro");

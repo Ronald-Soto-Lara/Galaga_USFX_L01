@@ -27,13 +27,22 @@ void ANaveJefe_Nivel_2::Tick(float DeltaTime)
 }
 void ANaveJefe_Nivel_2::BuildNum_Vidas()
 {
-	float Num_Vidas = 3;
-	FVector P1 = FVector(-200.0f, -500.0f, 300.0f);
-	FRotator R1 = FRotator(0.0f, 0.0f, 0.0f);
-	ANaveReab_1* Navereab1 = GetWorld()->SpawnActor<ANaveReab_1>(P1, R1);
-	FVector Posicion2 = FVector(-200.0f, -500.0f, 150.0f);
-	FRotator Rotacion2 = FRotator(0.0f, 0.0f, 0.0f);
-	ANaveReab_2* Navereab2 = GetWorld()->SpawnActor<ANaveReab_2>(Posicion2, Rotacion2);
+	float Num_Vidass = 3;
+		FVector Posicion = FVector(0.0f, -500.0f, 200.0f);
+		FVector Posicion_1 = FVector(0.0f, -500.0f, 200.0f);
+		FVector a = FVector(0.0f, -200.0f, 0.0f);
+		FVector P = FVector(-200.0f, 0.0f, 0.0f);
+		FVector p0001 = FVector(0.0f, -500.0f, 200.0f);
+		FRotator Rotacion = FRotator(0.0f, 0.0f, 0.0f);
+		for (int i = 0; i < 5; i++) {
+			Posicion = p0001;
+			Posicion_1 = p0001;
+			p0001 += P;
+			for (int j = 0; j < 5; j++) {
+				ANaveReab_1* navecaza1 = GetWorld()->SpawnActor<ANaveReab_1>(Posicion += a, Rotacion);
+				ANaveReab_2* navecaza2 = GetWorld()->SpawnActor<ANaveReab_2>(Posicion_1 += a, Rotacion);
+			}
+		}
 }
 
 void ANaveJefe_Nivel_2::BuildRes_Escudo()

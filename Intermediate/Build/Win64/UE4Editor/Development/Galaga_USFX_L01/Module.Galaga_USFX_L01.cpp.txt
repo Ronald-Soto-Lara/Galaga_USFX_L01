@@ -2,9 +2,6 @@ C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win6
 C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Source/Galaga_USFX_L01/Bomba.cpp
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\Bomba.h
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\Bomba.generated.h
-C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Source/Galaga_USFX_L01/Constructor_Esc_1.cpp
-C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\Constructor_Esc_1.h
-C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\Constructor_Esc_1.generated.h
 C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Source/Galaga_USFX_L01/Director_NJ.cpp
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\Director_NJ.h
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\EscuadronApoyo.h
@@ -131,14 +128,8 @@ C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Source/Galaga_USFX_L01/
 C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Source/Galaga_USFX_L01/NaveEspia.cpp
 C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Source/Galaga_USFX_L01/NaveEspia_1.cpp
 C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Source/Galaga_USFX_L01/NaveEspia_2.cpp
-C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Source/Galaga_USFX_L01/NaveJefe.cpp
-C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\NaveJefe.h
-C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\NaveJefe.generated.h
 C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Source/Galaga_USFX_L01/NaveJefe_Nivel_1.cpp
 C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Source/Galaga_USFX_L01/NaveJefe_Nivel_2.cpp
-C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Source/Galaga_USFX_L01/NaveJefeBuilder.cpp
-C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\NaveJefeBuilder.h
-C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\NaveJefeBuilder.generated.h
 C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Source/Galaga_USFX_L01/NaveNodriza.cpp
 C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Source/Galaga_USFX_L01/NaveNodriza_1.cpp
 C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Source/Galaga_USFX_L01/NaveNodriza_2.cpp
