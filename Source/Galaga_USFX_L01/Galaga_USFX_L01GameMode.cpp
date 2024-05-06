@@ -123,11 +123,11 @@ void AGalaga_USFX_L01GameMode::BeginPlay()
 				b = -450;
 			}
 		}*/
-				Director_nj = World->SpawnActor<ADirector_NJ>();
+				/*Director_nj = World->SpawnActor<ADirector_NJ>();
 				ANaveJefe_Nivel_1* va = World->SpawnActor<ANaveJefe_Nivel_1>();
 				ANaveJefe_Nivel_2* ve = World->SpawnActor<ANaveJefe_Nivel_2>();
 				AEscuadronApoyo* j = Director_nj->getEscAPoyoooooo(va);
-				AEscuadronApoyo* k = Director_nj->getEscAPoyoooooo(ve);
+				AEscuadronApoyo* k = Director_nj->getEscAPoyoooooo(ve);*/
 	}
 	TMapPowerUp.Add(3000, "escudo");
 	TMapPowerUp.Add(200, "doble tiro");
@@ -243,7 +243,30 @@ void AGalaga_USFX_L01GameMode::CrearNaves()
 				x++;
 			}
 		}
-	}
+		FTimerDelegate TimerDel;
+		int32 RandomNumber = FMath::RandRange(1,2);
+		Director_nj = World->SpawnActor<ADirector_NJ>();
+		if (RandomNumber == 1)
+		{
+			ANaveJefe_Nivel_1* va = World->SpawnActor<ANaveJefe_Nivel_1>();
+			AEscuadronApoyo* j = Director_nj->getEscAPoyoooooo(va);
+			TimerDel.BindLambda([va]()
+				{
+					if (va && va->IsValidLowLevel())
+					{
+						va->Destroy();
+					}
+				});
+			GetWorld()->GetTimerManager().SetTimer(EliminarNaveAerea, TimerDel, 10.0f, false);
+			naves = true;
+			x++;
+		}
+		if (RandomNumber == 2)
+		{
+			ANaveJefe_Nivel_2* ve = World->SpawnActor<ANaveJefe_Nivel_2>();
+			AEscuadronApoyo* k = Director_nj->getEscAPoyoooooo(ve);
+		}
+		}
 }
 void AGalaga_USFX_L01GameMode::ActTiempo() {
 	FTimerHandle TimerDel1;
