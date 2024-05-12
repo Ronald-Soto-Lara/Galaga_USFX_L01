@@ -111,6 +111,8 @@ public:
 	FORCEINLINE class UCameraComponent* GetCameraComponent() const { return CameraComponent; }
 	/** Returns CameraBoom subobject **/
 	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
+	FTimerHandle TimerSpeed;
+	FTimerHandle TDestroy;
 public:
 	//void scoreGameMode(int nuevoScore) { score = nuevoScore; }
 	int Score;
@@ -122,6 +124,5 @@ public:
 
 public:
 	virtual void BeginPlay() override;
-
 	// ... más código ...
 };

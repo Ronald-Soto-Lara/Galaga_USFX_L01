@@ -21,11 +21,12 @@
 #include "NaveAleatoriaAcuatica.h"
 #include "NaveAlatoriaAerea.h"
 #include "NaveAleatoriaTerrestre.h"
-#include "GrupoNavesBuilder.h"
 #include "Director_NJ.h"
+#include "ConstruirNaveJefe.h"
 #include "NaveJefe_Nivel_1.h"
 #include "NaveJefe_Nivel_2.h"
-#include "EscuadronApoyo.h"
+#include "NaveJefe_Nivel_3.h"
+#include "BalaCanon.h"
 #include "Components/SceneComponent.h"
 #include "EscudoEscena.h"
 #include "TimerManager.h"
@@ -52,6 +53,8 @@ void AGalaga_USFX_L01GameMode::BeginPlay()
 	FVector NaveAleatoriaAcuaticaUbicacion = FVector(-1000.0f, 0.0f, 150.0f);
 	FVector NaveAleatoriaAereaUbicacion = FVector(-1200.0f, 0.0f, 700.0f);
 	FVector NaveAleatoriaTerrestreUbicacion = FVector(-1400.0f, 0.0f, 150.0f);
+	FVector PosicionBala = FVector(-500.0f, 0.0f, 150.0f);
+	FRotator RotacionBala = FRotator(0.0f, 0.0f, 0.0f);
 
 	FRotator rotacionNave = FRotator(0.0f, 0.0f, 0.0f);
 
@@ -61,6 +64,7 @@ void AGalaga_USFX_L01GameMode::BeginPlay()
 	int c = 0;
 	if (World != nullptr)
 	{
+		ABalaCanon* BalaCanoooon = World->SpawnActor<ABalaCanon>(PosicionBala, RotacionBala);
 			FTimerDelegate TimerDel;
 				int32 RandomNumber = FMath::RandRange(0, 2);
 				if (RandomNumber == 0)
@@ -123,11 +127,28 @@ void AGalaga_USFX_L01GameMode::BeginPlay()
 				b = -450;
 			}
 		}*/
-				/*Director_nj = World->SpawnActor<ADirector_NJ>();
-				ANaveJefe_Nivel_1* va = World->SpawnActor<ANaveJefe_Nivel_1>();
-				ANaveJefe_Nivel_2* ve = World->SpawnActor<ANaveJefe_Nivel_2>();
-				AEscuadronApoyo* j = Director_nj->getEscAPoyoooooo(va);
-				AEscuadronApoyo* k = Director_nj->getEscAPoyoooooo(ve);*/
+		Jefe = GetWorld()->SpawnActor<ANaveJefe_Nivel_1>(ANaveJefe_Nivel_1::StaticClass());
+		Director = GetWorld()->SpawnActor<ADirector_NJ>(ADirector_NJ::StaticClass());
+
+		Director ->ConstruirBaseJefe(Jefe);
+		Director ->ConstruirSegundoPisoJefe();
+
+		AConstruirNaveJefe* naveJefe1 =  Director->ConstruirNaveJefe();
+
+		Jefe_2 = GetWorld()->SpawnActor<ANaveJefe_Nivel_2>(ANaveJefe_Nivel_2::StaticClass());
+
+		Director->ConstruirBaseJefe(Jefe_2);
+		Director ->ConstruirTiradoresJefe();
+
+		AConstruirNaveJefe* naveJefe2 = Director->ConstruirNaveJefe();
+
+		Jefe_3 = GetWorld()->SpawnActor<ANaveJefe_Nivel_3>(ANaveJefe_Nivel_3::StaticClass());
+
+		Director->ConstruirBaseJefe(Jefe_3);
+		Director ->ConstruirCantBalasJefe();
+
+		AConstruirNaveJefe* naveJefe3 = Director->ConstruirNaveJefe();
+		FVector ubiNaveEje = FVector(0.0f, 0.0f, 150.0f);
 	}
 	TMapPowerUp.Add(3000, "escudo");
 	TMapPowerUp.Add(200, "doble tiro");
@@ -141,7 +162,6 @@ void AGalaga_USFX_L01GameMode::BeginPlay()
 	PowerUpStatusMap.Add(1500, false);
 	PowerUpStatusMap.Add(500, false);
 	score = 0;
-	FVector ubiNaveEje = FVector(0.0f, 0.0f, 150.0f);
 }
 void AGalaga_USFX_L01GameMode::Tick(float DeltaTime)
 {
@@ -188,6 +208,7 @@ void AGalaga_USFX_L01GameMode::Tick(float DeltaTime)
 int x = 0;
 void AGalaga_USFX_L01GameMode::CrearNaves() 
 {
+	int z = 1;
 	naves = false;
 	UWorld* const World = GetWorld();
 	if (World != nullptr)
@@ -243,10 +264,9 @@ void AGalaga_USFX_L01GameMode::CrearNaves()
 				x++;
 			}
 		}
-		FTimerDelegate TimerDel;
-		int32 RandomNumber = FMath::RandRange(1,2);
+		/*FTimerDelegate TimerDel;
 		Director_nj = World->SpawnActor<ADirector_NJ>();
-		if (RandomNumber == 1)
+		if (z == 1)
 		{
 			ANaveJefe_Nivel_1* va = World->SpawnActor<ANaveJefe_Nivel_1>();
 			AEscuadronApoyo* j = Director_nj->getEscAPoyoooooo(va);
@@ -259,13 +279,13 @@ void AGalaga_USFX_L01GameMode::CrearNaves()
 				});
 			GetWorld()->GetTimerManager().SetTimer(EliminarNaveAerea, TimerDel, 10.0f, false);
 			naves = true;
-			x++;
+			z++;
 		}
-		if (RandomNumber == 2)
+		if (z == 2)
 		{
 			ANaveJefe_Nivel_2* ve = World->SpawnActor<ANaveJefe_Nivel_2>();
 			AEscuadronApoyo* k = Director_nj->getEscAPoyoooooo(ve);
-		}
+		}*/
 		}
 }
 void AGalaga_USFX_L01GameMode::ActTiempo() {

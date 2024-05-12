@@ -2,6 +2,7 @@
 
 
 #include "NaveJefe_Nivel_1.h"
+#include "ConstruirNaveJefe.h"
 
 // Sets default values
 ANaveJefe_Nivel_1::ANaveJefe_Nivel_1()
@@ -15,7 +16,7 @@ ANaveJefe_Nivel_1::ANaveJefe_Nivel_1()
 void ANaveJefe_Nivel_1::BeginPlay()
 {
 	Super::BeginPlay();
-	Escuadron1 = GetWorld()->SpawnActor<AEscuadronApoyo>();
+	naveJefe_1 = GetWorld()->SpawnActor<AConstruirNaveJefe>(AConstruirNaveJefe::StaticClass());
 	
 }
 
@@ -26,42 +27,33 @@ void ANaveJefe_Nivel_1::Tick(float DeltaTime)
 
 }
  
-void ANaveJefe_Nivel_1::BuildNum_Vidas()
+void ANaveJefe_Nivel_1::BuilCrearBase(int j)
 {
-	float Num_Vidas = 3;
-		FVector Posicion = FVector(0.0f, 500.0f, 200.0f);
-		FVector Posicion_1 = FVector(0.0f, 500.0f, 200.0f);
-		FVector a = FVector(0.0f, 200.0f, 0.0f);
-		FVector P= FVector(-200.0f, 0.0f, 0.0f);
-		FVector p0001 = FVector(0.0f, 500.0f, 200.0f);
-		FRotator Rotacion = FRotator(0.0f, 0.0f, 0.0f);
-		for (int i = 0; i < 5; i++) {
-			Posicion = p0001;
-			Posicion_1 = p0001;
-			p0001 += P;
-			for (int j = 0; j < 5; j++) {
-				ANaveCaza_1* navecaza1 = GetWorld()->SpawnActor<ANaveCaza_1>(Posicion += a, Rotacion);
-				ANaveEspia_1* navecaza2 = GetWorld()->SpawnActor<ANaveEspia_1>(Posicion_1 += a, Rotacion);
-			}
-		}
+	naveJefe_1->ImplementarBase(j);
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Base"));
 }
 
-void ANaveJefe_Nivel_1::BuildRes_Escudo()
+void ANaveJefe_Nivel_1::BuilCrearSegundoPiso(int k)
 {
+	naveJefe_1->ImplementarSegundoPiso(k);
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("SegundoPiso"));
 }
 
-void ANaveJefe_Nivel_1::BuildLim_Tiempo()
+void ANaveJefe_Nivel_1::BuildTiradores(int l)
 {
+	naveJefe_1->ImplementarTiradores(l);
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Tiradores"));
 }
 
-void ANaveJefe_Nivel_1::BuildCant_Balas()
+void ANaveJefe_Nivel_1::BuildCant_Balas(int m)
 {
+	naveJefe_1->ImplementarCantBalas(m);
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("CantBalas"));
 }
 
-AEscuadronApoyo* ANaveJefe_Nivel_1::SetGrupoNavesBuilder()
+AConstruirNaveJefe* ANaveJefe_Nivel_1::CrearNaveJefe()
 {
-	AEscuadronApoyo* EscNave1 = NewObject<AEscuadronApoyo>();
-	return EscNave1;
+	return naveJefe_1;
 }
 
 

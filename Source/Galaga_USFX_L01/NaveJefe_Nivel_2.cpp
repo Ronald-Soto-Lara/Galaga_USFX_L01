@@ -2,6 +2,7 @@
 
 
 #include "NaveJefe_Nivel_2.h"
+#include "ConstruirNaveJefe.h"
 
 // Sets default values
 ANaveJefe_Nivel_2::ANaveJefe_Nivel_2()
@@ -15,7 +16,7 @@ ANaveJefe_Nivel_2::ANaveJefe_Nivel_2()
 void ANaveJefe_Nivel_2::BeginPlay()
 {
 	Super::BeginPlay();
-	Escuadron2 = GetWorld()->SpawnActor<AEscuadronApoyo>();
+	naveJefe_2 = GetWorld()->SpawnActor<AConstruirNaveJefe>(AConstruirNaveJefe::StaticClass());
 	
 }
 
@@ -25,41 +26,27 @@ void ANaveJefe_Nivel_2::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 }
-void ANaveJefe_Nivel_2::BuildNum_Vidas()
+void ANaveJefe_Nivel_2::BuilCrearBase(int j)
 {
-	float Num_Vidass = 3;
-		FVector Posicion = FVector(0.0f, -500.0f, 200.0f);
-		FVector Posicion_1 = FVector(0.0f, -500.0f, 200.0f);
-		FVector a = FVector(0.0f, -200.0f, 0.0f);
-		FVector P = FVector(-200.0f, 0.0f, 0.0f);
-		FVector p0001 = FVector(0.0f, -500.0f, 200.0f);
-		FRotator Rotacion = FRotator(0.0f, 0.0f, 0.0f);
-		for (int i = 0; i < 5; i++) {
-			Posicion = p0001;
-			Posicion_1 = p0001;
-			p0001 += P;
-			for (int j = 0; j < 5; j++) {
-				ANaveReab_1* navecaza1 = GetWorld()->SpawnActor<ANaveReab_1>(Posicion += a, Rotacion);
-				ANaveReab_2* navecaza2 = GetWorld()->SpawnActor<ANaveReab_2>(Posicion_1 += a, Rotacion);
-			}
-		}
+	naveJefe_2->ImplementarBase(j);
 }
 
-void ANaveJefe_Nivel_2::BuildRes_Escudo()
+void ANaveJefe_Nivel_2::BuilCrearSegundoPiso(int k)
 {
+	naveJefe_2->ImplementarSegundoPiso(k);
 }
 
-void ANaveJefe_Nivel_2::BuildLim_Tiempo()
+void ANaveJefe_Nivel_2::BuildTiradores(int l)
 {
+	naveJefe_2->ImplementarTiradores(l);
 }
 
-void ANaveJefe_Nivel_2::BuildCant_Balas()
+void ANaveJefe_Nivel_2::BuildCant_Balas(int m)
 {
+	naveJefe_2->ImplementarCantBalas(m);
 }
 
-AEscuadronApoyo* ANaveJefe_Nivel_2::SetGrupoNavesBuilder()
+AConstruirNaveJefe* ANaveJefe_Nivel_2::CrearNaveJefe()
 {
-	AEscuadronApoyo* EscNave = NewObject<AEscuadronApoyo>();
-	return EscNave;
+	return naveJefe_2;
 }
-

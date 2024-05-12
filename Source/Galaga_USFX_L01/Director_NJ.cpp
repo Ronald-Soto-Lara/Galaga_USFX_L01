@@ -25,15 +25,30 @@ void ADirector_NJ::Tick(float DeltaTime)
 
 }
 
-AEscuadronApoyo* ADirector_NJ::getEscAPoyoooooo(IGrupoNavesBuilder* Esc11111)
+void ADirector_NJ::ConstruirBaseJefe(AActor* Jefe)
 {
-	if (Esc11111)
-	{
-		Esc11111->BuildNum_Vidas();
-		Esc11111->BuildRes_Escudo();
-		Esc11111->BuildLim_Tiempo();
-		Esc11111->BuildCant_Balas();
-		return Esc11111->SetGrupoNavesBuilder();
-	}
-	return nullptr;
+	Construccion = Cast<IGrupoNavesBuilder>(Jefe);//Para poder acceder a mis clases concretas, lo estamos casteando para que sea un actor
+}
+
+void ADirector_NJ::ConstruirSegundoPisoJefe()
+{
+	Construccion->BuilCrearBase(1);
+	Construccion->BuilCrearSegundoPiso(1);
+	Construccion->BuildTiradores(1);
+	Construccion->BuildCant_Balas(1);
+}
+void ADirector_NJ::ConstruirTiradoresJefe()
+{
+	Construccion->BuilCrearBase(2);
+	Construccion->BuilCrearSegundoPiso(2);
+}
+void ADirector_NJ::ConstruirCantBalasJefe()
+{
+	Construccion->BuilCrearBase(3);
+	Construccion->BuildTiradores(3);
+	Construccion->BuildCant_Balas(3);
+}
+AConstruirNaveJefe* ADirector_NJ::ConstruirNaveJefe()
+{
+	return Construccion->CrearNaveJefe();
 }

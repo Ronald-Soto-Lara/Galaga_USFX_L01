@@ -2,10 +2,9 @@
 
 #pragma once
 
+#include "GrupoNavesBuilder.h"
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "EscuadronApoyo.h"
-#include "GrupoNavesBuilder.h"
 #include "Director_NJ.generated.h"
 
 UCLASS()
@@ -16,6 +15,7 @@ class GALAGA_USFX_L01_API ADirector_NJ : public AActor
 public:
 	// Sets default values for this actor's properties
 	ADirector_NJ();
+	IGrupoNavesBuilder* Construccion;
 
 protected:
 	// Called when the game starts or when spawned
@@ -29,5 +29,9 @@ public:
 	*/
 
 public:
-	AEscuadronApoyo* getEscAPoyoooooo(IGrupoNavesBuilder* ESC_11111);
+	void ConstruirBaseJefe(AActor* Jefe);
+	void ConstruirSegundoPisoJefe();
+	void ConstruirTiradoresJefe();
+	void ConstruirCantBalasJefe();
+	class AConstruirNaveJefe* ConstruirNaveJefe();
 };

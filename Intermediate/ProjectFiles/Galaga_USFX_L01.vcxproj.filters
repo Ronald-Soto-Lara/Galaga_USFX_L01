@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\Galaga_USFX_L01.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{AA79D082-5BE2-420A-97DF-EBCD8239C39A}</UniqueIdentifier>
+      <UniqueIdentifier>{59D024D9-0E99-413A-837F-9139BA812759}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\Galaga_USFX_L01.Target.cs">
       <Filter>Source</Filter>
@@ -13,9 +13,11 @@
     </None>
     <None Include="..\..\.gitattributes" />
     <None Include="..\..\.gitignore" />
+    <None Include="..\..\Builder_Source.zip" />
     <None Include="..\..\LAB_05.zip" />
+    <None Include="..\..\Source.zip" />
     <Filter Include="Config">
-      <UniqueIdentifier>{B4126B07-2D78-435A-9612-D5652DA91050}</UniqueIdentifier>
+      <UniqueIdentifier>{5FC9B04F-2534-4A32-8B17-28F82F35506E}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -33,12 +35,24 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\Galaga_USFX_L01">
-      <UniqueIdentifier>{88419C88-74B1-480A-8656-127A7CB7350E}</UniqueIdentifier>
+      <UniqueIdentifier>{CC223E14-2323-410E-B65D-B823DABCADFC}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\Galaga_USFX_L01\BalaCanon.cpp">
+      <Filter>Source\Galaga_USFX_L01</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Galaga_USFX_L01\BalaCanon.h">
+      <Filter>Source\Galaga_USFX_L01</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\Galaga_USFX_L01\Bomba.cpp">
       <Filter>Source\Galaga_USFX_L01</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\Galaga_USFX_L01\Bomba.h">
+      <Filter>Source\Galaga_USFX_L01</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Galaga_USFX_L01\ConstruirNaveJefe.cpp">
+      <Filter>Source\Galaga_USFX_L01</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Galaga_USFX_L01\ConstruirNaveJefe.h">
       <Filter>Source\Galaga_USFX_L01</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\Galaga_USFX_L01\Director_NJ.cpp">
@@ -57,6 +71,18 @@
       <Filter>Source\Galaga_USFX_L01</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\Galaga_USFX_L01\EscudoEscena.h">
+      <Filter>Source\Galaga_USFX_L01</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Galaga_USFX_L01\ExplosiveAdapter.cpp">
+      <Filter>Source\Galaga_USFX_L01</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Galaga_USFX_L01\ExplosiveAdapter.h">
+      <Filter>Source\Galaga_USFX_L01</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Galaga_USFX_L01\ExplosiveShot.cpp">
+      <Filter>Source\Galaga_USFX_L01</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Galaga_USFX_L01\ExplosiveShot.h">
       <Filter>Source\Galaga_USFX_L01</Filter>
     </ClInclude>
     <None Include="..\..\Source\Galaga_USFX_L01\Galaga_USFX_L01.Build.cs">
@@ -158,6 +184,12 @@
     <ClInclude Include="..\..\Source\Galaga_USFX_L01\NaveEspia_2.h">
       <Filter>Source\Galaga_USFX_L01</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\Galaga_USFX_L01\NaveJefeBuilder.cpp">
+      <Filter>Source\Galaga_USFX_L01</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Galaga_USFX_L01\NaveJefeBuilder.h">
+      <Filter>Source\Galaga_USFX_L01</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\Galaga_USFX_L01\NaveJefe_Nivel_1.cpp">
       <Filter>Source\Galaga_USFX_L01</Filter>
     </ClCompile>
@@ -168,6 +200,12 @@
       <Filter>Source\Galaga_USFX_L01</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\Galaga_USFX_L01\NaveJefe_Nivel_2.h">
+      <Filter>Source\Galaga_USFX_L01</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Galaga_USFX_L01\NaveJefe_Nivel_3.cpp">
+      <Filter>Source\Galaga_USFX_L01</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Galaga_USFX_L01\NaveJefe_Nivel_3.h">
       <Filter>Source\Galaga_USFX_L01</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\Galaga_USFX_L01\NaveNodriza.cpp">

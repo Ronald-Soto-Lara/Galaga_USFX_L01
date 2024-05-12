@@ -22,7 +22,10 @@ class ANaveNodriza_2;
 class ANaveReabastecimiento;
 class ANaveReab_1;
 class ANaveReab_2;
-class ADiretor_NJ;
+class ANaveJefe_Nivel_1;
+class ANaveJefe_Nivel_2;
+class ANaveJefe_Nivel_3;
+class ADirector_NJ;
 
 UCLASS(MinimalAPI)
 class AGalaga_USFX_L01GameMode : public AGameModeBase
@@ -32,23 +35,7 @@ class AGalaga_USFX_L01GameMode : public AGameModeBase
 public:
 	AGalaga_USFX_L01GameMode();
 public:
-	ANaveEnemiga* NaveEnemiga01;
-	ANaveTransporte* NaveEnemigaTransporte01;
-	ANaveTransporte_1* NaveEnemigaTransporteG101;
-	ANaveTransporte_2* NaveEnemigaTransporteG201;
-	ANaveCaza* MyNaveEnemigaCaza01;
-	ANaveCaza_1* MyNaveEnemigaCazaG101;
-	ANaveCaza_2* MyNaveEnemigaCazaG201;
-	ANaveEspia* NaveEnemigaEspia01;
-	ANaveEspia_1* NaveEnemigaEspiaG101;
-	ANaveEspia_2* NaveEnemigaEspiaG201;
-	ANaveNodriza* NaveEnemigaNodriza01;;
-	ANaveNodriza_1* NaveEnemigaNodrizaG101;
-	ANaveNodriza_2* NaveEnemigaNodrizaG201;
-	ANaveReabastecimiento* NaveEnemigaReabastecimiento01;
-	ANaveReab_1* NaveEnemigaReabastecimientoG101;
 	ANaveReab_2* NaveEnemigaReabastecimientoG201;
-	ADirector_NJ* Director_nj;
 protected:
 	//Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -62,6 +49,10 @@ public:
 	TArray<ANaveEnemiga*> TANavesEnemigas;
 	TArray<ANaveCaza*> TANavesEnemigasCaza;
 	TArray<ANaveTransporte*> TANavesEnemigasTransporte;
+	ANaveJefe_Nivel_1* Jefe;
+	ANaveJefe_Nivel_2* Jefe_2;
+	ANaveJefe_Nivel_3* Jefe_3;
+	ADirector_NJ* Director;
 private:
 	int TiempoTranscurrido;
 

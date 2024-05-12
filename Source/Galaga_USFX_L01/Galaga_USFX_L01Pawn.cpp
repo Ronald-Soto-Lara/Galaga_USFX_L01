@@ -16,6 +16,7 @@
 #include "EscudoEscena.h"
 #include "Components/SceneComponent.h"
 #include "EscudoActor.h"
+#include "NaveAlatoriaAerea.h"
 #include "GameFramework/PlayerInput.h"
 #include "GameFramework/CharacterMovementComponent.h"
 

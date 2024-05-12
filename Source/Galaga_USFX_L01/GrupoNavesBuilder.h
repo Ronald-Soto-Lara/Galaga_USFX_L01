@@ -4,7 +4,6 @@
 
 #include "CoreMinimal.h"
 #include "UObject/Interface.h"
-#include "EscuadronApoyo.h"
 #include "GrupoNavesBuilder.generated.h"
 
 // This class does not need to be modified.
@@ -23,9 +22,9 @@ class GALAGA_USFX_L01_API IGrupoNavesBuilder
 
 	// Add interface functions to this class. This is the class that will be inherited to implement this interface.
 public:
-	virtual void BuildNum_Vidas() = 0;
-	virtual void BuildRes_Escudo() = 0;
-	virtual void BuildLim_Tiempo() = 0;
-	virtual void BuildCant_Balas() = 0;
-	virtual AEscuadronApoyo* SetGrupoNavesBuilder() = 0;
+	virtual void BuilCrearBase(int j) = 0;
+	virtual void BuilCrearSegundoPiso(int k) = 0;
+	virtual void BuildTiradores(int l) = 0;
+	virtual void BuildCant_Balas(int m) = 0;
+	virtual class AConstruirNaveJefe* CrearNaveJefe() = 0;
 };

@@ -4,7 +4,6 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "EscuadronApoyo.h"
 #include "GrupoNavesBuilder.h"
 #include "NaveReab_1.h"
 #include "NaveReab_2.h"
@@ -18,6 +17,7 @@ class GALAGA_USFX_L01_API ANaveJefe_Nivel_2 : public AActor, public IGrupoNavesB
 public:	
 	// Sets default values for this actor's properties
 	ANaveJefe_Nivel_2();
+	class AConstruirNaveJefe* naveJefe_2;
 
 protected:
 	// Called when the game starts or when spawned
@@ -28,11 +28,9 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 public:
-	virtual void BuildNum_Vidas() override;
-	virtual void BuildRes_Escudo() override;
-	virtual void BuildLim_Tiempo() override;
-	virtual void BuildCant_Balas() override;
-	virtual AEscuadronApoyo * SetGrupoNavesBuilder();
-private:
-	AEscuadronApoyo* Escuadron2;
+	void BuilCrearBase(int j) override;
+	void BuilCrearSegundoPiso(int k) override;
+	void BuildTiradores(int l) override;
+	void BuildCant_Balas(int m) override;
+	class AConstruirNaveJefe* CrearNaveJefe() override;
 };
