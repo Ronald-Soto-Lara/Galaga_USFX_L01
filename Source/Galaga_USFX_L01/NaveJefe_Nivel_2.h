@@ -2,11 +2,9 @@
 
 #pragma once
 
+#include "GrupoNavesBuilder.h"
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "GrupoNavesBuilder.h"
-#include "NaveReab_1.h"
-#include "NaveReab_2.h"
 #include "NaveJefe_Nivel_2.generated.h"
 
 UCLASS()

@@ -9,7 +9,7 @@ ANaveEnemiga::ANaveEnemiga()
 	PrimaryActorTick.bCanEverTick = true;
 	//ComponenteMovimiento= CreatedefaultSuboject
     ComponenteMovimiento = CreateDefaultSubobject<UMovimientoNaves>(TEXT("ComponenteMovimiento"));
-	EnemyMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ShipMesh"));
+	EnemyMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_Cone.Shape_Cone'"));
 	EnemyMesh->SetupAttachment(RootComponent);
 	RootComponent = EnemyMesh;
 	velocidad = 1.0f;

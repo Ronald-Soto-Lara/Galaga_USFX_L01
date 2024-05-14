@@ -6,7 +6,7 @@
 
 ANaveCaza_2::ANaveCaza_2() {
 	static ConstructorHelpers::FObjectFinder<UStaticMesh>
-	ShipMesh(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_WideCapsule.Shape_WideCapsule'"));
+	ShipMesh(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_Cone.Shape_Cone'"));
 	EnemyMesh->SetStaticMesh(ShipMesh.Object);
 	BombaDist = 1000.0f;
 }

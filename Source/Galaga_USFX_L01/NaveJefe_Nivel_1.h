@@ -13,17 +13,17 @@ UCLASS()
 class GALAGA_USFX_L01_API ANaveJefe_Nivel_1 : public AActor, public IGrupoNavesBuilder
 {
 	GENERATED_BODY()
-		
+
 public:
 	// Sets default values for this actor's properties
 	ANaveJefe_Nivel_1();
-	class AConstruirNaveJefe* naveJefe_1;
+	AConstruirNaveJefe* naveJefe_1;
 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-public:	
+public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 public:

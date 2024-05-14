@@ -26,7 +26,7 @@
 #include "NaveJefe_Nivel_1.h"
 #include "NaveJefe_Nivel_2.h"
 #include "NaveJefe_Nivel_3.h"
-#include "BalaCanon.h"
+#include "EscuadronesFacade.h"
 #include "Components/SceneComponent.h"
 #include "EscudoEscena.h"
 #include "TimerManager.h"
@@ -40,7 +40,7 @@ AGalaga_USFX_L01GameMode::AGalaga_USFX_L01GameMode()
 
 	//NaveEnemiga01 = nullptr;
 	naves = true;
-	
+
 }
 
 void AGalaga_USFX_L01GameMode::BeginPlay()
@@ -64,45 +64,50 @@ void AGalaga_USFX_L01GameMode::BeginPlay()
 	int c = 0;
 	if (World != nullptr)
 	{
-		ABalaCanon* BalaCanoooon = World->SpawnActor<ABalaCanon>(PosicionBala, RotacionBala);
-			FTimerDelegate TimerDel;
-				int32 RandomNumber = FMath::RandRange(0, 2);
-				if (RandomNumber == 0)
+		AEscuadronesFacade* Naves = GetWorld()->SpawnActor<AEscuadronesFacade>(AEscuadronesFacade::StaticClass());
+		Naves->CrearEsc_1();
+		Naves->CrearEsc_2();
+		Naves->CrearEsc_3();
+		Naves->CrearEsc_4();
+		Naves->CrearEsc_5();
+		FTimerDelegate TimerDel;
+		int32 RandomNumber = FMath::RandRange(0, 2);
+		if (RandomNumber == 0)
+		{
+			ANaveAleatoriaAcuatica* NaveAleatoriaAcuaticaTemp = World->SpawnActor<ANaveAleatoriaAcuatica>(NaveAleatoriaAcuaticaUbicacion, rotacionNave);
+			TimerDel.BindLambda([NaveAleatoriaAcuaticaTemp]()
 				{
-					ANaveAleatoriaAcuatica* NaveAleatoriaAcuaticaTemp = World->SpawnActor<ANaveAleatoriaAcuatica>(NaveAleatoriaAcuaticaUbicacion, rotacionNave);
-					TimerDel.BindLambda([NaveAleatoriaAcuaticaTemp]()
-						{
-							if (NaveAleatoriaAcuaticaTemp && NaveAleatoriaAcuaticaTemp->IsValidLowLevel())
-							{
-								NaveAleatoriaAcuaticaTemp->Destroy();
-							}
-						});
-					GetWorld()->GetTimerManager().SetTimer(EliminarNaveAcuatica, TimerDel, 10.0f, false);
-				}
-				else if (RandomNumber == 1)
+					if (NaveAleatoriaAcuaticaTemp && NaveAleatoriaAcuaticaTemp->IsValidLowLevel())
+					{
+						NaveAleatoriaAcuaticaTemp->Destroy();
+					}
+				});
+			GetWorld()->GetTimerManager().SetTimer(EliminarNaveAcuatica, TimerDel, 10.0f, false);
+		}
+		else if (RandomNumber == 1)
+		{
+			ANaveAlatoriaAerea* NaveAleatoriaAereaTemp = World->SpawnActor<ANaveAlatoriaAerea>(NaveAleatoriaAereaUbicacion, rotacionNave);
+			TimerDel.BindLambda([NaveAleatoriaAereaTemp]()
 				{
-					ANaveAlatoriaAerea* NaveAleatoriaAereaTemp = World->SpawnActor<ANaveAlatoriaAerea>(NaveAleatoriaAereaUbicacion, rotacionNave);
-					TimerDel.BindLambda([NaveAleatoriaAereaTemp]()
-						{
-							if (NaveAleatoriaAereaTemp && NaveAleatoriaAereaTemp->IsValidLowLevel())
-							{
-								NaveAleatoriaAereaTemp->Destroy();
-							}
-						});
-					GetWorld()->GetTimerManager().SetTimer(EliminarNaveAerea, TimerDel, 10.0f, false);
-				}
-				else if (RandomNumber == 2)
+					if (NaveAleatoriaAereaTemp && NaveAleatoriaAereaTemp->IsValidLowLevel())
+					{
+						NaveAleatoriaAereaTemp->Destroy();
+					}
+				});
+			GetWorld()->GetTimerManager().SetTimer(EliminarNaveAerea, TimerDel, 10.0f, false);
+		}
+		else if (RandomNumber == 2)
+		{
+			ANaveAleatoriaTerrestre* NaveAleatoriaTerrestreTemp = World->SpawnActor<ANaveAleatoriaTerrestre>(NaveAleatoriaTerrestreUbicacion, rotacionNave);
+			TimerDel.BindLambda([NaveAleatoriaTerrestreTemp]()
 				{
-					ANaveAleatoriaTerrestre* NaveAleatoriaTerrestreTemp = World->SpawnActor<ANaveAleatoriaTerrestre>(NaveAleatoriaTerrestreUbicacion, rotacionNave);
-					TimerDel.BindLambda([NaveAleatoriaTerrestreTemp]()
-						{
-							if (NaveAleatoriaTerrestreTemp && NaveAleatoriaTerrestreTemp->IsValidLowLevel())
-							{
-								NaveAleatoriaTerrestreTemp->Destroy();
-							}
-						});
-					GetWorld()->GetTimerManager().SetTimer(EliminarNaveTerrestre, TimerDel, 10.0f, false);
-				}
+					if (NaveAleatoriaTerrestreTemp && NaveAleatoriaTerrestreTemp->IsValidLowLevel())
+					{
+						NaveAleatoriaTerrestreTemp->Destroy();
+					}
+				});
+			GetWorld()->GetTimerManager().SetTimer(EliminarNaveTerrestre, TimerDel, 10.0f, false);
+		}
 
 		/*TArray<TSubclassOf<ANaveEnemiga>> claseNave = {
 		ANaveCaza_1::StaticClass(), ANaveCaza_2::StaticClass(),
@@ -130,22 +135,22 @@ void AGalaga_USFX_L01GameMode::BeginPlay()
 		Jefe = GetWorld()->SpawnActor<ANaveJefe_Nivel_1>(ANaveJefe_Nivel_1::StaticClass());
 		Director = GetWorld()->SpawnActor<ADirector_NJ>(ADirector_NJ::StaticClass());
 
-		Director ->ConstruirBaseJefe(Jefe);
-		Director ->ConstruirSegundoPisoJefe();
+		Director->ConstruirBaseJefe(Jefe);
+		Director->ConstruirSegundoPisoJefe();
 
-		AConstruirNaveJefe* naveJefe1 =  Director->ConstruirNaveJefe();
+		AConstruirNaveJefe* naveJefe1 = Director->ConstruirNaveJefe();
 
 		Jefe_2 = GetWorld()->SpawnActor<ANaveJefe_Nivel_2>(ANaveJefe_Nivel_2::StaticClass());
 
 		Director->ConstruirBaseJefe(Jefe_2);
-		Director ->ConstruirTiradoresJefe();
+		Director->ConstruirTiradoresJefe();
 
 		AConstruirNaveJefe* naveJefe2 = Director->ConstruirNaveJefe();
 
 		Jefe_3 = GetWorld()->SpawnActor<ANaveJefe_Nivel_3>(ANaveJefe_Nivel_3::StaticClass());
 
 		Director->ConstruirBaseJefe(Jefe_3);
-		Director ->ConstruirCantBalasJefe();
+		Director->ConstruirCantBalasJefe();
 
 		AConstruirNaveJefe* naveJefe3 = Director->ConstruirNaveJefe();
 		FVector ubiNaveEje = FVector(0.0f, 0.0f, 150.0f);
@@ -198,15 +203,15 @@ void AGalaga_USFX_L01GameMode::Tick(float DeltaTime)
 				GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, StatusMessage);
 			}
 		}
-			if (naves)
-			{
-				ActTiempo();
-				naves = false;
-			}
+		if (naves)
+		{
+			ActTiempo();
+			naves = false;
+		}
 	}
 }
 int x = 0;
-void AGalaga_USFX_L01GameMode::CrearNaves() 
+void AGalaga_USFX_L01GameMode::CrearNaves()
 {
 	int z = 1;
 	naves = false;
@@ -286,7 +291,7 @@ void AGalaga_USFX_L01GameMode::CrearNaves()
 			ANaveJefe_Nivel_2* ve = World->SpawnActor<ANaveJefe_Nivel_2>();
 			AEscuadronApoyo* k = Director_nj->getEscAPoyoooooo(ve);
 		}*/
-		}
+	}
 }
 void AGalaga_USFX_L01GameMode::ActTiempo() {
 	FTimerHandle TimerDel1;

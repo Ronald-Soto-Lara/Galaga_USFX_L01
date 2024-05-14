@@ -7,6 +7,7 @@
 #include "NaveCaza_2.h"
 #include "ConstruirNaveJefe.h"
 
+
 // Sets default values
 AConstruirNaveJefe::AConstruirNaveJefe()
 {

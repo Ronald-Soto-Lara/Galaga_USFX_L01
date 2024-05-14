@@ -5,7 +5,7 @@
 
 ANaveCaza_1::ANaveCaza_1() {
 	static ConstructorHelpers::FObjectFinder<UStaticMesh> 
-	ShipMesh(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_Pipe.Shape_Pipe'"));
+	ShipMesh(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_Sphere.Shape_Sphere'"));
 	EnemyMesh->SetStaticMesh(ShipMesh.Object);
 }
 void ANaveCaza_1::Mover(float DeltaTime) {

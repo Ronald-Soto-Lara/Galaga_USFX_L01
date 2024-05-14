@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\Galaga_USFX_L01.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{59D024D9-0E99-413A-837F-9139BA812759}</UniqueIdentifier>
+      <UniqueIdentifier>{DD5A4508-9771-4275-A90F-B9A35B8F71E9}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\Galaga_USFX_L01.Target.cs">
       <Filter>Source</Filter>
@@ -15,9 +15,10 @@
     <None Include="..\..\.gitignore" />
     <None Include="..\..\Builder_Source.zip" />
     <None Include="..\..\LAB_05.zip" />
+    <None Include="..\..\Patrón Builder Source.zip" />
     <None Include="..\..\Source.zip" />
     <Filter Include="Config">
-      <UniqueIdentifier>{5FC9B04F-2534-4A32-8B17-28F82F35506E}</UniqueIdentifier>
+      <UniqueIdentifier>{55645162-FDC2-4B24-BA42-99C5E2DA1DAE}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -35,14 +36,8 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\Galaga_USFX_L01">
-      <UniqueIdentifier>{CC223E14-2323-410E-B65D-B823DABCADFC}</UniqueIdentifier>
+      <UniqueIdentifier>{A20E23B1-90E7-4CE5-8EF7-068623FB1E9F}</UniqueIdentifier>
     </Filter>
-    <ClCompile Include="..\..\Source\Galaga_USFX_L01\BalaCanon.cpp">
-      <Filter>Source\Galaga_USFX_L01</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\Galaga_USFX_L01\BalaCanon.h">
-      <Filter>Source\Galaga_USFX_L01</Filter>
-    </ClInclude>
     <ClCompile Include="..\..\Source\Galaga_USFX_L01\Bomba.cpp">
       <Filter>Source\Galaga_USFX_L01</Filter>
     </ClCompile>
@@ -61,6 +56,12 @@
     <ClInclude Include="..\..\Source\Galaga_USFX_L01\Director_NJ.h">
       <Filter>Source\Galaga_USFX_L01</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\Galaga_USFX_L01\EscuadronesFacade.cpp">
+      <Filter>Source\Galaga_USFX_L01</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Galaga_USFX_L01\EscuadronesFacade.h">
+      <Filter>Source\Galaga_USFX_L01</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\Galaga_USFX_L01\EscudoActor.cpp">
       <Filter>Source\Galaga_USFX_L01</Filter>
     </ClCompile>
@@ -71,18 +72,6 @@
       <Filter>Source\Galaga_USFX_L01</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\Galaga_USFX_L01\EscudoEscena.h">
-      <Filter>Source\Galaga_USFX_L01</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\Galaga_USFX_L01\ExplosiveAdapter.cpp">
-      <Filter>Source\Galaga_USFX_L01</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\Galaga_USFX_L01\ExplosiveAdapter.h">
-      <Filter>Source\Galaga_USFX_L01</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\Galaga_USFX_L01\ExplosiveShot.cpp">
-      <Filter>Source\Galaga_USFX_L01</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\Galaga_USFX_L01\ExplosiveShot.h">
       <Filter>Source\Galaga_USFX_L01</Filter>
     </ClInclude>
     <None Include="..\..\Source\Galaga_USFX_L01\Galaga_USFX_L01.Build.cs">

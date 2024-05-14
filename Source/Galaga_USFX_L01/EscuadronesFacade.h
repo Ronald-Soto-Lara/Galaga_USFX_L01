@@ -4,24 +4,29 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "BalaCanon.generated.h"
+#include "NaveEnemiga.h"
+#include "EscuadronesFacade.generated.h"
 
 UCLASS()
-class GALAGA_USFX_L01_API ABalaCanon : public AActor
+class GALAGA_USFX_L01_API AEscuadronesFacade : public AActor
 {
 	GENERATED_BODY()
-	
+
 public:
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Projectile, meta = (AllowPrivate));
-	UStaticMeshComponent* MallaBala;
-public:	
 	// Sets default values for this actor's properties
-	ABalaCanon();
+	AEscuadronesFacade();
+	TArray <ANaveEnemiga*> Enemigos;
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-public:	
+public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+	void CrearEsc_1();
+	void CrearEsc_2();
+	void CrearEsc_3();
+	void CrearEsc_4();
+	void CrearEsc_5();
+
 };

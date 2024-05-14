@@ -34,8 +34,7 @@ class AGalaga_USFX_L01GameMode : public AGameModeBase
 
 public:
 	AGalaga_USFX_L01GameMode();
-public:
-	ANaveReab_2* NaveEnemigaReabastecimientoG201;
+
 protected:
 	//Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -45,7 +44,12 @@ protected:
 	FTimerHandle EliminarNaveAerea;
 	FTimerHandle EliminarNaveTerrestre;
 	bool naves;
+private:
+	int TiempoTranscurrido;
+	TMap<int, bool> PowerUpStatusMap;
+
 public:
+	virtual void Tick(float DeltaTime) override;
 	TArray<ANaveEnemiga*> TANavesEnemigas;
 	TArray<ANaveCaza*> TANavesEnemigasCaza;
 	TArray<ANaveTransporte*> TANavesEnemigasTransporte;
@@ -53,17 +57,8 @@ public:
 	ANaveJefe_Nivel_2* Jefe_2;
 	ANaveJefe_Nivel_3* Jefe_3;
 	ADirector_NJ* Director;
-private:
-	int TiempoTranscurrido;
-
-public:
 	int score;
 	int POWER_UP_DOUBLE_SHOT_ID;
-
-
-public:
-	virtual void Tick(float DeltaTime) override;
-public:
 	FString powerUp;
 	TMap<int, FString>TMapPowerUp;
 
@@ -72,7 +67,4 @@ public:
 		const bool* Status = PowerUpStatusMap.Find(PowerUpID);
 		return (Status != nullptr) ? *Status : false;
 	}
-
-private:
-	TMap<int, bool> PowerUpStatusMap;
 };

@@ -7,7 +7,7 @@
 // Sets default values
 ANaveJefe_Nivel_1::ANaveJefe_Nivel_1()
 {
- 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
 }
@@ -17,7 +17,7 @@ void ANaveJefe_Nivel_1::BeginPlay()
 {
 	Super::BeginPlay();
 	naveJefe_1 = GetWorld()->SpawnActor<AConstruirNaveJefe>(AConstruirNaveJefe::StaticClass());
-	
+
 }
 
 // Called every frame
@@ -26,7 +26,7 @@ void ANaveJefe_Nivel_1::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 }
- 
+
 void ANaveJefe_Nivel_1::BuilCrearBase(int j)
 {
 	naveJefe_1->ImplementarBase(j);
@@ -55,5 +55,3 @@ AConstruirNaveJefe* ANaveJefe_Nivel_1::CrearNaveJefe()
 {
 	return naveJefe_1;
 }
-
-

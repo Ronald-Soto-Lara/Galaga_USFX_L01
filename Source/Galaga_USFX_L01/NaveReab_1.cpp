@@ -5,7 +5,7 @@
 
 ANaveReab_1::ANaveReab_1() {
 	static ConstructorHelpers::FObjectFinder<UStaticMesh> 
-	ShipMesh(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_WideCapsule.Shape_WideCapsule'"));
+	ShipMesh(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_Sphere.Shape_Sphere'"));
 	EnemyMesh->SetStaticMesh(ShipMesh.Object);
 }
 void ANaveReab_1::Mover(float DeltaTime) {

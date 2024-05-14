@@ -32,22 +32,25 @@ void ADirector_NJ::ConstruirBaseJefe(AActor* Jefe)
 
 void ADirector_NJ::ConstruirSegundoPisoJefe()
 {
-	Construccion->BuilCrearBase(1);
-	Construccion->BuilCrearSegundoPiso(1);
-	Construccion->BuildTiradores(1);
-	Construccion->BuildCant_Balas(1);
+	Construccion->BuilCrearBase(0);
+	Construccion->BuilCrearSegundoPiso(0);
+	Construccion->BuildTiradores(0);
+	Construccion->BuildCant_Balas(0);
 }
+
 void ADirector_NJ::ConstruirTiradoresJefe()
 {
-	Construccion->BuilCrearBase(2);
-	Construccion->BuilCrearSegundoPiso(2);
+	Construccion->BuilCrearBase(0);
+	Construccion->BuilCrearSegundoPiso(0);
 }
+
 void ADirector_NJ::ConstruirCantBalasJefe()
 {
-	Construccion->BuilCrearBase(3);
-	Construccion->BuildTiradores(3);
-	Construccion->BuildCant_Balas(3);
+	Construccion->BuilCrearBase(0);
+	Construccion->BuildTiradores(0);
+	Construccion->BuildCant_Balas(0);
 }
+
 AConstruirNaveJefe* ADirector_NJ::ConstruirNaveJefe()
 {
 	return Construccion->CrearNaveJefe();

@@ -14,7 +14,7 @@ class UNaveJefeBuilder : public UInterface
 };
 
 /**
- * 
+ *
  */
 class GALAGA_USFX_L01_API INaveJefeBuilder
 {
