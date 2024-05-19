@@ -17,6 +17,7 @@
 #include "Components/SceneComponent.h"
 #include "EscudoActor.h"
 #include "NaveAlatoriaAerea.h"
+#include "NaveReabastecimiento.h"
 #include "GameFramework/PlayerInput.h"
 #include "GameFramework/CharacterMovementComponent.h"
 
@@ -64,6 +65,36 @@ AGalaga_USFX_L01Pawn::AGalaga_USFX_L01Pawn()
 	bCrearBarr = true;
 	disparoDoble = false;
 	soltBomb = true;
+}
+void AGalaga_USFX_L01Pawn::NotifyHit(UPrimitiveComponent* MyComp, AActor* Other, UPrimitiveComponent* OtherComp, bool bSelfMoved, FVector HitLocation, FVector HitNormal, FVector NormalImpulse, const FHitResult& Hit)
+{  
+	ANaveReabastecimiento* NaveReabastecimiento = Cast<ANaveReabastecimiento>(Other);
+	ANaveEspia* NaveCazaCol = Cast<ANaveEspia>(Other);
+	ANaveTransporte* NaveTransCol = Cast<ANaveTransporte>(Other);
+	ANaveCaza* NaveCaza = Cast<ANaveCaza>(Other);
+	ANaveNodriza* NaveNodriza = Cast<ANaveNodriza>(Other);
+
+	if (NaveReabastecimiento != nullptr){
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, TEXT("Chocaste con la nave de reabastecimiento"));
+
+	}
+	if (NaveCazaCol != nullptr) {
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Black, TEXT("Chocaste con la nave espia"));
+
+	}
+	if (NaveTransCol != nullptr) {
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Purple, TEXT("Chocaste con la nave de transporte"));
+
+	
+	}
+	if (NaveCaza != nullptr) {
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Orange, TEXT("Chocaste con la nave caza"));
+
+	}
+	if (NaveNodriza != nullptr) {
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::White, TEXT("Chocaste con la nave nodriza"));
+
+	}
 }
 void AGalaga_USFX_L01Pawn::BeginPlay()
 {

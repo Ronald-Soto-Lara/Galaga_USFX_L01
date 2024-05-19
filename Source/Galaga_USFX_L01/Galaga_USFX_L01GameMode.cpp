@@ -54,6 +54,8 @@ void AGalaga_USFX_L01GameMode::BeginPlay()
 	FVector NaveAleatoriaAereaUbicacion = FVector(-1200.0f, 0.0f, 700.0f);
 	FVector NaveAleatoriaTerrestreUbicacion = FVector(-1400.0f, 0.0f, 150.0f);
 	FVector PosicionBala = FVector(-500.0f, 0.0f, 150.0f);
+	FVector PosicionColision = FVector(-500.0f, 0.0f, 150.0f);
+	FRotator Rotacioncolision = FRotator(0.0f, 0.0f, 0.0f);
 	FRotator RotacionBala = FRotator(0.0f, 0.0f, 0.0f);
 
 	FRotator rotacionNave = FRotator(0.0f, 0.0f, 0.0f);
@@ -64,6 +66,7 @@ void AGalaga_USFX_L01GameMode::BeginPlay()
 	int c = 0;
 	if (World != nullptr)
 	{
+		ANaveReabastecimiento* NaveColision = World->SpawnActor<ANaveReabastecimiento>(PosicionColision, Rotacioncolision);
 		AEscuadronesFacade* Naves = GetWorld()->SpawnActor<AEscuadronesFacade>(AEscuadronesFacade::StaticClass());
 		Naves->CrearEsc_1();
 		Naves->CrearEsc_2();

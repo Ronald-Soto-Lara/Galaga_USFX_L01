@@ -121,7 +121,9 @@ public:
 	float velNaveY;
 	float UbicacionInicioX;
 	float UbicacionInicioY;
-
+	UFUNCTION()
+	virtual void NotifyHit(UPrimitiveComponent* MyComp, AActor* Other, UPrimitiveComponent* OtherComp,
+	bool bSelfMoved, FVector HitLocation, FVector HitNormal, FVector NormalImpulse, const FHitResult& Hit)override;
 public:
 	virtual void BeginPlay() override;
 	// ... más código ...
