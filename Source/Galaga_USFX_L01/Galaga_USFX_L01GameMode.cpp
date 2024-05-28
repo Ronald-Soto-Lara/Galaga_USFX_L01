@@ -29,6 +29,13 @@
 #include "EscuadronesFacade.h"
 #include "Components/SceneComponent.h"
 #include "EscudoEscena.h"
+#include "ClaseExtra.h"
+#include "EstadoBase.h"
+#include "EstadoLento.h"
+#include "EstadoInvisible.h"
+#include "EstadoInvencible.h"
+#include "CapsulaEstate.h"
+#include "LetreroBienvenida.h"
 #include "TimerManager.h"
 
 
@@ -40,7 +47,7 @@ AGalaga_USFX_L01GameMode::AGalaga_USFX_L01GameMode()
 
 	//NaveEnemiga01 = nullptr;
 	naves = true;
-
+	HUDClass = ALetreroBienvenida::StaticClass();
 }
 
 void AGalaga_USFX_L01GameMode::BeginPlay()
@@ -63,54 +70,20 @@ void AGalaga_USFX_L01GameMode::BeginPlay()
 	UWorld* const World = GetWorld();
 	int a = 350;
 	int b = -450;
-	int c = 0;
+	int c = 0;	
 	if (World != nullptr)
 	{
-		ANaveReabastecimiento* NaveColision = World->SpawnActor<ANaveReabastecimiento>(PosicionColision, Rotacioncolision);
-		AEscuadronesFacade* Naves = GetWorld()->SpawnActor<AEscuadronesFacade>(AEscuadronesFacade::StaticClass());
-		Naves->CrearEsc_1();
-		Naves->CrearEsc_2();
+		ACapsulaEstate* Capsula = World->SpawnActor<ACapsulaEstate>(FVector(-1000.0f, 0.0f, 150.0f), FRotator(0.0f, 0.0f, 0.0f));
+		//ANaveCaza* NaveCaza = World->SpawnActor<ANaveCaza>(FVector(-1000.0f, 0.0f, 150.0f), rotacionNave);
+		//ANaveReabastecimiento* NaveColision = World->SpawnActor<ANaveReabastecimiento>(PosicionColision, Rotacioncolision);
+		Naves = GetWorld()->SpawnActor<AEscuadronesFacade>(AEscuadronesFacade::StaticClass());
+		Naves->CrearEscuadrones(1);
+		/*Naves->CrearEsc_2();
 		Naves->CrearEsc_3();
 		Naves->CrearEsc_4();
-		Naves->CrearEsc_5();
+		Naves->CrearEsc_5();*/
 		FTimerDelegate TimerDel;
 		int32 RandomNumber = FMath::RandRange(0, 2);
-		if (RandomNumber == 0)
-		{
-			ANaveAleatoriaAcuatica* NaveAleatoriaAcuaticaTemp = World->SpawnActor<ANaveAleatoriaAcuatica>(NaveAleatoriaAcuaticaUbicacion, rotacionNave);
-			TimerDel.BindLambda([NaveAleatoriaAcuaticaTemp]()
-				{
-					if (NaveAleatoriaAcuaticaTemp && NaveAleatoriaAcuaticaTemp->IsValidLowLevel())
-					{
-						NaveAleatoriaAcuaticaTemp->Destroy();
-					}
-				});
-			GetWorld()->GetTimerManager().SetTimer(EliminarNaveAcuatica, TimerDel, 10.0f, false);
-		}
-		else if (RandomNumber == 1)
-		{
-			ANaveAlatoriaAerea* NaveAleatoriaAereaTemp = World->SpawnActor<ANaveAlatoriaAerea>(NaveAleatoriaAereaUbicacion, rotacionNave);
-			TimerDel.BindLambda([NaveAleatoriaAereaTemp]()
-				{
-					if (NaveAleatoriaAereaTemp && NaveAleatoriaAereaTemp->IsValidLowLevel())
-					{
-						NaveAleatoriaAereaTemp->Destroy();
-					}
-				});
-			GetWorld()->GetTimerManager().SetTimer(EliminarNaveAerea, TimerDel, 10.0f, false);
-		}
-		else if (RandomNumber == 2)
-		{
-			ANaveAleatoriaTerrestre* NaveAleatoriaTerrestreTemp = World->SpawnActor<ANaveAleatoriaTerrestre>(NaveAleatoriaTerrestreUbicacion, rotacionNave);
-			TimerDel.BindLambda([NaveAleatoriaTerrestreTemp]()
-				{
-					if (NaveAleatoriaTerrestreTemp && NaveAleatoriaTerrestreTemp->IsValidLowLevel())
-					{
-						NaveAleatoriaTerrestreTemp->Destroy();
-					}
-				});
-			GetWorld()->GetTimerManager().SetTimer(EliminarNaveTerrestre, TimerDel, 10.0f, false);
-		}
 
 		/*TArray<TSubclassOf<ANaveEnemiga>> claseNave = {
 		ANaveCaza_1::StaticClass(), ANaveCaza_2::StaticClass(),
@@ -175,16 +148,18 @@ void AGalaga_USFX_L01GameMode::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	TiempoTranscurrido++;
-	if (TiempoTranscurrido >= 100)
+	if (TiempoTranscurrido >= 20)
 	{
 		int numeroEnemigo = FMath::RandRange(0, 9);
 		if (GEngine)
 		{
 
 		}
-		score = score + 50;
+		score +=100;
 		TiempoTranscurrido = 0;
-		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::Printf(TEXT("score: %d"), score));
+		if (score) {
+			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::Printf(TEXT("score: %d"), score));
+		}
 	}
 	for (const auto& par : TMapPowerUp)
 	{
@@ -192,7 +167,7 @@ void AGalaga_USFX_L01GameMode::Tick(float DeltaTime)
 		FString PowerUp = par.Value;
 		if (scoreMap == score)
 		{
-			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, FString::Printf(TEXT("PowerUp: %s"), *PowerUp));
+			//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, FString::Printf(TEXT("PowerUp: %s"), *PowerUp));
 		}
 		for (auto& par2 : PowerUpStatusMap)
 		{
@@ -203,7 +178,7 @@ void AGalaga_USFX_L01GameMode::Tick(float DeltaTime)
 			{
 				bPowerUpStatus = true;
 				FString StatusMessage = FString::Printf(TEXT("PowerUp with score %d is now active: %s"), PowerUpScore, bPowerUpStatus ? TEXT("True") : TEXT("False"));
-				GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, StatusMessage);
+				//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, StatusMessage);
 			}
 		}
 		if (naves)
@@ -212,8 +187,27 @@ void AGalaga_USFX_L01GameMode::Tick(float DeltaTime)
 			naves = false;
 		}
 	}
+	
+	if (score > 500)
+	{
+		Naves->CrearEscuadrones(2);
+	}
+	if (score > 1000)
+	{
+		Naves->CrearEscuadrones(3);
+	}
+	if (score > 1500)
+	{
+		Naves->CrearEscuadrones(4);
+	}
+	if (score > 2000)
+	{
+		Naves->CrearEscuadrones(5);
+	}
 }
 int x = 0;
+
+
 void AGalaga_USFX_L01GameMode::CrearNaves()
 {
 	int z = 1;
@@ -229,6 +223,8 @@ void AGalaga_USFX_L01GameMode::CrearNaves()
 		if (x < 3) {
 			FTimerDelegate TimerDel;
 			int32 RandomNumber = FMath::RandRange(1, 3);
+			//haz el codigo para que despues de 3 segndos de elimine el letrero de bienvenida
+
 			if (RandomNumber == 1)
 			{
 				ANaveAleatoriaAcuatica* NaveAleatoriaAcuaticaTemp = World->SpawnActor<ANaveAleatoriaAcuatica>(NaveAleatoriaAcuaticaUbicacion, rotacionNave);
@@ -300,4 +296,29 @@ void AGalaga_USFX_L01GameMode::ActTiempo() {
 	FTimerHandle TimerDel1;
 	GetWorldTimerManager().SetTimer(TimerDel1, this, &AGalaga_USFX_L01GameMode::CrearNaves, 11.0f, false);
 	//naves = true;
+}
+
+void AGalaga_USFX_L01GameMode::CrearEstate()
+{
+	AEstadoBase* EstadosBase = GetWorld()->SpawnActor<AEstadoBase>();
+	AEstadoLento* EstadosLento = GetWorld()->SpawnActor<AEstadoLento>();
+	AEstadoInvisible* EstadosInvisible = GetWorld()->SpawnActor<AEstadoInvisible>();
+	AEstadoInvencible* EstadosInvencible = GetWorld()->SpawnActor<AEstadoInvencible>();
+		int32 one = FMath::RandRange(1, 4);
+		if (one == 1) {
+			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Estado Lento"));
+			EstadosLento->PawnLento();
+		}
+		if (one == 2) {
+			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Estado Invisible"));
+			EstadosInvisible->PawnInvisible();
+		}
+		if (one == 3) {
+			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Estado Invencible"));
+			EstadosInvencible->PawnInvencible();
+		}
+		if (one == 4) {
+			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Estado Normal"));
+			EstadosBase->PawnNormal();
+		}
 }

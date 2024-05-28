@@ -18,6 +18,12 @@
 #include "EscudoActor.h"
 #include "NaveAlatoriaAerea.h"
 #include "NaveReabastecimiento.h"
+#include "Estados.h"
+#include "EstadoBase.h"
+#include "EstadoLento.h"
+#include "EstadoInvisible.h"
+#include "EstadoInvencible.h"
+#include "CapsulaEstate.h"
 #include "GameFramework/PlayerInput.h"
 #include "GameFramework/CharacterMovementComponent.h"
 
@@ -53,7 +59,7 @@ AGalaga_USFX_L01Pawn::AGalaga_USFX_L01Pawn()
 	CameraComponent->bUsePawnControlRotation = false;	// Camera does not rotate relative to arm
 
 	// Movement
-	MoveSpeed = 1000.0f;
+	MoveSpeed = 3000.0f;
 	// Weapon
 	GunOffset = FVector(90.f, 0.f, 0.f);
 	GunOffset2 = FVector(90.f, 90.f, 0.f);
@@ -73,7 +79,12 @@ void AGalaga_USFX_L01Pawn::NotifyHit(UPrimitiveComponent* MyComp, AActor* Other,
 	ANaveTransporte* NaveTransCol = Cast<ANaveTransporte>(Other);
 	ANaveCaza* NaveCaza = Cast<ANaveCaza>(Other);
 	ANaveNodriza* NaveNodriza = Cast<ANaveNodriza>(Other);
-
+	ACapsulaEstate* CapsulaEstate = Cast<ACapsulaEstate>(Other);
+	if (CapsulaEstate != nullptr)
+	{
+		AGalaga_USFX_L01GameMode* GameMode = Cast<AGalaga_USFX_L01GameMode>(GetWorld()->GetAuthGameMode());
+		GameMode->CrearEstate();
+	}
 	if (NaveReabastecimiento != nullptr){
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, TEXT("Chocaste con la nave de reabastecimiento"));
 
@@ -103,6 +114,12 @@ void AGalaga_USFX_L01Pawn::BeginPlay()
 	UbicacionInicioX = GetActorLocation().X;
 	UbicacionInicioY = GetActorLocation().Y;
 
+}
+
+void AGalaga_USFX_L01Pawn::Destruir()
+{
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, (TEXT("Perdiste")), true, FVector2D(10.0f, 10.0f));
+	Destroy();
 }
 
 void AGalaga_USFX_L01Pawn::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
@@ -392,7 +409,6 @@ void AGalaga_USFX_L01Pawn::Tick(float DeltaSeconds)
 	}
 }
 
-
 void AGalaga_USFX_L01Pawn::FireShot(FVector FireDirection)
 {
 	// If it's ok to fire again
@@ -452,4 +468,88 @@ void AGalaga_USFX_L01Pawn::ActivarDobleDisparo()
 void AGalaga_USFX_L01Pawn::ShotTimerExpired()
 {
 	bCanFire = true;
+}
+
+void AGalaga_USFX_L01Pawn::Estados(FString _Estados)
+{
+	if (_Estados.Equals("Normal")) {
+		EstadoNormal = GetWorld()->SpawnActor<AEstadoBase>(AEstadoBase::StaticClass());
+		EstadoNormal->SetPawn(this);
+		SetEstado(EstadoNormal);
+	}
+	if (_Estados.Equals("Lento")) {
+		EstadoLento = GetWorld()->SpawnActor<AEstadoLento>(AEstadoLento::StaticClass());
+		EstadoLento->SetPawn(this);
+		SetEstado(EstadoLento);
+	}
+	if (_Estados.Equals("Invisible")) {
+		EstadoInvisible = GetWorld()->SpawnActor<AEstadoInvisible>(AEstadoInvisible::StaticClass());
+		EstadoInvisible->SetPawn(this);
+		SetEstado(EstadoInvisible);
+	}
+	if (_Estados.Equals("Invencible")) {
+		EstadoInvencible = GetWorld()->SpawnActor<AEstadoInvencible>(AEstadoInvencible::StaticClass());
+		EstadoInvencible->SetPawn(this);
+		SetEstado(EstadoInvencible);
+	}
+}
+
+void AGalaga_USFX_L01Pawn::SetEstado(IEstados* _Estado)
+{
+	Estado = _Estado;
+}
+
+void AGalaga_USFX_L01Pawn::PawnNormal()
+{
+	Estado->PawnNormal();
+}
+
+void AGalaga_USFX_L01Pawn::PawnLenteado()
+{
+	Estado->PawnLento();
+}
+
+void AGalaga_USFX_L01Pawn::PawnInvisibiliando()
+{
+	Estado->PawnInvisible();
+}
+
+void AGalaga_USFX_L01Pawn::PawnInvenciblepapidios()
+{
+	Estado->PawnInvencible();
+}
+
+void AGalaga_USFX_L01Pawn::ResSpeed()
+{
+	MoveSpeed = 500.0f;
+}
+
+IEstados* AGalaga_USFX_L01Pawn::N_ObtenerEstadoNormal()
+{
+	return EstadoNormal;
+}
+
+IEstados* AGalaga_USFX_L01Pawn::N_ObtenerEstadoLento()
+{
+	return EstadoLento;
+}
+
+IEstados* AGalaga_USFX_L01Pawn::N_ObtenerEstadoInvisible()
+{
+	return EstadoInvisible;
+}
+
+IEstados* AGalaga_USFX_L01Pawn::N_ObtenerEstadoInvencible()
+{
+	return EstadoInvencible;
+}
+
+IEstados* AGalaga_USFX_L01Pawn::N_ObtenerEstadoActual()
+{
+	/*if (Estado) {
+		return "Estado Actual: " + Estado->ObtenerEstado();
+	}
+	else {
+		return "No hay estado actual";
+	}*/
 }

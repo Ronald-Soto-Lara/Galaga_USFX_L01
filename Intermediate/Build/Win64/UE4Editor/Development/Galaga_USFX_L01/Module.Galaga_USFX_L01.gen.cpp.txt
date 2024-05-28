@@ -4,6 +4,12 @@ D:\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes
 D:\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01/Bomba.h
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\Bomba.generated.h
+C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/CapsulaEstate.gen.cpp
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01/CapsulaEstate.h
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\CapsulaEstate.generated.h
+C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/ClaseExtra.gen.cpp
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01/ClaseExtra.h
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\ClaseExtra.generated.h
 C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/ConstruirNaveJefe.gen.cpp
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01/ConstruirNaveJefe.h
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\NaveJefeBuilder.h
@@ -27,6 +33,21 @@ C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win6
 C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/EscudoEscena.gen.cpp
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01/EscudoEscena.h
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\EscudoEscena.generated.h
+C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/EstadoBase.gen.cpp
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01/EstadoBase.h
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\Estados.h
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\Estados.generated.h
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\EstadoBase.generated.h
+C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/EstadoInvencible.gen.cpp
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01/EstadoInvencible.h
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\EstadoInvencible.generated.h
+C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/EstadoInvisible.gen.cpp
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01/EstadoInvisible.h
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\EstadoInvisible.generated.h
+C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/EstadoLento.gen.cpp
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01/EstadoLento.h
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\EstadoLento.generated.h
+C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/Estados.gen.cpp
 C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/Galaga_USFX_L01.init.gen.cpp
 C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/Galaga_USFX_L01GameMode.gen.cpp
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01/Galaga_USFX_L01GameMode.h
@@ -48,6 +69,14 @@ C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Intermediate/Build/Win6
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01/Galaga_USFX_L01Projectile.h
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\Galaga_USFX_L01Projectile.generated.h
 C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/GrupoNavesBuilder.gen.cpp
+C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/LetreroBienvenida.gen.cpp
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01/LetreroBienvenida.h
+D:\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/HUD.h
+D:\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/HUDHitBox.h
+D:\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/DebugTextInfo.h
+D:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\DebugTextInfo.generated.h
+D:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\HUD.generated.h
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\LetreroBienvenida.generated.h
 C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/MovimientoNaves.gen.cpp
 C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/NaveAlatoriaAerea.gen.cpp
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01/NaveAlatoriaAerea.h
@@ -114,3 +143,6 @@ C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win6
 C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/NaveTransporte_2.gen.cpp
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01/NaveTransporte_2.h
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\NaveTransporte_2.generated.h
+C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/ProyectilEnemigo.gen.cpp
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01/ProyectilEnemigo.h
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\ProyectilEnemigo.generated.h

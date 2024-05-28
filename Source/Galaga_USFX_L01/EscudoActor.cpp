@@ -13,7 +13,7 @@ AEscudoActor::AEscudoActor()
     // Inicializa mallaBarrera antes de usarlo
     mallaBarrera = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("MallaBarrera"));
 
-    static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_Trim.Shape_Trim'"));
+    static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("StaticMesh'/Game/Meshes/Shield.Shield'"));
 
     mallaBarrera->SetStaticMesh(ShipMesh.Object);//esta linea nos permite asignar la malla a nuestro objeto
 	movimiento = true;

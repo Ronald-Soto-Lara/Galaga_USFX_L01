@@ -28,6 +28,10 @@ protected:
 	float velocidad;
 	float destruir;
 	float escapar;
+	float ProjDist;
+	bool ActDisparo;
+	FVector GunOffset;
+	FTimerHandle Timer_fin;
 public:
 	//Al ser propiedades protegidas es necesario crear metodos para poder leer (Get) y modificar (Set) las propiedades anteriores.
 	FORCEINLINE int Getataque() const { return ataque; }
@@ -50,12 +54,12 @@ public:
 
 public:
 	ANaveEnemiga(); //Este consturctor al no tener implementacion no hace mas de lo que haria el constructor de la clase 'AActor' (la clase base de 'AEnemy')
+	virtual void TReset_Proj();
 
 protected:
 	//Con 'virtual' se indica que puede proporcionar su propia implementacion.
 	//Se utiliza Overeride para poder remplazar la implementacion base.
 	virtual void BeginPlay() override;
-
 public:
 	//Esta funcion se llama en cada fotograma del juego (Tick) y es un metodo heredado de la clase 'AActor'.
 	//Se introduce el dato 'DeltaTime' como el tiempo transcurrido desde el fotograma anterior.

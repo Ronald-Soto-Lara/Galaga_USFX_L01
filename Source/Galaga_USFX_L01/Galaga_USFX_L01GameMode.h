@@ -34,7 +34,7 @@ class AGalaga_USFX_L01GameMode : public AGameModeBase
 
 public:
 	AGalaga_USFX_L01GameMode();
-
+	virtual void CrearEstate();
 protected:
 	//Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -44,6 +44,7 @@ protected:
 	FTimerHandle EliminarNaveAerea;
 	FTimerHandle EliminarNaveTerrestre;
 	bool naves;
+	class AEscuadronesFacade* Naves;
 private:
 	int TiempoTranscurrido;
 	TMap<int, bool> PowerUpStatusMap;

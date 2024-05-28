@@ -20,11 +20,13 @@ struct FHitResult;
 #define Galaga_USFX_L01_Source_Galaga_USFX_L01_Galaga_USFX_L01Projectile_h_15_SPARSE_DATA
 #define Galaga_USFX_L01_Source_Galaga_USFX_L01_Galaga_USFX_L01Projectile_h_15_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execNotifyHit); \
 	DECLARE_FUNCTION(execOnHit);
 
 
 #define Galaga_USFX_L01_Source_Galaga_USFX_L01_Galaga_USFX_L01Projectile_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execNotifyHit); \
 	DECLARE_FUNCTION(execOnHit);
 
 

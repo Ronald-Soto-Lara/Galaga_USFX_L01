@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "NaveEnemiga.h"
+#include "Galaga_USFX_L01Projectile.h"
 #include "NaveCaza.generated.h"
 
 /**
@@ -19,11 +20,13 @@ public:
 	ANaveCaza();
 	FORCEINLINE int GetnumBombas() const { return numBombas; }
 	FORCEINLINE void SetnumBombas(int _numBombas) { numBombas = _numBombas; }
+
 protected:
 	virtual void Mover(float DeltaTime);//Se le pasa el parametro entero DeltaTime para poder calcular el tiempo entre fotogramas.
 	virtual void Ataque();
 	virtual void Vida();
 	virtual void Bombardear();
+
 public:
 	//En este caso 'virtual' nos indica que esta funcion puede ser sobreescrita por una subclase.
 	//Mientras que 'override' asegura que estemos sobreescribiendo una funcion de la clase base.

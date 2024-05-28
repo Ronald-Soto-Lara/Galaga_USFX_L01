@@ -14,6 +14,7 @@ ABomba::ABomba()
 	static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_Sphere.Shape_Sphere'"));
 
 	mallaBomba->SetStaticMesh(ShipMesh.Object);
+	scored = 0;
 }
 
 // Called when the game starts or when spawned
@@ -27,5 +28,7 @@ void ABomba::BeginPlay()
 void ABomba::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+	scored += 75;
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::Printf(TEXT("Taller: %d"), scored));
 
 }

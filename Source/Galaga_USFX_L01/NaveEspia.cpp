@@ -5,7 +5,7 @@
 
 ANaveEspia::ANaveEspia() {
 	static ConstructorHelpers::FObjectFinder<UStaticMesh> 
-	ShipMesh(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_Sphere.Shape_Sphere'"));
+	ShipMesh(TEXT("StaticMesh'/Game/Meshes/Nodriza2.Nodriza2'"));
 	EnemyMesh->SetStaticMesh(ShipMesh.Object);
 }
 void ANaveEspia::Mover(float DeltaTime) {

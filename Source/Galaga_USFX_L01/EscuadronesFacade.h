@@ -23,6 +23,7 @@ protected:
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+	void CrearEscuadrones(int tipo);
 	void CrearEsc_1();
 	void CrearEsc_2();
 	void CrearEsc_3();

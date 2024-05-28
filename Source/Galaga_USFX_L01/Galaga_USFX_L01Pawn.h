@@ -126,5 +126,27 @@ public:
 	bool bSelfMoved, FVector HitLocation, FVector HitNormal, FVector NormalImpulse, const FHitResult& Hit)override;
 public:
 	virtual void BeginPlay() override;
+	virtual void Destruir();
+	void Estados(FString _Estados);
+	IEstados* Estado;
+	IEstados* EstadoNormal;
+	IEstados* EstadoLento;
+	IEstados* EstadoInvisible;
+	IEstados* EstadoInvencible;
+	//Funciones pa cambiar los estados.
+	FORCEINLINE void SetEstado(IEstados* _Estado);
+
+	void PawnNormal();
+	void PawnLenteado();
+	void PawnInvisibiliando();
+	void PawnInvenciblepapidios();
+	void ResSpeed();
+
+	//Funciones para obtener el estado.
+	FORCEINLINE IEstados* N_ObtenerEstadoNormal();
+	FORCEINLINE IEstados* N_ObtenerEstadoLento();
+	FORCEINLINE IEstados* N_ObtenerEstadoInvisible();
+	FORCEINLINE IEstados* N_ObtenerEstadoInvencible();
+	FORCEINLINE IEstados* N_ObtenerEstadoActual();
 	// ... más código ...
 };

@@ -31,6 +31,28 @@ void AEscuadronesFacade::Tick(float DeltaTime)
 
 }
 
+void AEscuadronesFacade::CrearEscuadrones(int tipo)
+{
+	switch (tipo)
+	{
+	case 1:
+		//CrearEsc_1();
+		break;
+	case 2:
+		//CrearEsc_2();
+		break;
+	case 3:
+		//CrearEsc_3();
+		break;
+	case 4:
+		//CrearEsc_4();
+		break;
+	case 5:
+		//CrearEsc_5();
+		break;
+	}
+}
+
 void AEscuadronesFacade::CrearEsc_1()
 {
 	TArray<TSubclassOf<ANaveEnemiga>> TipoNaves;
@@ -40,17 +62,17 @@ void AEscuadronesFacade::CrearEsc_1()
 	MaxNav.Add(ANaveCaza::StaticClass(), 7);
 
 	FVector Posicion = FVector(0.0f, -1000.0f, 250.0f);
-	FRotator Rotacion = FRotator(0.0f, 0.0f, 0.0f);
+	FRotator Rotacion = FRotator(200.0f, 0.0f, 0.0f);
 
 	UWorld* const World = GetWorld();
 	if (World != nullptr) {
-		for (int i = 0; i < 3; i++) {
-			for (int j = 0; j < 3; j++) {
+		for (int i = 0; i < 5; i++) {
+			for (int j = 0; j < 5; j++) {
 				TSubclassOf<ANaveEnemiga>TipoNavAlea = TipoNaves[FMath::RandRange(0, TipoNaves.Num() - 1)];
 				if (MaxNav.Contains(TipoNavAlea)) {
 					int NavesGeneradas = MaxNav[TipoNavAlea];
 					if (NavesGeneradas > 0) {
-						FVector PActualNaves = FVector(Posicion.X + i * 150, Posicion.Y + j * 105, Posicion.Z);//Esto solo controla la distancia entre las naves
+						FVector PActualNaves = FVector(Posicion.X + i * 200, Posicion.Y + j * 200, Posicion.Z);//Esto solo controla la distancia entre las naves
 						ANaveEnemiga* NavesInst = World->SpawnActor<ANaveEnemiga>(TipoNavAlea, PActualNaves, Rotacion);//Esto spawnea las naves en el mundo.
 						Enemigos.Push(NavesInst);
 						NavesGeneradas--;
@@ -69,15 +91,15 @@ void AEscuadronesFacade::CrearEsc_2()
 	TipoNaves1.Add(ANaveReabastecimiento::StaticClass());
 	MaxNav1.Add(ANaveReabastecimiento::StaticClass(), 7);
 
-	FVector Posicion = FVector(-500.0f, -500.0f, 250.0f);
+	FVector Posicion = FVector(-500.0f, -500.0f, 150.0f);
 	FRotator Rotacion = FRotator(0.0f, 0.0f, 0.0f);
 
 	UWorld* const World = GetWorld();
 	if (World != nullptr) {
 		ANaveEnemiga* ENEMY_NAV = World->SpawnActor<ANaveEnemiga>(Posicion, Rotacion);
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < 5; i++) {
 			//Numero de Naves por fila.
-			for (int j = 0; j < 3; j++) {
+			for (int j = 0; j < 5; j++) {
 				//Recordemos declarar a 'TipoNavAlea' como referencia de las subclases de 'AEnemy'.
 				TSubclassOf<ANaveEnemiga>TipoNavAlea = TipoNaves1[FMath::RandRange(0, TipoNaves1.Num() - 1)];//Esto asigna una nave aleatoria de nuestro array de naves.
 				//Verificamos si el Tmap tiene la llave (TipoNavAlea) que recordemos que es una subclase especifica de 'Enemy'.
@@ -104,15 +126,15 @@ void AEscuadronesFacade::CrearEsc_3()
 	TipoNaves2.Add(ANaveNodriza::StaticClass());
 	MaxNav2.Add(ANaveNodriza::StaticClass(), 7);
 
-	FVector Posicion = FVector(0.0f, 0.0f, 250.0f);
+	FVector Posicion = FVector(0.0f, 0.0f, 150.0f);
 	FRotator Rotacion = FRotator(0.0f, 0.0f, 0.0f);
 
 	UWorld* const World = GetWorld();
 	if (World != nullptr) {
 		ANaveEnemiga* ENEMY_NAV = World->SpawnActor<ANaveEnemiga>(Posicion, Rotacion);
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < 5; i++) {
 			//Numero de Naves por fila.
-			for (int j = 0; j < 3; j++) {
+			for (int j = 0; j < 5; j++) {
 				//Recordemos declarar a 'TipoNavAlea' como referencia de las subclases de 'AEnemy'.
 				TSubclassOf<ANaveEnemiga>TipoNavAlea = TipoNaves2[FMath::RandRange(0, TipoNaves2.Num() - 1)];//Esto asigna una nave aleatoria de nuestro array de naves.
 				//Verificamos si el Tmap tiene la llave (TipoNavAlea) que recordemos que es una subclase especifica de 'Enemy'.
@@ -139,15 +161,15 @@ void AEscuadronesFacade::CrearEsc_4()
 	TipoNaves3.Add(ANaveEspia::StaticClass());
 	MaxNav3.Add(ANaveEspia::StaticClass(), 7);
 
-	FVector Posicion = FVector(-500.0f, 500.0f, 250.0f);
+	FVector Posicion = FVector(-500.0f, 500.0f, 150.0f);
 	FRotator Rotacion = FRotator(0.0f, 0.0f, 0.0f);
 
 	UWorld* const World = GetWorld();
 	if (World != nullptr) {
 		ANaveEnemiga* ENEMY_NAV = World->SpawnActor<ANaveEnemiga>(Posicion, Rotacion);
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < 5; i++) {
 			//Numero de Naves por fila.
-			for (int j = 0; j < 3; j++) {
+			for (int j = 0; j < 5; j++) {
 				//Recordemos declarar a 'TipoNavAlea' como referencia de las subclases de 'AEnemy'.
 				TSubclassOf<ANaveEnemiga>TipoNavAlea = TipoNaves3[FMath::RandRange(0, TipoNaves3.Num() - 1)];//Esto asigna una nave aleatoria de nuestro array de naves.
 				//Verificamos si el Tmap tiene la llave (TipoNavAlea) que recordemos que es una subclase especifica de 'Enemy'.
@@ -174,15 +196,15 @@ void AEscuadronesFacade::CrearEsc_5()
 	TipoNaves4.Add(ANaveTransporte::StaticClass());
 	MaxNav4.Add(ANaveTransporte::StaticClass(), 7);
 
-	FVector Posicion = FVector(0.0f, 1000.0f, 250.0f);
+	FVector Posicion = FVector(0.0f, 1000.0f, 150.0f);
 	FRotator Rotacion = FRotator(0.0f, 0.0f, 0.0f);
 
 	UWorld* const World = GetWorld();
 	if (World != nullptr) {
 		ANaveEnemiga* ENEMY_NAV = World->SpawnActor<ANaveEnemiga>(Posicion, Rotacion);
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < 5; i++) {
 			//Numero de Naves por fila.
-			for (int j = 0; j < 3; j++) {
+			for (int j = 0; j < 5; j++) {
 				//Recordemos declarar a 'TipoNavAlea' como referencia de las subclases de 'AEnemy'.
 				TSubclassOf<ANaveEnemiga>TipoNavAlea = TipoNaves4[FMath::RandRange(0, TipoNaves4.Num() - 1)];//Esto asigna una nave aleatoria de nuestro array de naves.
 				//Verificamos si el Tmap tiene la llave (TipoNavAlea) que recordemos que es una subclase especifica de 'Enemy'.
