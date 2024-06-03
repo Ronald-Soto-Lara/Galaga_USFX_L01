@@ -16,6 +16,7 @@ public:
 	// Sets default values for this actor's properties
 	AEscuadronesFacade();
 	TArray <ANaveEnemiga*> Enemigos;
+	int n;
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

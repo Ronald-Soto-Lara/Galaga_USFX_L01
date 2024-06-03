@@ -1,15 +1,28 @@
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Development\Galaga_USFX_L01\Definitions.Galaga_USFX_L01.h
-C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/Bomba.gen.cpp
+C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/aaConcrectObserver.gen.cpp
 D:\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
 D:\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
-C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01/Bomba.h
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01/aaConcrectObserver.h
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\SuscriptorInterfaz.h
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\ArmarObserver.h
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\Bomba.h
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\Bomba.generated.h
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\ArmarObserver.generated.h
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\SuscriptorInterfaz.generated.h
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\ClaseExtra.h
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\ClaseExtra.generated.h
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\EscudoActor.h
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\EscudoActor.generated.h
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\aaConcrectObserver.generated.h
+C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/ArmarObserver.gen.cpp
+C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/Bomba.gen.cpp
+C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/Calculator.gen.cpp
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01/Calculator.h
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\Calculator.generated.h
 C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/CapsulaEstate.gen.cpp
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01/CapsulaEstate.h
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\CapsulaEstate.generated.h
 C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/ClaseExtra.gen.cpp
-C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01/ClaseExtra.h
-C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\ClaseExtra.generated.h
 C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/ConstruirNaveJefe.gen.cpp
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01/ConstruirNaveJefe.h
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\NaveJefeBuilder.h
@@ -28,8 +41,6 @@ C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win6
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\NaveEnemiga.generated.h
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\EscuadronesFacade.generated.h
 C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/EscudoActor.gen.cpp
-C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01/EscudoActor.h
-C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\EscudoActor.generated.h
 C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/EscudoEscena.gen.cpp
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01/EscudoEscena.h
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\EscudoEscena.generated.h
@@ -48,6 +59,9 @@ C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Intermediate/Build/Win6
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01/EstadoLento.h
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\EstadoLento.generated.h
 C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/Estados.gen.cpp
+C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/Estrategy.gen.cpp
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01/Estrategy.h
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\Estrategy.generated.h
 C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/Galaga_USFX_L01.init.gen.cpp
 C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/Galaga_USFX_L01GameMode.gen.cpp
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01/Galaga_USFX_L01GameMode.h
@@ -106,6 +120,15 @@ C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win6
 C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/NaveEspia_2.gen.cpp
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01/NaveEspia_2.h
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\NaveEspia_2.generated.h
+C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/NaveEstrategy.gen.cpp
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01/NaveEstrategy.h
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\StrategyConcrect.h
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\StrategyConcrect.generated.h
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\StrategyConcrect_1.h
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\StrategyConcrect_1.generated.h
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\StrategyConcrect_2.h
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\StrategyConcrect_2.generated.h
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\NaveEstrategy.generated.h
 C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/NaveJefe_Nivel_1.gen.cpp
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01/NaveJefe_Nivel_1.h
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\NaveJefe_Nivel_1.generated.h
@@ -146,3 +169,7 @@ C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win6
 C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/ProyectilEnemigo.gen.cpp
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01/ProyectilEnemigo.h
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\ProyectilEnemigo.generated.h
+C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/StrategyConcrect.gen.cpp
+C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/StrategyConcrect_1.gen.cpp
+C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/StrategyConcrect_2.gen.cpp
+C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/SuscriptorInterfaz.gen.cpp

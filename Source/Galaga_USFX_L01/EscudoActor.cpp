@@ -9,15 +9,12 @@ AEscudoActor::AEscudoActor()
 {
     // Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
     PrimaryActorTick.bCanEverTick = true;
-
-    // Inicializa mallaBarrera antes de usarlo
     mallaBarrera = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("MallaBarrera"));
-
     static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("StaticMesh'/Game/Meshes/Shield.Shield'"));
-
-    mallaBarrera->SetStaticMesh(ShipMesh.Object);//esta linea nos permite asignar la malla a nuestro objeto
+    mallaBarrera->SetStaticMesh(ShipMesh.Object);
+    mallaBarrera->SetWorldScale3D(FVector(5.0f, 5.0f, 5.0f));
 	movimiento = true;
-	velocidad = 100.0f;
+	velocidad = 0.0f;
 }
 // Called when the game starts or when spawned
 void AEscudoActor::BeginPlay()

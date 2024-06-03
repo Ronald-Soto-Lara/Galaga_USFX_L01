@@ -19,11 +19,17 @@
 #include "NaveAlatoriaAerea.h"
 #include "NaveReabastecimiento.h"
 #include "Estados.h"
+#include "CapsulaEstate.h"
+#include "ClaseExtra.h"
 #include "EstadoBase.h"
 #include "EstadoLento.h"
 #include "EstadoInvisible.h"
 #include "EstadoInvencible.h"
-#include "CapsulaEstate.h"
+#include "StrategyConcrect.h"
+#include "StrategyConcrect_1.h"
+#include "StrategyConcrect_2.h"
+#include "Estrategy.h"
+#include "NaveEstrategy.h"
 #include "GameFramework/PlayerInput.h"
 #include "GameFramework/CharacterMovementComponent.h"
 
@@ -73,17 +79,47 @@ AGalaga_USFX_L01Pawn::AGalaga_USFX_L01Pawn()
 	soltBomb = true;
 }
 void AGalaga_USFX_L01Pawn::NotifyHit(UPrimitiveComponent* MyComp, AActor* Other, UPrimitiveComponent* OtherComp, bool bSelfMoved, FVector HitLocation, FVector HitNormal, FVector NormalImpulse, const FHitResult& Hit)
-{  
+{
 	ANaveReabastecimiento* NaveReabastecimiento = Cast<ANaveReabastecimiento>(Other);
 	ANaveEspia* NaveCazaCol = Cast<ANaveEspia>(Other);
 	ANaveTransporte* NaveTransCol = Cast<ANaveTransporte>(Other);
 	ANaveCaza* NaveCaza = Cast<ANaveCaza>(Other);
 	ANaveNodriza* NaveNodriza = Cast<ANaveNodriza>(Other);
 	ACapsulaEstate* CapsulaEstate = Cast<ACapsulaEstate>(Other);
+	AClaseExtra* ClaseExtra = Cast<AClaseExtra>(Other);
+	if (ClaseExtra != nullptr)
+	{
+		Puntaje+=100;
+		if (Puntaje >0)
+		{
+			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, TEXT("Puntaje: " + FString::FromInt(Puntaje)));
+		}
+	}	
 	if (CapsulaEstate != nullptr)
 	{
-		AGalaga_USFX_L01GameMode* GameMode = Cast<AGalaga_USFX_L01GameMode>(GetWorld()->GetAuthGameMode());
-		GameMode->CrearEstate();
+		/*AGalaga_USFX_L01GameMode* GameMode = Cast<AGalaga_USFX_L01GameMode>(GetWorld()->GetAuthGameMode());
+		GameMode->CrearEstate();*/
+		AEstadoBase* EstadosBase1 = GetWorld()->SpawnActor<AEstadoBase>();
+		AEstadoLento* EstadosLento1 = GetWorld()->SpawnActor<AEstadoLento>();
+		AEstadoInvisible* EstadosInvisible1 = GetWorld()->SpawnActor<AEstadoInvisible>();
+		AEstadoInvencible* EstadosInvencible1 = GetWorld()->SpawnActor<AEstadoInvencible>();
+		int32 one = FMath::RandRange(1, 4);
+		if (one == 1) {
+			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Estado Lento"));
+			EstadosLento1->PawnLento();
+		}
+		if (one == 2) {
+			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Estado Invisible"));
+			EstadosInvisible1->PawnInvisible();
+		}
+		if (one == 3) {
+			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Estado Invencible"));
+			EstadosInvencible1->PawnInvencible();
+		}
+		if (one == 4) {
+			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Estado Normal"));
+			EstadosBase1->PawnNormal();
+		}
 	}
 	if (NaveReabastecimiento != nullptr){
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, TEXT("Chocaste con la nave de reabastecimiento"));
@@ -113,7 +149,7 @@ void AGalaga_USFX_L01Pawn::BeginPlay()
 	PosicionInicio = GetActorLocation();
 	UbicacionInicioX = GetActorLocation().X;
 	UbicacionInicioY = GetActorLocation().Y;
-
+	/*naveEstrategy = Cast<ANaveEstrategy>(UGameplayStatics::GetPlayerPawn(GetWorld(), 0));*/
 }
 
 void AGalaga_USFX_L01Pawn::Destruir()
@@ -333,82 +369,6 @@ void AGalaga_USFX_L01Pawn::ResetSoltarBomba()
 	soltBomb = true;
 }
 
-void AGalaga_USFX_L01Pawn::Tick(float DeltaSeconds)
-{
-	// Find movement direction
-	const float ForwardValue = GetInputAxisValue(MoveForwardBinding);
-	const float RightValue = GetInputAxisValue(MoveRightBinding);
-
-	// Clamp max size so that (X=1, Y=1) doesn't cause faster movement in diagonal directions
-	const FVector MoveDirection = FVector(ForwardValue, RightValue, 0.f).GetClampedToMaxSize(1.0f);
-
-	// Calculate  movement
-	const FVector Movement = MoveDirection * MoveSpeed * DeltaSeconds;
-
-	bool masVelocidad = false;
-
-	{
-		AGalaga_USFX_L01GameMode* GameMode = Cast<AGalaga_USFX_L01GameMode>(GetWorld()->GetAuthGameMode());
-		if (GameMode != nullptr)
-		{
-			masVelocidad = GameMode->GetPowerUpStatus(500);
-		}
-	}
-
-	if (masVelocidad)
-	{
-		MoveSpeed = 2000.0f;
-	}
-
-	// If non-zero size, move this actor
-	if (Movement.SizeSquared() > 0.0f)
-	{
-		const FRotator NewRotation = Movement.Rotation();
-		FHitResult Hit(1.f);
-		RootComponent->MoveComponent(Movement, NewRotation, true, &Hit);
-
-		if (Hit.IsValidBlockingHit())
-		{
-			const FVector Normal2D = Hit.Normal.GetSafeNormal2D();
-			const FVector Deflection = FVector::VectorPlaneProject(Movement, Normal2D) * (1.f - Hit.Time);
-			RootComponent->MoveComponent(Deflection, NewRotation, true);
-		}
-	}
-
-	// Create fire direction vector
-	const float FireForwardValue = GetInputAxisValue(FireForwardBinding);
-	const float FireRightValue = GetInputAxisValue(FireRightBinding);
-	const FVector FireDirection = FVector(FireForwardValue, FireRightValue, 0.f);
-
-	// Try and fire a shot
-	FireShot(FireDirection);
-
-	//const float Gravedad = -9.8f;  // Ajusta este valor según sea necesario
-	//const FVector FuerzaGravedad = FVector(0.0f, 0.0f, Gravedad);
-	//ShipMeshComponent->AddForce(FuerzaGravedad);
-
-	if (movimiento)
-	{
-		FVector PosicionActual = GetActorLocation();
-		if (GetActorLocation().X > UbicacionInicioX + 20 || GetActorLocation().X < UbicacionInicioX - 20)
-		{
-			if (GetActorLocation().Y > UbicacionInicioY + 20 || GetActorLocation().Y < UbicacionInicioY - 20)
-			{
-				FVector Direccion = (PosicionInicio - PosicionActual).GetSafeNormal();
-				FVector NuevaPosicion = PosicionActual + Direccion * 2000.0f * DeltaSeconds;
-				SetActorLocation(NuevaPosicion);
-
-			}
-			else
-			{
-				movimiento = false;
-			}
-		}
-
-
-	}
-}
-
 void AGalaga_USFX_L01Pawn::FireShot(FVector FireDirection)
 {
 	// If it's ok to fire again
@@ -552,4 +512,90 @@ IEstados* AGalaga_USFX_L01Pawn::N_ObtenerEstadoActual()
 	else {
 		return "No hay estado actual";
 	}*/
+}
+
+//void AGalaga_USFX_L01Pawn::Estrategia1()
+//{
+//	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Estrategia 1"));
+//	naveEstrategy->Estrategia___1();
+//}
+//
+//void AGalaga_USFX_L01Pawn::Estrategia2()
+//{
+//	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Estrategia 2"));
+//	naveEstrategy->Estrategia___2();
+//}
+//
+//void AGalaga_USFX_L01Pawn::Estrategia3()
+//{
+//	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Estrategia 3"));
+//	naveEstrategy->Estrategia___3();
+//}
+
+void AGalaga_USFX_L01Pawn::Tick(float DeltaSeconds)
+{
+	/*RecordPawn += 1;
+	if(RecordPawn==100)
+	{
+		Estrategia1();
+	}
+	if(RecordPawn==200)
+	{
+		Estrategia2();
+	}
+	if (RecordPawn==300)
+	{
+		Estrategia3();
+	}*/
+	const float ForwardValue = GetInputAxisValue(MoveForwardBinding);
+	const float RightValue = GetInputAxisValue(MoveRightBinding);
+	const FVector MoveDirection = FVector(ForwardValue, RightValue, 0.f).GetClampedToMaxSize(1.0f);
+	const FVector Movement = MoveDirection * MoveSpeed * DeltaSeconds;
+	bool masVelocidad = false;
+	{
+		AGalaga_USFX_L01GameMode* GameMode = Cast<AGalaga_USFX_L01GameMode>(GetWorld()->GetAuthGameMode());
+		if (GameMode != nullptr)
+		{
+			masVelocidad = GameMode->GetPowerUpStatus(500);
+		}
+	}
+	if (masVelocidad)
+	{
+		MoveSpeed = 2000.0f;
+	}
+	if (Movement.SizeSquared() > 0.0f)
+	{
+		const FRotator NewRotation = Movement.Rotation();
+		FHitResult Hit(1.f);
+		RootComponent->MoveComponent(Movement, NewRotation, true, &Hit);
+
+		if (Hit.IsValidBlockingHit())
+		{
+			const FVector Normal2D = Hit.Normal.GetSafeNormal2D();
+			const FVector Deflection = FVector::VectorPlaneProject(Movement, Normal2D) * (1.f - Hit.Time);
+			RootComponent->MoveComponent(Deflection, NewRotation, true);
+		}
+	}
+	const float FireForwardValue = GetInputAxisValue(FireForwardBinding);
+	const float FireRightValue = GetInputAxisValue(FireRightBinding);
+	const FVector FireDirection = FVector(FireForwardValue, FireRightValue, 0.f);
+	FireShot(FireDirection);
+	if (movimiento)
+	{
+		FVector PosicionActual = GetActorLocation();
+		if (GetActorLocation().X > UbicacionInicioX + 20 || GetActorLocation().X < UbicacionInicioX - 20)
+		{
+			if (GetActorLocation().Y > UbicacionInicioY + 20 || GetActorLocation().Y < UbicacionInicioY - 20)
+			{
+				FVector Direccion = (PosicionInicio - PosicionActual).GetSafeNormal();
+				FVector NuevaPosicion = PosicionActual + Direccion * 2000.0f * DeltaSeconds;
+				SetActorLocation(NuevaPosicion);
+
+			}
+			else
+			{
+				movimiento = false;
+			}
+		}
+	}
 }

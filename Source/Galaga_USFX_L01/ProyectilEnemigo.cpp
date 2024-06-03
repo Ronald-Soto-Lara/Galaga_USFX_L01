@@ -21,23 +21,19 @@ AProyectilEnemigo::AProyectilEnemigo()
 
 	vel = 1000;
 }
-void AProyectilEnemigo::Mover()
-{
-	FVector NewLocation = GetActorLocation() + -GetActorForwardVector() * vel * GetWorld()->GetDeltaSeconds();
-	SetActorLocation(NewLocation);
-}
-// Called when the game starts or when spawned
 void AProyectilEnemigo::BeginPlay()
 {
 	Super::BeginPlay();
 
 }
-
-// Called every frame
 void AProyectilEnemigo::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	Mover();
 
 }
-
+void AProyectilEnemigo::Mover()
+{
+	FVector NewLocation = GetActorLocation() + -GetActorForwardVector() * vel * GetWorld()->GetDeltaSeconds();
+	SetActorLocation(NewLocation);
+}

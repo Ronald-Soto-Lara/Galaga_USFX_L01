@@ -29,6 +29,4 @@ void ABomba::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	scored += 75;
-	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::Printf(TEXT("Taller: %d"), scored));
-
 }

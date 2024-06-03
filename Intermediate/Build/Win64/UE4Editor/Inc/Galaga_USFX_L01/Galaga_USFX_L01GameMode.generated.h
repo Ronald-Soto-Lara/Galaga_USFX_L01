@@ -58,7 +58,10 @@ public: \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AGalaga_USFX_L01GameMode)
 
 
-#define Galaga_USFX_L01_Source_Galaga_USFX_L01_Galaga_USFX_L01GameMode_h_33_PRIVATE_PROPERTY_OFFSET
+#define Galaga_USFX_L01_Source_Galaga_USFX_L01_Galaga_USFX_L01GameMode_h_33_PRIVATE_PROPERTY_OFFSET \
+	FORCEINLINE static uint32 __PPO__calculadora() { return STRUCT_OFFSET(AGalaga_USFX_L01GameMode, calculadora); }
+
+
 #define Galaga_USFX_L01_Source_Galaga_USFX_L01_Galaga_USFX_L01GameMode_h_30_PROLOG
 #define Galaga_USFX_L01_Source_Galaga_USFX_L01_Galaga_USFX_L01GameMode_h_33_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \

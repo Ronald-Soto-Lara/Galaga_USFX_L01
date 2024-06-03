@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameFramework/Character.h"
+#include "GameFramework/Character.h"	
 #include "Bomba.h"
 #include "Galaga_USFX_L01Pawn.generated.h"
 
@@ -63,7 +63,6 @@ protected:
 	FTimerHandle TimerHandle_SoltarBomba;
 	FTimerHandle DetonarBomba;
 	// Begin Actor Interface
-	virtual void Tick(float DeltaSeconds) override;
 	virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) override;
 	virtual void movIzq(float Value);
 	virtual void movDer(float Value);
@@ -77,6 +76,7 @@ protected:
 	virtual void devolverAlPrincipio();
 	virtual void soltarBomba();
 	virtual void ResetSoltarBomba();
+	virtual void Tick(float DeltaSeconds) override;
 	// End Actor Interface
 
 	/* Fire a shot in the specified direction */
@@ -121,6 +121,8 @@ public:
 	float velNaveY;
 	float UbicacionInicioX;
 	float UbicacionInicioY;
+	float Puntaje;
+	int RecordPawn;
 	UFUNCTION()
 	virtual void NotifyHit(UPrimitiveComponent* MyComp, AActor* Other, UPrimitiveComponent* OtherComp,
 	bool bSelfMoved, FVector HitLocation, FVector HitNormal, FVector NormalImpulse, const FHitResult& Hit)override;
@@ -133,6 +135,11 @@ public:
 	IEstados* EstadoLento;
 	IEstados* EstadoInvisible;
 	IEstados* EstadoInvencible;
+	/*AEstadoBase* EstadoBase1;
+	AEstadoLento* EstadoLento1;
+	AEstadoInvisible* EstadoInvisible1;
+	AEstadoInvencible* EstadoInvencible1;*/
+
 	//Funciones pa cambiar los estados.
 	FORCEINLINE void SetEstado(IEstados* _Estado);
 
@@ -149,4 +156,16 @@ public:
 	FORCEINLINE IEstados* N_ObtenerEstadoInvencible();
 	FORCEINLINE IEstados* N_ObtenerEstadoActual();
 	// ... más código ...
+//public:
+//
+//	void Estrategia1();
+//	void Estrategia2();
+//	void Estrategia3();
+//
+//	class AStrategyConcrect* StrategyConcrect_1;
+//	class AStrategyConcrect_1* StrategyConcrect_2;
+//	class AStrategyConcrect_2* StrategyConcrect_3;
+//
+//private:
+//	class ANaveEstrategy* naveEstrategy;
 };

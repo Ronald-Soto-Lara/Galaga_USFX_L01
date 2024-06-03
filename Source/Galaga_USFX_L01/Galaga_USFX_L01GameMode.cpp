@@ -35,7 +35,10 @@
 #include "EstadoInvisible.h"
 #include "EstadoInvencible.h"
 #include "CapsulaEstate.h"
+#include "Calculator.h"
+#include "aaConcrectObserver.h"
 #include "LetreroBienvenida.h"
+#include "NaveEstrategy.h"
 #include "TimerManager.h"
 
 
@@ -47,6 +50,7 @@ AGalaga_USFX_L01GameMode::AGalaga_USFX_L01GameMode()
 
 	//NaveEnemiga01 = nullptr;
 	naves = true;
+	TimeDay = 0.0f;
 	HUDClass = ALetreroBienvenida::StaticClass();
 }
 
@@ -66,18 +70,35 @@ void AGalaga_USFX_L01GameMode::BeginPlay()
 	FRotator RotacionBala = FRotator(0.0f, 0.0f, 0.0f);
 
 	FRotator rotacionNave = FRotator(0.0f, 0.0f, 0.0f);
-
+	calculadora = GetWorld()->SpawnActor<ACalculator>(ACalculator::StaticClass());
+	/*Observer->EstablecerTiempo(calculadora);*/
 	UWorld* const World = GetWorld();
 	int a = 350;
 	int b = -450;
 	int c = 0;	
 	if (World != nullptr)
 	{
+		/*for (int i = 2; i<=6; i+=2) {
+		ANaveEstrategy* NaveEstrategy = World->SpawnActor<ANaveEstrategy>((FVector(-400.0f, -400.0f, 150.0f)+FVector(0.0f,i*100.0f,0.0f)), FRotator(-180.0f, 0.0f, 0.0f));
+		}*/
+		ANaveEstrategy* NaveStrategy_0 = World->SpawnActor<ANaveEstrategy>(ANaveEstrategy::StaticClass());
+		if (NaveStrategy_0)
+		{
+			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("NaveEstrategy_0"));
+			ANaveEstrategy*NaveEstrategy = GetWorld()->SpawnActor<ANaveEstrategy>(FVector(-400.0f, 200.0f, 150.0f), FRotator(180.0f, 0.0f, 0.0f));
+			ANaveEstrategy*NaveEstrategy_1 = GetWorld()->SpawnActor<ANaveEstrategy>(FVector(-400.0f, 0.0f, 150.0f), FRotator(180.0f, 0.0f, 0.0f));
+			ANaveEstrategy*NaveEstrategy_2 = GetWorld()->SpawnActor<ANaveEstrategy>(FVector(-400.0f, -200.0f, 150.0f), FRotator(180.0f, 0.0f, 0.0f));
+		}
+		/*ANaveEstrategy* NaveEstrategy_1 = World->SpawnActor<ANaveEstrategy>(FVector(-400.0f, 0.0f, 150.0f), FRotator(-180.0f, 0.0f, 0.0f));
+		ANaveEstrategy* NaveEstrategy_2 = World->SpawnActor<ANaveEstrategy>(FVector(-400.0f, 200.0f, 150.0f), FRotator(-180.0f, 0.0f, 0.0f));*/
+		/*AaaConcrectObserver* Observer = World->SpawnActor<AaaConcrectObserver>();*/
 		ACapsulaEstate* Capsula = World->SpawnActor<ACapsulaEstate>(FVector(-1000.0f, 0.0f, 150.0f), FRotator(0.0f, 0.0f, 0.0f));
+		/*AClaseExtra* ClaseExtra = World->SpawnActor<AClaseExtra>(FVector(-300.0f, 0.0f, 150.0f), FRotator(0.0f, 0.0f, 0.0f)); */
+		AaaConcrectObserver*Observer2 = World->SpawnActor<AaaConcrectObserver>(FVector(0.0f, 0.0f, 150.0f), FRotator(0.0f, 90.0f, 0.0f));
 		//ANaveCaza* NaveCaza = World->SpawnActor<ANaveCaza>(FVector(-1000.0f, 0.0f, 150.0f), rotacionNave);
 		//ANaveReabastecimiento* NaveColision = World->SpawnActor<ANaveReabastecimiento>(PosicionColision, Rotacioncolision);
-		Naves = GetWorld()->SpawnActor<AEscuadronesFacade>(AEscuadronesFacade::StaticClass());
-		Naves->CrearEscuadrones(1);
+		//Naves = GetWorld()->SpawnActor<AEscuadronesFacade>(AEscuadronesFacade::StaticClass());
+		//Naves->CrearEscuadrones(1);
 		/*Naves->CrearEsc_2();
 		Naves->CrearEsc_3();
 		Naves->CrearEsc_4();
@@ -187,8 +208,7 @@ void AGalaga_USFX_L01GameMode::Tick(float DeltaTime)
 			naves = false;
 		}
 	}
-	
-	if (score > 500)
+	/*if (score > 500)
 	{
 		Naves->CrearEscuadrones(2);
 	}
@@ -203,7 +223,10 @@ void AGalaga_USFX_L01GameMode::Tick(float DeltaTime)
 	if (score > 2000)
 	{
 		Naves->CrearEscuadrones(5);
-	}
+	}*/
+	TimeDay += DeltaTime;
+	////GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, FString::Printf(
+	//	TEXT("Hora del dia: %f"), TimeDay));
 }
 int x = 0;
 
@@ -300,7 +323,7 @@ void AGalaga_USFX_L01GameMode::ActTiempo() {
 
 void AGalaga_USFX_L01GameMode::CrearEstate()
 {
-	AEstadoBase* EstadosBase = GetWorld()->SpawnActor<AEstadoBase>();
+	/*AEstadoBase* EstadosBase = GetWorld()->SpawnActor<AEstadoBase>();
 	AEstadoLento* EstadosLento = GetWorld()->SpawnActor<AEstadoLento>();
 	AEstadoInvisible* EstadosInvisible = GetWorld()->SpawnActor<AEstadoInvisible>();
 	AEstadoInvencible* EstadosInvencible = GetWorld()->SpawnActor<AEstadoInvencible>();
@@ -320,5 +343,5 @@ void AGalaga_USFX_L01GameMode::CrearEstate()
 		if (one == 4) {
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Estado Normal"));
 			EstadosBase->PawnNormal();
-		}
+		}*/
 }

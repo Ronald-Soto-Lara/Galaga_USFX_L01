@@ -14,7 +14,7 @@ AEscuadronesFacade::AEscuadronesFacade()
 {
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-
+	n = 1;
 }
 
 // Called when the game starts or when spawned
@@ -33,24 +33,31 @@ void AEscuadronesFacade::Tick(float DeltaTime)
 
 void AEscuadronesFacade::CrearEscuadrones(int tipo)
 {
-	switch (tipo)
+		/*GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, FString::Printf(TEXT("Creando Escuadrones111111")));
+		AEscuadronesFacade* escuadron = NewObject<AEscuadronesFacade>();
+		escuadron->CrearEsc_1();
+		escuadron->CrearEsc_2();
+		escuadron->CrearEsc_3();
+		escuadron->CrearEsc_4();
+		escuadron->CrearEsc_5();*/
+	/*switch (tipo)
 	{
 	case 1:
-		//CrearEsc_1();
+		CrearEsc_1();
 		break;
 	case 2:
-		//CrearEsc_2();
+		CrearEsc_2();
 		break;
 	case 3:
-		//CrearEsc_3();
+		CrearEsc_3();
 		break;
 	case 4:
-		//CrearEsc_4();
+		CrearEsc_4();
 		break;
 	case 5:
-		//CrearEsc_5();
+		CrearEsc_5();
 		break;
-	}
+	}*/
 }
 
 void AEscuadronesFacade::CrearEsc_1()

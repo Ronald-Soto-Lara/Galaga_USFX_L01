@@ -35,6 +35,7 @@ class AGalaga_USFX_L01GameMode : public AGameModeBase
 public:
 	AGalaga_USFX_L01GameMode();
 	virtual void CrearEstate();
+	int na;
 protected:
 	//Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -45,6 +46,8 @@ protected:
 	FTimerHandle EliminarNaveTerrestre;
 	bool naves;
 	class AEscuadronesFacade* Naves;
+	UPROPERTY(VisibleAnywhere, Category = "Game mode")
+	class ACalculator* calculadora;
 private:
 	int TiempoTranscurrido;
 	TMap<int, bool> PowerUpStatusMap;
@@ -62,7 +65,7 @@ public:
 	int POWER_UP_DOUBLE_SHOT_ID;
 	FString powerUp;
 	TMap<int, FString>TMapPowerUp;
-
+	float TimeDay;		
 	FORCEINLINE bool GetPowerUpStatus(int PowerUpID) const
 	{
 		const bool* Status = PowerUpStatusMap.Find(PowerUpID);
