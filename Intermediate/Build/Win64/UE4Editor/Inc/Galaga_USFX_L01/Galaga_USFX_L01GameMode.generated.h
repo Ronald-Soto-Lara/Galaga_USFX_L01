@@ -59,7 +59,11 @@ public: \
 
 
 #define Galaga_USFX_L01_Source_Galaga_USFX_L01_Galaga_USFX_L01GameMode_h_33_PRIVATE_PROPERTY_OFFSET \
-	FORCEINLINE static uint32 __PPO__calculadora() { return STRUCT_OFFSET(AGalaga_USFX_L01GameMode, calculadora); }
+	FORCEINLINE static uint32 __PPO__calculadora() { return STRUCT_OFFSET(AGalaga_USFX_L01GameMode, calculadora); } \
+	FORCEINLINE static uint32 __PPO__Emisor() { return STRUCT_OFFSET(AGalaga_USFX_L01GameMode, Emisor); } \
+	FORCEINLINE static uint32 __PPO__Receptor() { return STRUCT_OFFSET(AGalaga_USFX_L01GameMode, Receptor); } \
+	FORCEINLINE static uint32 __PPO__CSaltar() { return STRUCT_OFFSET(AGalaga_USFX_L01GameMode, CSaltar); } \
+	FORCEINLINE static uint32 __PPO__CDisparar() { return STRUCT_OFFSET(AGalaga_USFX_L01GameMode, CDisparar); }
 
 
 #define Galaga_USFX_L01_Source_Galaga_USFX_L01_Galaga_USFX_L01GameMode_h_30_PROLOG

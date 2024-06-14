@@ -54,11 +54,7 @@ void ANaveEstrategy::SetEstrategia(AActor* _Estrategia)
 void ANaveEstrategy::UsarEstrategia()
 {
 	if (Estrategia) {
-		Estrategia->EjecutarTarea();
-	}
-	else
-	{
-		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::White, TEXT("No se ha asignado una estrategia"));
+		Estrategia->Disparar();
 	}
 }
 

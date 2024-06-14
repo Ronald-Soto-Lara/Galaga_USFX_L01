@@ -39,6 +39,11 @@
 #include "aaConcrectObserver.h"
 #include "LetreroBienvenida.h"
 #include "NaveEstrategy.h"
+#include "NavesCucarachas.h"
+#include "ComandoDeSalto.h"
+#include "ComandoDeDisparo.h"
+#include "ReceptorDeOrdenes.h"
+#include "EmisorDeOrdenes.h"
 #include "TimerManager.h"
 
 
@@ -46,6 +51,8 @@ AGalaga_USFX_L01GameMode::AGalaga_USFX_L01GameMode()
 {
 	// set default pawn class to our character class
 	PrimaryActorTick.bCanEverTick = true;
+	Ordenes = TArray<AActor*>();
+	temp = 0.f;
 	DefaultPawnClass = AGalaga_USFX_L01Pawn::StaticClass();
 
 	//NaveEnemiga01 = nullptr;
@@ -57,8 +64,12 @@ AGalaga_USFX_L01GameMode::AGalaga_USFX_L01GameMode()
 void AGalaga_USFX_L01GameMode::BeginPlay()
 {
 	Super::BeginPlay();
+	Emisor = GetWorld()->SpawnActor<AEmisorDeOrdenes>(AEmisorDeOrdenes::StaticClass());
+
+
+	EjecutarComandoDisparar();
 	//set the game satate to playing
-	FVector ubicacionInicioNavesEnemigasCaza = FVector(-500.0f, -500.0f, 150.0f);
+	/*FVector ubicacionInicioNavesEnemigasCaza = FVector(-500.0f, -500.0f, 150.0f);
 	FVector ubicacionInicioNavesEnemigasTransporte = FVector(0.0f, 0.0f, 150.0f);
 	FVector ubicacionInicioNavesEnemigasReabastecimiento = FVector(500.0f, 500.0f, 150.0f);
 	FVector NaveAleatoriaAcuaticaUbicacion = FVector(-1000.0f, 0.0f, 150.0f);
@@ -68,34 +79,33 @@ void AGalaga_USFX_L01GameMode::BeginPlay()
 	FVector PosicionColision = FVector(-500.0f, 0.0f, 150.0f);
 	FRotator Rotacioncolision = FRotator(0.0f, 0.0f, 0.0f);
 	FRotator RotacionBala = FRotator(0.0f, 0.0f, 0.0f);
-
-	FRotator rotacionNave = FRotator(0.0f, 0.0f, 0.0f);
-	calculadora = GetWorld()->SpawnActor<ACalculator>(ACalculator::StaticClass());
+	FRotator rotacionNave = FRotator(0.0f, 0.0f, 0.0f);*/
+	/*calculadora = GetWorld()->SpawnActor<ACalculator>(ACalculator::StaticClass());*/
 	/*Observer->EstablecerTiempo(calculadora);*/
 	UWorld* const World = GetWorld();
-	int a = 350;
+	/*int a = 350;
 	int b = -450;
-	int c = 0;	
+	int c = 0;	*/
 	if (World != nullptr)
 	{
 		/*for (int i = 2; i<=6; i+=2) {
 		ANaveEstrategy* NaveEstrategy = World->SpawnActor<ANaveEstrategy>((FVector(-400.0f, -400.0f, 150.0f)+FVector(0.0f,i*100.0f,0.0f)), FRotator(-180.0f, 0.0f, 0.0f));
 		}*/
-		ANaveEstrategy* NaveStrategy_0 = World->SpawnActor<ANaveEstrategy>(ANaveEstrategy::StaticClass());
+		ANavesCucarachas* NavesCucarachas = World->SpawnActor<ANavesCucarachas>(ANavesCucarachas::StaticClass());
+		/*ANaveEstrategy* NaveStrategy_0 = World->SpawnActor<ANaveEstrategy>(ANaveEstrategy::StaticClass());
 		if (NaveStrategy_0)
 		{
-			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("NaveEstrategy_0"));
 			ANaveEstrategy*NaveEstrategy = GetWorld()->SpawnActor<ANaveEstrategy>(FVector(-400.0f, 200.0f, 150.0f), FRotator(180.0f, 0.0f, 0.0f));
 			ANaveEstrategy*NaveEstrategy_1 = GetWorld()->SpawnActor<ANaveEstrategy>(FVector(-400.0f, 0.0f, 150.0f), FRotator(180.0f, 0.0f, 0.0f));
 			ANaveEstrategy*NaveEstrategy_2 = GetWorld()->SpawnActor<ANaveEstrategy>(FVector(-400.0f, -200.0f, 150.0f), FRotator(180.0f, 0.0f, 0.0f));
-		}
+		}*/
 		/*ANaveEstrategy* NaveEstrategy_1 = World->SpawnActor<ANaveEstrategy>(FVector(-400.0f, 0.0f, 150.0f), FRotator(-180.0f, 0.0f, 0.0f));
 		ANaveEstrategy* NaveEstrategy_2 = World->SpawnActor<ANaveEstrategy>(FVector(-400.0f, 200.0f, 150.0f), FRotator(-180.0f, 0.0f, 0.0f));*/
 		/*AaaConcrectObserver* Observer = World->SpawnActor<AaaConcrectObserver>();*/
-		ACapsulaEstate* Capsula = World->SpawnActor<ACapsulaEstate>(FVector(-1000.0f, 0.0f, 150.0f), FRotator(0.0f, 0.0f, 0.0f));
+		/*ACapsulaEstate* Capsula = World->SpawnActor<ACapsulaEstate>(FVector(-1000.0f, 0.0f, 150.0f), FRotator(0.0f, 0.0f, 0.0f));*/
 		/*AClaseExtra* ClaseExtra = World->SpawnActor<AClaseExtra>(FVector(-300.0f, 0.0f, 150.0f), FRotator(0.0f, 0.0f, 0.0f)); */
-		AaaConcrectObserver*Observer2 = World->SpawnActor<AaaConcrectObserver>(FVector(0.0f, 0.0f, 150.0f), FRotator(0.0f, 90.0f, 0.0f));
-		//ANaveCaza* NaveCaza = World->SpawnActor<ANaveCaza>(FVector(-1000.0f, 0.0f, 150.0f), rotacionNave);
+		/*AaaConcrectObserver*Observer2 = World->SpawnActor<AaaConcrectObserver>(FVector(0.0f, 0.0f, 150.0f), FRotator(0.0f, 90.0f, 0.0f));*/
+		ANaveCaza* NaveCaza = World->SpawnActor<ANaveCaza>(FVector(0.0f, 0.0f, 150.0f), FRotator(0.0f, 0.0f, 0.0f));
 		//ANaveReabastecimiento* NaveColision = World->SpawnActor<ANaveReabastecimiento>(PosicionColision, Rotacioncolision);
 		//Naves = GetWorld()->SpawnActor<AEscuadronesFacade>(AEscuadronesFacade::StaticClass());
 		//Naves->CrearEscuadrones(1);
@@ -103,8 +113,8 @@ void AGalaga_USFX_L01GameMode::BeginPlay()
 		Naves->CrearEsc_3();
 		Naves->CrearEsc_4();
 		Naves->CrearEsc_5();*/
-		FTimerDelegate TimerDel;
-		int32 RandomNumber = FMath::RandRange(0, 2);
+		/*FTimerDelegate TimerDel;
+		int32 RandomNumber = FMath::RandRange(0, 2);*/
 
 		/*TArray<TSubclassOf<ANaveEnemiga>> claseNave = {
 		ANaveCaza_1::StaticClass(), ANaveCaza_2::StaticClass(),
@@ -165,10 +175,42 @@ void AGalaga_USFX_L01GameMode::BeginPlay()
 	PowerUpStatusMap.Add(500, false);
 	score = 0;
 }
+
 void AGalaga_USFX_L01GameMode::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	TiempoTranscurrido++;
+	temp++;
+	if (temp == 50.f)
+	{
+		DeshacerComando();
+	}
+	if (temp == 100.f)
+	{
+		EjecutarComandoSaltar();
+	}
+	if (temp == 150.f)
+	{
+		DeshacerComando();
+	}
+
+	/*EstadoPawn = Jugador->GetEstadoActual();
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::Printf(TEXT("Tiempo: %f"), time));
+	if (time >= 0.0f)
+	{
+		NaveEstrategica->CambiarEstrategia(EstNavEstandar);
+		NaveEstrategica->AplicarEstrategia(DeltaTime);
+	}
+	if (time >= 15.0f)
+	{
+		NaveEstrategica->CambiarEstrategia(EstNavIntimidacion);
+		NaveEstrategica->AplicarEstrategia(DeltaTime);
+	}
+	if (time >= 30.0f)
+	{
+		NaveEstrategica->CambiarEstrategia(EstNavDefensiva);
+		NaveEstrategica->AplicarEstrategia(DeltaTime);
+	}*/
 	if (TiempoTranscurrido >= 20)
 	{
 		int numeroEnemigo = FMath::RandRange(0, 9);
@@ -238,59 +280,59 @@ void AGalaga_USFX_L01GameMode::CrearNaves()
 	UWorld* const World = GetWorld();
 	if (World != nullptr)
 	{
-		FVector NaveAleatoriaAcuaticaUbicacion = FVector(-1000.0f, 0.0f, 150.0f);
-		FVector NaveAleatoriaAereaUbicacion = FVector(-1200.0f, 0.0f, 700.0f);
-		FVector NaveAleatoriaTerrestreUbicacion = FVector(-1400.0f, 0.0f, 150.0f);
+		//FVector NaveAleatoriaAcuaticaUbicacion = FVector(-1000.0f, 0.0f, 150.0f);
+		//FVector NaveAleatoriaAereaUbicacion = FVector(-1200.0f, 0.0f, 700.0f);
+		//FVector NaveAleatoriaTerrestreUbicacion = FVector(-1400.0f, 0.0f, 150.0f);
 
-		FRotator rotacionNave = FRotator(0.0f, 0.0f, 0.0f);
-		if (x < 3) {
-			FTimerDelegate TimerDel;
-			int32 RandomNumber = FMath::RandRange(1, 3);
-			//haz el codigo para que despues de 3 segndos de elimine el letrero de bienvenida
+		//FRotator rotacionNave = FRotator(0.0f, 0.0f, 0.0f);
+		//if (x < 3) {
+		//	FTimerDelegate TimerDel;
+		//	int32 RandomNumber = FMath::RandRange(1, 3);
+		//	//haz el codigo para que despues de 3 segndos de elimine el letrero de bienvenida
 
-			if (RandomNumber == 1)
-			{
-				ANaveAleatoriaAcuatica* NaveAleatoriaAcuaticaTemp = World->SpawnActor<ANaveAleatoriaAcuatica>(NaveAleatoriaAcuaticaUbicacion, rotacionNave);
-				TimerDel.BindLambda([NaveAleatoriaAcuaticaTemp]()
-					{
-						if (NaveAleatoriaAcuaticaTemp && NaveAleatoriaAcuaticaTemp->IsValidLowLevel())
-						{
-							NaveAleatoriaAcuaticaTemp->Destroy();
-						}
-					});
-				GetWorld()->GetTimerManager().SetTimer(EliminarNaveAcuatica, TimerDel, 10.0f, false);
-				naves = true;
-				x++;
-			}
-			else if (RandomNumber == 2)
-			{
-				ANaveAlatoriaAerea* NaveAleatoriaAereaTemp = World->SpawnActor<ANaveAlatoriaAerea>(NaveAleatoriaAereaUbicacion, rotacionNave);
-				TimerDel.BindLambda([NaveAleatoriaAereaTemp]()
-					{
-						if (NaveAleatoriaAereaTemp && NaveAleatoriaAereaTemp->IsValidLowLevel())
-						{
-							NaveAleatoriaAereaTemp->Destroy();
-						}
-					});
-				GetWorld()->GetTimerManager().SetTimer(EliminarNaveAerea, TimerDel, 10.0f, false);
-				naves = true;
-				x++;
-			}
-			else if (RandomNumber == 3)
-			{
-				ANaveAleatoriaTerrestre* NaveAleatoriaTerrestreTemp = World->SpawnActor<ANaveAleatoriaTerrestre>(NaveAleatoriaTerrestreUbicacion, rotacionNave);
-				TimerDel.BindLambda([NaveAleatoriaTerrestreTemp]()
-					{
-						if (NaveAleatoriaTerrestreTemp && NaveAleatoriaTerrestreTemp->IsValidLowLevel())
-						{
-							NaveAleatoriaTerrestreTemp->Destroy();
-						}
-					});
-				GetWorld()->GetTimerManager().SetTimer(EliminarNaveTerrestre, TimerDel, 10.0f, false);
-				naves = true;
-				x++;
-			}
-		}
+		//	if (RandomNumber == 1)
+		//	{
+		//		ANaveAleatoriaAcuatica* NaveAleatoriaAcuaticaTemp = World->SpawnActor<ANaveAleatoriaAcuatica>(NaveAleatoriaAcuaticaUbicacion, rotacionNave);
+		//		TimerDel.BindLambda([NaveAleatoriaAcuaticaTemp]()
+		//			{
+		//				if (NaveAleatoriaAcuaticaTemp && NaveAleatoriaAcuaticaTemp->IsValidLowLevel())
+		//				{
+		//					NaveAleatoriaAcuaticaTemp->Destroy();
+		//				}
+		//			});
+		//		GetWorld()->GetTimerManager().SetTimer(EliminarNaveAcuatica, TimerDel, 10.0f, false);
+		//		naves = true;
+		//		x++;
+		//	}
+		//	else if (RandomNumber == 2)
+		//	{
+		//		ANaveAlatoriaAerea* NaveAleatoriaAereaTemp = World->SpawnActor<ANaveAlatoriaAerea>(NaveAleatoriaAereaUbicacion, rotacionNave);
+		//		TimerDel.BindLambda([NaveAleatoriaAereaTemp]()
+		//			{
+		//				if (NaveAleatoriaAereaTemp && NaveAleatoriaAereaTemp->IsValidLowLevel())
+		//				{
+		//					NaveAleatoriaAereaTemp->Destroy();
+		//				}
+		//			});
+		//		GetWorld()->GetTimerManager().SetTimer(EliminarNaveAerea, TimerDel, 10.0f, false);
+		//		naves = true;
+		//		x++;
+		//	}
+		//	else if (RandomNumber == 3)
+		//	{
+		//		ANaveAleatoriaTerrestre* NaveAleatoriaTerrestreTemp = World->SpawnActor<ANaveAleatoriaTerrestre>(NaveAleatoriaTerrestreUbicacion, rotacionNave);
+		//		TimerDel.BindLambda([NaveAleatoriaTerrestreTemp]()
+		//			{
+		//				if (NaveAleatoriaTerrestreTemp && NaveAleatoriaTerrestreTemp->IsValidLowLevel())
+		//				{
+		//					NaveAleatoriaTerrestreTemp->Destroy();
+		//				}
+		//			});
+		//		GetWorld()->GetTimerManager().SetTimer(EliminarNaveTerrestre, TimerDel, 10.0f, false);
+		//		naves = true;
+		//		x++;
+		//	}
+		//}
 		/*FTimerDelegate TimerDel;
 		Director_nj = World->SpawnActor<ADirector_NJ>();
 		if (z == 1)
@@ -344,4 +386,36 @@ void AGalaga_USFX_L01GameMode::CrearEstate()
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Estado Normal"));
 			EstadosBase->PawnNormal();
 		}*/
+}
+
+void AGalaga_USFX_L01GameMode::EjecutarComandoSaltar()
+{
+	if (Emisor)
+	{
+		CSaltar = GetWorld()->SpawnActor<AComandoDeSalto>(AComandoDeSalto::StaticClass());
+		Emisor->EstablecerOrden(CSaltar);
+		Emisor->EjecutarOrden();
+		Ordenes.Add(CSaltar);
+	}
+}
+
+void AGalaga_USFX_L01GameMode::EjecutarComandoDisparar()
+{
+	if (Emisor)
+	{
+		CDisparar = GetWorld()->SpawnActor<AComandoDeDisparo>(AComandoDeDisparo::StaticClass());
+		Emisor->EstablecerOrden(CDisparar);
+		Emisor->EjecutarOrden();
+		Ordenes.Add(CDisparar);
+	}
+}
+
+void AGalaga_USFX_L01GameMode::DeshacerComando()
+{
+	if (Ordenes.Num() > 0)
+	{
+		UltimaOrden = Ordenes.Pop();
+		Emisor->EstablecerOrden(UltimaOrden);
+		Emisor->DeshacerOrden();
+	}
 }

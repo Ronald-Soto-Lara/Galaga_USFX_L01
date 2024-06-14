@@ -19,7 +19,7 @@
 AGalaga_USFX_L01Projectile::AGalaga_USFX_L01Projectile() 
 {
 	// Static reference to the mesh to use for the projectile
-	static ConstructorHelpers::FObjectFinder<UStaticMesh> ProjectileMeshAsset(TEXT("StaticMesh'/Game/Meshes/Projectile.Projectile'"));
+	static ConstructorHelpers::FObjectFinder<UStaticMesh> ProjectileMeshAsset(TEXT("StaticMesh'/Game/Meshes/BulletLevel1.BulletLevel1'"));
 	ProjectileMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ProjectileMesh0"));
 	ProjectileMesh->SetStaticMesh(ProjectileMeshAsset.Object);
 	ProjectileMesh->SetupAttachment(RootComponent);
@@ -31,7 +31,7 @@ AGalaga_USFX_L01Projectile::AGalaga_USFX_L01Projectile()
 	// Use a ProjectileMovementComponent to govern this projectile's movement
 	ProjectileMovement = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("ProjectileMovement0"));
 	ProjectileMovement->UpdatedComponent = ProjectileMesh;
-	ProjectileMovement->InitialSpeed = 10000.f;
+	ProjectileMovement->InitialSpeed = 1000.f;
 	ProjectileMovement->MaxSpeed = 7000.f;
 	ProjectileMovement->bRotationFollowsVelocity = true;
 	ProjectileMovement->bShouldBounce = false;
@@ -57,7 +57,7 @@ void AGalaga_USFX_L01Projectile::NotifyHit(UPrimitiveComponent* MyComp, AActor* 
 		if (n == 25) {
 		AGalaga_USFX_L01Pawn* GalagaPawn1 = Cast<AGalaga_USFX_L01Pawn>(GetWorld()->GetFirstPlayerController()->GetPawn());
 			if (GalagaPawn1)
-			{	
+			{
 				n = 0;
 				GalagaPawn1->Destruir();
 			}

@@ -68,7 +68,6 @@ protected:
 	virtual void movDer(float Value);
 	virtual void movMIzq(float Value);
 	virtual void movMDer(float Value);
-	virtual void Salto();
 	virtual void descender();
 	virtual void CrearBarrera();
 	virtual void ResetCrearBarrera();
@@ -90,6 +89,10 @@ protected:
 	static const FName MoveRightBinding;
 	static const FName FireForwardBinding;
 	static const FName FireRightBinding;
+	//VARIABLES
+	bool salto;
+	bool caida;
+	float JumpForce;
 
 private:
 
@@ -130,6 +133,7 @@ public:
 	virtual void BeginPlay() override;
 	virtual void Destruir();
 	void Estados(FString _Estados);
+	virtual void Salto();
 	IEstados* Estado;
 	IEstados* EstadoNormal;
 	IEstados* EstadoLento;

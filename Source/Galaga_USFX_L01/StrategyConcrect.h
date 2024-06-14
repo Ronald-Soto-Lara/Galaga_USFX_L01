@@ -25,7 +25,7 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 public:
-	virtual void EjecutarTarea() override;
+	virtual void Disparar() override;
 	virtual void TReset_Projectile();
 	AStrategyConcrect* strategyConcrect;
 protected:

@@ -48,9 +48,30 @@ protected:
 	class AEscuadronesFacade* Naves;
 	UPROPERTY(VisibleAnywhere, Category = "Game mode")
 	class ACalculator* calculadora;
+	//COMMAND	PATTERN
+	UPROPERTY(VisibleAnywhere, Category = "Game mode")
+	class AEmisorDeOrdenes* Emisor;
+
+	UPROPERTY(VisibleAnywhere, Category = "Game mode")
+	class AReceptorDeOrdenes* Receptor;
+
+	UPROPERTY(VisibleAnywhere, Category = "Game mode")
+	class AComandoDeSalto* CSaltar;
+
+	UPROPERTY(VisibleAnywhere, Category = "Game mode")
+	class AComandoDeDisparo* CDisparar;
+
+	void EjecutarComandoSaltar();
+	void EjecutarComandoDisparar();
+	void DeshacerComando();
+
 private:
 	int TiempoTranscurrido;
 	TMap<int, bool> PowerUpStatusMap;
+	AActor* UltimaOrden;
+	TArray<AActor*> Ordenes;
+	FTimerHandle TimerHandle;
+	float temp;
 
 public:
 	virtual void Tick(float DeltaTime) override;

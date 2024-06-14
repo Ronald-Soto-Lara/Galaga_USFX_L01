@@ -46,6 +46,7 @@ AGalaga_USFX_L01Pawn::AGalaga_USFX_L01Pawn()
 	RootComponent = ShipMeshComponent;
 	ShipMeshComponent->SetCollisionProfileName(UCollisionProfile::Pawn_ProfileName);
 	ShipMeshComponent->SetStaticMesh(ShipMesh.Object);
+	ShipMeshComponent->SetWorldScale3D(FVector(1.5f, 1.5f, 1.5f));
 
 	// Cache our sound effect
 	static ConstructorHelpers::FObjectFinder<USoundBase> FireAudio(TEXT("/Game/TwinStick/Audio/TwinStickFire.TwinStickFire"));
@@ -149,7 +150,6 @@ void AGalaga_USFX_L01Pawn::BeginPlay()
 	PosicionInicio = GetActorLocation();
 	UbicacionInicioX = GetActorLocation().X;
 	UbicacionInicioY = GetActorLocation().Y;
-	/*naveEstrategy = Cast<ANaveEstrategy>(UGameplayStatics::GetPlayerPawn(GetWorld(), 0));*/
 }
 
 void AGalaga_USFX_L01Pawn::Destruir()
@@ -170,7 +170,7 @@ void AGalaga_USFX_L01Pawn::SetupPlayerInputComponent(class UInputComponent* Play
 	FInputAxisKeyMapping movDiagDerKey("diagDer", EKeys::E, 1.0f);
 	FInputAxisKeyMapping movDiagMIzqKey("diagMIzq", EKeys::Z, 1.0f);
 	FInputAxisKeyMapping movDiagMDerKey("diagMDer", EKeys::C, 1.0f);
-	FInputActionKeyMapping salto("Salto", EKeys::T, 0, 0, 0, 0);
+	FInputActionKeyMapping salto1("Salto1", EKeys::T, 0, 0, 0, 0);
 	FInputActionKeyMapping CrearBarreraKey("CrearBarrera", EKeys::K, 0, 0, 0, 0);
 	FInputActionKeyMapping ActivDoDispKey("ActivDobDisparo", EKeys::J, 0, 0, 0, 0);
 	FInputActionKeyMapping devPrincKey("devPrinc", EKeys::G, 0, 0, 0, 0);
@@ -187,7 +187,7 @@ void AGalaga_USFX_L01Pawn::SetupPlayerInputComponent(class UInputComponent* Play
 	PlayerInputComponent->BindAxis("diagMIzq", this, &AGalaga_USFX_L01Pawn::movMIzq);
 	GetWorld()->GetFirstPlayerController()->PlayerInput->AddAxisMapping(movDiagMDerKey);
 	PlayerInputComponent->BindAxis("diagMDer", this, &AGalaga_USFX_L01Pawn::movMDer);
-	UPlayerInput::AddEngineDefinedActionMapping(salto);
+	UPlayerInput::AddEngineDefinedActionMapping(salto1);
 	PlayerInputComponent->BindAction("Salto", IE_Pressed, this, &AGalaga_USFX_L01Pawn::Salto);
 	UPlayerInput::AddEngineDefinedActionMapping(CrearBarreraKey);
 	PlayerInputComponent->BindAction("CrearBarrera", IE_Pressed, this, &AGalaga_USFX_L01Pawn::CrearBarrera);
@@ -388,15 +388,6 @@ void AGalaga_USFX_L01Pawn::FireShot(FVector FireDirection)
 				World->SpawnActor<AGalaga_USFX_L01Projectile>(SpawnLocation, FireRotation);
 
 			}
-			//bool disparodoble = false;
-			//{
-				//AGalaga_USFX_L01GameMode* GameMode = Cast<AGalaga_USFX_L01GameMode>(GetWorld()->GetAuthGameMode());
-				//if (GameMode != nullptr)
-				//{
-					//disparodoble = GameMode->GetPowerUpStatus(200);
-				//}
-			//}
-
 			if (disparoDoble)
 			{
 				const FVector SpawnLocation2 = GetActorLocation() + FireRotation.RotateVector(GunOffset2);
@@ -408,8 +399,6 @@ void AGalaga_USFX_L01Pawn::FireShot(FVector FireDirection)
 
 			bCanFire = false;
 			World->GetTimerManager().SetTimer(TimerHandle_ShotTimerExpired, this, &AGalaga_USFX_L01Pawn::ShotTimerExpired, FireRate);
-
-			// try and play the sound if specified
 			if (FireSound != nullptr)
 			{
 				UGameplayStatics::PlaySoundAtLocation(this, FireSound, GetActorLocation());
@@ -454,6 +443,7 @@ void AGalaga_USFX_L01Pawn::Estados(FString _Estados)
 	}
 }
 
+
 void AGalaga_USFX_L01Pawn::SetEstado(IEstados* _Estado)
 {
 	Estado = _Estado;
@@ -483,6 +473,7 @@ void AGalaga_USFX_L01Pawn::ResSpeed()
 {
 	MoveSpeed = 500.0f;
 }
+
 
 IEstados* AGalaga_USFX_L01Pawn::N_ObtenerEstadoNormal()
 {
@@ -599,3 +590,5 @@ void AGalaga_USFX_L01Pawn::Tick(float DeltaSeconds)
 		}
 	}
 }
+
+

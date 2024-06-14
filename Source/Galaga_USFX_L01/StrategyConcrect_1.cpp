@@ -28,7 +28,7 @@ void AStrategyConcrect_1::Tick(float DeltaTime)
 	naveRecord += 2;
 	if (naveRecord >=200)
 	{
-		EjecutarTarea();
+		Disparar();
 	}
 	if(naveRecord == 300)
 	{
@@ -41,17 +41,23 @@ void AStrategyConcrect_1::TReset_Projectile()
 	ActDisparo = true;
 }
 
-void AStrategyConcrect_1::EjecutarTarea()
+void AStrategyConcrect_1::Disparar()
 {
 	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, TEXT("Ejecutando tarea 1"));
-	FVector SpawnPLocation = FVector(-400.0f, -30.0f, 0.0f);
+	FVector SpawnPLocation = FVector(-400.0f, -30.0f, 150.0f);
 	if (ActDisparo == true)
 	{
 		UWorld* World = GetWorld();
 		if (World)
 		{
-			AProyectilEnemigo* NewProj = World->SpawnActor<AProyectilEnemigo>(SpawnPLocation + FVector(0.0f, 0.0f, 150.0f), FRotator::ZeroRotator);
-			AProyectilEnemigo* NewProj1 = World->SpawnActor<AProyectilEnemigo>(FVector(-400.0f, 30.0f, 150.0f), FRotator::ZeroRotator);
+			AProyectilEnemigo* NewProj0 = World->SpawnActor<AProyectilEnemigo>(SpawnPLocation, FRotator::ZeroRotator);
+			AProyectilEnemigo* NewProj01= World->SpawnActor<AProyectilEnemigo>(FVector(-400.0f, 0.0f, 150.0f), FRotator::ZeroRotator);
+			AProyectilEnemigo* NewProj1 = World->SpawnActor<AProyectilEnemigo>(FVector(-370.0f,0.0f,150.0f), FRotator(0.0f, 90.0f, 0.0f));
+			AProyectilEnemigo* NewProj11 = World->SpawnActor<AProyectilEnemigo>(FVector(-430.0f, 30.0f, 150.0f), FRotator(0.0f,90.0f, 0.0f));
+			AProyectilEnemigo* NewProj2 = World->SpawnActor<AProyectilEnemigo>(FVector(-370.0f, 30.0f, 150.0f), FRotator(180.0f, 0.0f, 0.0f));
+			AProyectilEnemigo* NewProj21 = World->SpawnActor<AProyectilEnemigo>(FVector(-430.0f, 30.0f, 150.0f), FRotator(180.0f, 0.0f, 0.0f));
+			AProyectilEnemigo* NewProj3 = World->SpawnActor<AProyectilEnemigo>(FVector(-370.0f, 30.0f, 150.0f), FRotator(0.0f, 270.0f, 0.0f));
+			AProyectilEnemigo* NewProj31 = World->SpawnActor<AProyectilEnemigo>(FVector(-430.0f, 30.0f, 150.0f), FRotator(0.0f, 270.0f, 0.0f));
 		}
 		//Activa el temporizador para el siguiente disparo.
 		World->GetTimerManager().SetTimer(Timer_fin, this, &AStrategyConcrect_1::TReset_Projectile, cadencia);

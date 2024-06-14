@@ -21,6 +21,16 @@ C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Source/Galaga_USFX_L01/
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\CapsulaEstate.h
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\CapsulaEstate.generated.h
 C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Source/Galaga_USFX_L01/ClaseExtra.cpp
+C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Source/Galaga_USFX_L01/ComandoDeDisparo.cpp
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\ReceptorDeOrdenes.h
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\ReceptorDeOrdenes.generated.h
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\ComandoDeDisparo.h
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\InterfazCommand.h
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\InterfazCommand.generated.h
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\ComandoDeDisparo.generated.h
+C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Source/Galaga_USFX_L01/ComandoDeSalto.cpp
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\ComandoDeSalto.h
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\ComandoDeSalto.generated.h
 C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Source/Galaga_USFX_L01/ConstruirNaveJefe.cpp
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\NaveCaza.h
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\NaveEnemiga.h
@@ -29,6 +39,10 @@ C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win6
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\NaveEnemiga.generated.h
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\Galaga_USFX_L01Projectile.h
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\Galaga_USFX_L01Projectile.generated.h
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\EstadoBase.h
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\Estados.h
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\Estados.generated.h
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\EstadoBase.generated.h
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\NaveCaza.generated.h
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\NaveCaza_1.h
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\NaveCaza_1.generated.h
@@ -47,6 +61,9 @@ C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\GrupoNavesBuilder.h
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\GrupoNavesBuilder.generated.h
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\Director_NJ.generated.h
+C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Source/Galaga_USFX_L01/EmisorDeOrdenes.cpp
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\EmisorDeOrdenes.h
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\EmisorDeOrdenes.generated.h
 C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Source/Galaga_USFX_L01/EscuadronesFacade.cpp
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\NaveNodriza.h
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\NaveNodriza.generated.h
@@ -61,10 +78,6 @@ C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Source/Galaga_USFX_L01/
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\EscudoEscena.h
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\EscudoEscena.generated.h
 C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Source/Galaga_USFX_L01/EstadoBase.cpp
-C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\EstadoBase.h
-C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\Estados.h
-C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\Estados.generated.h
-C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\EstadoBase.generated.h
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\Galaga_USFX_L01Pawn.h
 D:\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/Character.h
 D:\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/CharacterMovementReplication.h
@@ -136,6 +149,8 @@ C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win6
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\StrategyConcrect_2.h
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\StrategyConcrect_2.generated.h
 C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\NaveEstrategy.generated.h
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\NavesCucarachas.h
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\NavesCucarachas.generated.h
 C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Source/Galaga_USFX_L01/Galaga_USFX_L01Pawn.cpp
 D:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Camera/CameraComponent.h
 D:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\CameraComponent.generated.h
@@ -174,6 +189,7 @@ C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Source/Galaga_USFX_L01/
 D:\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/ProjectileMovementComponent.h
 D:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ProjectileMovementComponent.generated.h
 C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Source/Galaga_USFX_L01/GrupoNavesBuilder.cpp
+C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Source/Galaga_USFX_L01/InterfazCommand.cpp
 C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Source/Galaga_USFX_L01/LetreroBienvenida.cpp
 D:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Engine/Canvas.h
 D:\UE_4.27\Engine\Source\Runtime\Engine\Public\CanvasItem.h
@@ -198,6 +214,9 @@ C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Source/Galaga_USFX_L01/
 C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Source/Galaga_USFX_L01/NaveEspia_1.cpp
 C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Source/Galaga_USFX_L01/NaveEspia_2.cpp
 C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Source/Galaga_USFX_L01/NaveEstrategy.cpp
+C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Source/Galaga_USFX_L01/NaveGalapago.cpp
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\NaveGalapago.h
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\NaveGalapago.generated.h
 C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Source/Galaga_USFX_L01/NaveJefe_Nivel_1.cpp
 C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Source/Galaga_USFX_L01/NaveJefe_Nivel_2.cpp
 C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Source/Galaga_USFX_L01/NaveJefe_Nivel_3.cpp
@@ -208,10 +227,15 @@ C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Source/Galaga_USFX_L01/
 C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Source/Galaga_USFX_L01/NaveReab_1.cpp
 C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Source/Galaga_USFX_L01/NaveReab_2.cpp
 C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Source/Galaga_USFX_L01/NaveReabastecimiento.cpp
+C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Source/Galaga_USFX_L01/NavesAbispas.cpp
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Source\Galaga_USFX_L01\NavesAbispas.h
+C:\Users\ronal\Documents\Unreal Projects\Galaga_USFX_L01\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\NavesAbispas.generated.h
+C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Source/Galaga_USFX_L01/NavesCucarachas.cpp
 C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Source/Galaga_USFX_L01/NaveTransporte.cpp
 C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Source/Galaga_USFX_L01/NaveTransporte_1.cpp
 C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Source/Galaga_USFX_L01/NaveTransporte_2.cpp
 C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Source/Galaga_USFX_L01/ProyectilEnemigo.cpp
+C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Source/Galaga_USFX_L01/ReceptorDeOrdenes.cpp
 C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Source/Galaga_USFX_L01/StrategyConcrect.cpp
 C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Source/Galaga_USFX_L01/StrategyConcrect_1.cpp
 C:/Users/ronal/Documents/Unreal Projects/Galaga_USFX_L01/Source/Galaga_USFX_L01/StrategyConcrect_2.cpp

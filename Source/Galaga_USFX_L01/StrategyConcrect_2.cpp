@@ -29,7 +29,7 @@ void AStrategyConcrect_2::Tick(float DeltaTime)
 	naveRecord += 2;
 	if (naveRecord >= 300)
 	{
-		EjecutarTarea();
+		Disparar();
 	}
 }
 
@@ -38,7 +38,7 @@ void AStrategyConcrect_2::TReset_Projectile()
 	ActDisparo = true;
 }
 
-void AStrategyConcrect_2::EjecutarTarea()
+void AStrategyConcrect_2::Disparar()
 {
 	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, TEXT("Ejecutando tarea 2"));
 	FVector SpawnPLocation = FVector(-400.0f, 200.0f, 0.0f);

@@ -33,19 +33,44 @@ void ANaveCaza::Bombardear() {
 
 }
 
+
 void ANaveCaza::Tick(float DeltaTime) {
 	Super::Tick(DeltaTime);
 	Mover(DeltaTime);
-	FVector SpawnPLocation = GetActorLocation() + (GetActorForwardVector() * 1);
+	//FVector SpawnPLocation = GetActorLocation() + (GetActorForwardVector() * 1);
+	//if (ActDisparo == true)
+	//{
+	//	UWorld* World = GetWorld();
+	//	if (World)
+	//	{
+	//		AProyectilEnemigo* NewProj = World->SpawnActor<AProyectilEnemigo>(SpawnPLocation+FVector(0.0f,0.0f,150.0f), FRotator::ZeroRotator);
+	//	}
+	//	//Activa el temporizador para el siguiente disparo.
+	//	World->GetTimerManager().SetTimer(Timer_fin, this, &ANaveEnemiga::TReset_Proj, cadencia);
+	//	ActDisparo = false; //Desactiva el disparo para que no se dispare continuamente.
+	//}
+}
+
+void ANaveCaza::Disparar()
+{
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("La Nave Caza ha disparado"));
+	FVector SpawnPLocation = FVector(0.0f, 0.0f, 0.0f);
 	if (ActDisparo == true)
 	{
 		UWorld* World = GetWorld();
 		if (World)
 		{
-			AProyectilEnemigo* NewProj = World->SpawnActor<AProyectilEnemigo>(SpawnPLocation+FVector(0.0f,0.0f,150.0f), FRotator::ZeroRotator);
+			AProyectilEnemigo* NewProj = World->SpawnActor<AProyectilEnemigo>(SpawnPLocation + FVector(0.0f, 0.0f, 150.0f), FRotator::ZeroRotator);
 		}
-		//Activa el temporizador para el siguiente disparo.
-		World->GetTimerManager().SetTimer(Timer_fin, this, &ANaveEnemiga::TReset_Proj, cadencia);
-		ActDisparo = false; //Desactiva el disparo para que no se dispare continuamente.
+		World->GetTimerManager().SetTimer(Timer_fin, this, &ANaveCaza::DeshacerDisparo, cadencia);
 	}
+}
+
+void ANaveCaza::DeshacerDisparo()
+{
+	ActDisparo = false;
+}
+
+void ANaveCaza::DeshacerSalto()
+{
 }

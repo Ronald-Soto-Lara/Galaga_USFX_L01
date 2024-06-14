@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "NaveEnemiga.h"
 #include "Galaga_USFX_L01Projectile.h"
+#include "EstadoBase.h"
 #include "NaveCaza.generated.h"
 
 /**
@@ -31,4 +32,8 @@ public:
 	//En este caso 'virtual' nos indica que esta funcion puede ser sobreescrita por una subclase.
 	//Mientras que 'override' asegura que estemos sobreescribiendo una funcion de la clase base.
 	virtual void Tick(float DeltaTime) override;
+	virtual void Disparar();
+	virtual void DeshacerDisparo();
+	virtual void DeshacerSalto();
+
 };
