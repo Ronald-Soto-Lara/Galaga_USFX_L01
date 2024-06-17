@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\Galaga_USFX_L01.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{245507B1-BB0C-4173-A0B1-2A4192273048}</UniqueIdentifier>
+      <UniqueIdentifier>{1335B0E4-0462-4E2D-8755-E6A28A24351A}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\Galaga_USFX_L01.Target.cs">
       <Filter>Source</Filter>
@@ -22,9 +22,10 @@
     <None Include="..\..\Patrón Facade Source.zip" />
     <None Include="..\..\Patrón Facade.zip" />
     <None Include="..\..\Source.zip" />
+    <None Include="..\..\Source_PatronCommand.zip" />
     <None Include="..\..\Temp.txt" />
     <Filter Include="Config">
-      <UniqueIdentifier>{E9279806-F592-45EE-A1DA-2D74FD3242C2}</UniqueIdentifier>
+      <UniqueIdentifier>{7B706BC4-ED45-47E4-9B1B-1BEFF6039F97}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -42,7 +43,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\Galaga_USFX_L01">
-      <UniqueIdentifier>{A2B4DA38-6195-4EEF-814F-1D5722F571BC}</UniqueIdentifier>
+      <UniqueIdentifier>{D4EB676A-6784-4D6D-AEB9-BE89444E72E8}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\Galaga_USFX_L01\aaConcrectObserver.cpp">
       <Filter>Source\Galaga_USFX_L01</Filter>
@@ -66,6 +67,12 @@
       <Filter>Source\Galaga_USFX_L01</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\Galaga_USFX_L01\Calculator.h">
+      <Filter>Source\Galaga_USFX_L01</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Galaga_USFX_L01\Capsula.cpp">
+      <Filter>Source\Galaga_USFX_L01</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Galaga_USFX_L01\Capsula.h">
       <Filter>Source\Galaga_USFX_L01</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\Galaga_USFX_L01\CapsulaEstate.cpp">
@@ -195,6 +202,24 @@
       <Filter>Source\Galaga_USFX_L01</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\Galaga_USFX_L01\GrupoNavesBuilder.h">
+      <Filter>Source\Galaga_USFX_L01</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Galaga_USFX_L01\ImplementationConcrect.cpp">
+      <Filter>Source\Galaga_USFX_L01</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Galaga_USFX_L01\ImplementationConcrect.h">
+      <Filter>Source\Galaga_USFX_L01</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Galaga_USFX_L01\ImplementationConcrect_1.cpp">
+      <Filter>Source\Galaga_USFX_L01</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Galaga_USFX_L01\ImplementationConcrect_1.h">
+      <Filter>Source\Galaga_USFX_L01</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Galaga_USFX_L01\Implemetation.cpp">
+      <Filter>Source\Galaga_USFX_L01</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Galaga_USFX_L01\Implemetation.h">
       <Filter>Source\Galaga_USFX_L01</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\Galaga_USFX_L01\InterfazCommand.cpp">
@@ -413,5 +438,13 @@
     <ClInclude Include="..\..\Source\Galaga_USFX_L01\SuscriptorInterfaz.h">
       <Filter>Source\Galaga_USFX_L01</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source\Galaga_USFX_L01\Patrones">
+      <UniqueIdentifier>{d4ec09fe-be24-4cc1-9788-d486572e7b3d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Galaga_USFX_L01\Objetos de uso en el juego">
+      <UniqueIdentifier>{3a25a978-638e-4c6f-83af-1a66db34ee62}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

@@ -44,6 +44,9 @@
 #include "ComandoDeDisparo.h"
 #include "ReceptorDeOrdenes.h"
 #include "EmisorDeOrdenes.h"
+#include "Capsula.h"
+#include "ImplementationConcrect.h"
+#include "ImplementationConcrect_1.h"
 #include "TimerManager.h"
 
 
@@ -52,10 +55,8 @@ AGalaga_USFX_L01GameMode::AGalaga_USFX_L01GameMode()
 	// set default pawn class to our character class
 	PrimaryActorTick.bCanEverTick = true;
 	Ordenes = TArray<AActor*>();
-	temp = 0.f;
+	temp = 0;
 	DefaultPawnClass = AGalaga_USFX_L01Pawn::StaticClass();
-
-	//NaveEnemiga01 = nullptr;
 	naves = true;
 	TimeDay = 0.0f;
 	HUDClass = ALetreroBienvenida::StaticClass();
@@ -64,11 +65,16 @@ AGalaga_USFX_L01GameMode::AGalaga_USFX_L01GameMode()
 void AGalaga_USFX_L01GameMode::BeginPlay()
 {
 	Super::BeginPlay();
+	GEngine->AddOnScreenDebugMessage(-1, 100.f, FColor::Green, FString::Printf(TEXT("TU RECORD ES")));
 	Emisor = GetWorld()->SpawnActor<AEmisorDeOrdenes>(AEmisorDeOrdenes::StaticClass());
 
 
-	EjecutarComandoDisparar();
-	//set the game satate to playing
+	//Patron Bridge
+	Bridge1 = GetWorld()->SpawnActor<AImplementationConcrect>(AImplementationConcrect::StaticClass());
+	Bridge2 = GetWorld()->SpawnActor<AImplementationConcrect_1>(AImplementationConcrect_1::StaticClass());
+	Capsula = GetWorld()->SpawnActor<ACapsula>(ACapsula::StaticClass());
+
+
 	/*FVector ubicacionInicioNavesEnemigasCaza = FVector(-500.0f, -500.0f, 150.0f);
 	FVector ubicacionInicioNavesEnemigasTransporte = FVector(0.0f, 0.0f, 150.0f);
 	FVector ubicacionInicioNavesEnemigasReabastecimiento = FVector(500.0f, 500.0f, 150.0f);
@@ -92,6 +98,7 @@ void AGalaga_USFX_L01GameMode::BeginPlay()
 		ANaveEstrategy* NaveEstrategy = World->SpawnActor<ANaveEstrategy>((FVector(-400.0f, -400.0f, 150.0f)+FVector(0.0f,i*100.0f,0.0f)), FRotator(-180.0f, 0.0f, 0.0f));
 		}*/
 		ANavesCucarachas* NavesCucarachas = World->SpawnActor<ANavesCucarachas>(ANavesCucarachas::StaticClass());
+		Naves = GetWorld()->SpawnActor<AEscuadronesFacade>(AEscuadronesFacade::StaticClass());
 		/*ANaveEstrategy* NaveStrategy_0 = World->SpawnActor<ANaveEstrategy>(ANaveEstrategy::StaticClass());
 		if (NaveStrategy_0)
 		{
@@ -105,7 +112,7 @@ void AGalaga_USFX_L01GameMode::BeginPlay()
 		/*ACapsulaEstate* Capsula = World->SpawnActor<ACapsulaEstate>(FVector(-1000.0f, 0.0f, 150.0f), FRotator(0.0f, 0.0f, 0.0f));*/
 		/*AClaseExtra* ClaseExtra = World->SpawnActor<AClaseExtra>(FVector(-300.0f, 0.0f, 150.0f), FRotator(0.0f, 0.0f, 0.0f)); */
 		/*AaaConcrectObserver*Observer2 = World->SpawnActor<AaaConcrectObserver>(FVector(0.0f, 0.0f, 150.0f), FRotator(0.0f, 90.0f, 0.0f));*/
-		ANaveCaza* NaveCaza = World->SpawnActor<ANaveCaza>(FVector(0.0f, 0.0f, 150.0f), FRotator(0.0f, 0.0f, 0.0f));
+		ANaveCaza* NaveCaza = World->SpawnActor<ANaveCaza>(FVector(0.0f, 0.0f, 200.0f), FRotator(0.0f, 0.0f, 0.0f));
 		//ANaveReabastecimiento* NaveColision = World->SpawnActor<ANaveReabastecimiento>(PosicionColision, Rotacioncolision);
 		//Naves = GetWorld()->SpawnActor<AEscuadronesFacade>(AEscuadronesFacade::StaticClass());
 		//Naves->CrearEscuadrones(1);
@@ -139,28 +146,6 @@ void AGalaga_USFX_L01GameMode::BeginPlay()
 				b = -450;
 			}
 		}*/
-		Jefe = GetWorld()->SpawnActor<ANaveJefe_Nivel_1>(ANaveJefe_Nivel_1::StaticClass());
-		Director = GetWorld()->SpawnActor<ADirector_NJ>(ADirector_NJ::StaticClass());
-
-		Director->ConstruirBaseJefe(Jefe);
-		Director->ConstruirSegundoPisoJefe();
-
-		AConstruirNaveJefe* naveJefe1 = Director->ConstruirNaveJefe();
-
-		Jefe_2 = GetWorld()->SpawnActor<ANaveJefe_Nivel_2>(ANaveJefe_Nivel_2::StaticClass());
-
-		Director->ConstruirBaseJefe(Jefe_2);
-		Director->ConstruirTiradoresJefe();
-
-		AConstruirNaveJefe* naveJefe2 = Director->ConstruirNaveJefe();
-
-		Jefe_3 = GetWorld()->SpawnActor<ANaveJefe_Nivel_3>(ANaveJefe_Nivel_3::StaticClass());
-
-		Director->ConstruirBaseJefe(Jefe_3);
-		Director->ConstruirCantBalasJefe();
-
-		AConstruirNaveJefe* naveJefe3 = Director->ConstruirNaveJefe();
-		FVector ubiNaveEje = FVector(0.0f, 0.0f, 150.0f);
 	}
 	TMapPowerUp.Add(3000, "escudo");
 	TMapPowerUp.Add(200, "doble tiro");
@@ -173,27 +158,127 @@ void AGalaga_USFX_L01GameMode::BeginPlay()
 	PowerUpStatusMap.Add(1000, false);
 	PowerUpStatusMap.Add(1500, false);
 	PowerUpStatusMap.Add(500, false);
-	score = 0;
+	RECORD = 0;
 }
+
 
 void AGalaga_USFX_L01GameMode::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	TiempoTranscurrido++;
-	temp++;
-	if (temp == 50.f)
+
+	//Incrementación de Variables de acuerdo a cada frame
+	TiempoTranscurrido++, RECORD++;
+	if (TiempoTranscurrido * 1 == 100)
 	{
-		DeshacerComando();
-	}
-	if (temp == 100.f)
-	{
-		EjecutarComandoSaltar();
-	}
-	if (temp == 150.f)
-	{
-		DeshacerComando();
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("RECORD: %d"), RECORD));
+		TiempoTranscurrido = 0;
 	}
 
+	//Patrón Bridge
+	//if (RECORD == 100)
+	//{
+	//	Capsula->EstablecerPersonaje(Bridge1);
+	//	Capsula->VerificarCapsulaConsumida("consumida", 5.0f);
+	//	Capsula->TiposCapsulas("Salto");
+	//	Capsula->EmplearCapsula();
+	//}
+	//if (RECORD == 150)
+	//{
+	//	Capsula->EstablecerPersonaje(Bridge2);
+	//	Capsula->VerificarCapsulaConsumida("consumida", 10.0f);
+	//	Capsula->TiposCapsulas("Vida");
+	//	Capsula->EmplearCapsula();
+	//}
+	///*if(RECORD == 200)
+	//{
+	//	Capsula->EstablecerPersonaje(Bridge2);
+	//	Capsula->VerificarCapsulaConsumida("noconsumida", 15.0f);
+	//	Capsula->TiposCapsulas("Fuerza");
+	//	Capsula->EmplearCapsula();
+	//}*/
+
+	////Patrón Command
+	//if (RECORD == 300)
+	//{
+	//	EjecutarComandoDisparar();
+	//}
+	//if (RECORD == 400)
+	//{
+	//	DeshacerComando();
+	//}
+	//if (RECORD == 500)
+	//{
+	//	EjecutarComandoSaltar();
+	//}
+	//if (RECORD == 600)
+	//{
+	//	DeshacerComando();
+	//}
+
+	////Patrón Builder
+	//if (RECORD == 700)
+	//{
+	//	Jefe = GetWorld()->SpawnActor<ANaveJefe_Nivel_1>(ANaveJefe_Nivel_1::StaticClass());
+	//	Director = GetWorld()->SpawnActor<ADirector_NJ>(ADirector_NJ::StaticClass());
+	//	Director->ConstruirBaseJefe(Jefe);
+	//	Director->ConstruirSegundoPisoJefe();
+	//}
+	//if (RECORD == 800)
+	//{
+	//	Jefe_2 = GetWorld()->SpawnActor<ANaveJefe_Nivel_2>(ANaveJefe_Nivel_2::StaticClass());
+	//	Director->ConstruirBaseJefe(Jefe_2);
+	//	Director->ConstruirTiradoresJefe();
+	//}
+	//if (RECORD == 900)
+	//{
+	//	Jefe_3 = GetWorld()->SpawnActor<ANaveJefe_Nivel_3>(ANaveJefe_Nivel_3::StaticClass());
+	//	Director->ConstruirBaseJefe(Jefe_3);
+	//	Director->ConstruirCantBalasJefe();
+	//}
+
+	////Patrón Facade
+	//if (RECORD == 1000)
+	//{
+	//	Naves->CrearEscuadrones(1);
+	//}
+	//if (RECORD == 1100)
+	//{
+	//	Naves->CrearEscuadrones(2);
+	//}
+	//if (RECORD == 1200)
+	//{
+	//	Naves->CrearEscuadrones(3);
+	//}
+	//if (RECORD == 1300)
+	//{
+	//	Naves->CrearEscuadrones(4);
+	//}
+	//if (RECORD == 1400)
+	//{
+	//	Naves->CrearEscuadrones(5);
+	//}
+
+	//Patrón State
+	if (RECORD == 150)
+	{
+		EstadoLento = GetWorld()->SpawnActor<AEstadoLento>(AEstadoLento::StaticClass());
+		EstadoLento->PawnLento();
+	}
+	if (RECORD == 160)
+	{
+		EstadoInvisible = GetWorld()->SpawnActor<AEstadoInvisible>(AEstadoInvisible::StaticClass());
+		EstadoInvisible->PawnInvisible();
+	}
+	if (RECORD == 170)
+	{
+		EstadoInvencible = GetWorld()->SpawnActor<AEstadoInvencible>(AEstadoInvencible::StaticClass());
+		EstadoInvencible->PawnInvencible();
+	}
+	if (RECORD == 180)
+	{
+		EstadoBase = GetWorld()->SpawnActor<AEstadoBase>(AEstadoBase::StaticClass());
+		EstadoBase->PawnNormal();
+	}
 	/*EstadoPawn = Jugador->GetEstadoActual();
 	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::Printf(TEXT("Tiempo: %f"), time));
 	if (time >= 0.0f)
@@ -211,24 +296,11 @@ void AGalaga_USFX_L01GameMode::Tick(float DeltaTime)
 		NaveEstrategica->CambiarEstrategia(EstNavDefensiva);
 		NaveEstrategica->AplicarEstrategia(DeltaTime);
 	}*/
-	if (TiempoTranscurrido >= 20)
-	{
-		int numeroEnemigo = FMath::RandRange(0, 9);
-		if (GEngine)
-		{
-
-		}
-		score +=100;
-		TiempoTranscurrido = 0;
-		if (score) {
-			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::Printf(TEXT("score: %d"), score));
-		}
-	}
 	for (const auto& par : TMapPowerUp)
 	{
 		int scoreMap = par.Key;
 		FString PowerUp = par.Value;
-		if (scoreMap == score)
+		if (scoreMap == RECORD)
 		{
 			//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, FString::Printf(TEXT("PowerUp: %s"), *PowerUp));
 		}
@@ -237,7 +309,7 @@ void AGalaga_USFX_L01GameMode::Tick(float DeltaTime)
 			int PowerUpScore = par2.Key;
 			bool& bPowerUpStatus = par2.Value;
 
-			if (score >= PowerUpScore && !bPowerUpStatus)
+			if (RECORD >= PowerUpScore && !bPowerUpStatus)
 			{
 				bPowerUpStatus = true;
 				FString StatusMessage = FString::Printf(TEXT("PowerUp with score %d is now active: %s"), PowerUpScore, bPowerUpStatus ? TEXT("True") : TEXT("False"));
@@ -250,28 +322,12 @@ void AGalaga_USFX_L01GameMode::Tick(float DeltaTime)
 			naves = false;
 		}
 	}
-	/*if (score > 500)
-	{
-		Naves->CrearEscuadrones(2);
-	}
-	if (score > 1000)
-	{
-		Naves->CrearEscuadrones(3);
-	}
-	if (score > 1500)
-	{
-		Naves->CrearEscuadrones(4);
-	}
-	if (score > 2000)
-	{
-		Naves->CrearEscuadrones(5);
-	}*/
 	TimeDay += DeltaTime;
 	////GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, FString::Printf(
 	//	TEXT("Hora del dia: %f"), TimeDay));
 }
-int x = 0;
 
+int x = 0;
 
 void AGalaga_USFX_L01GameMode::CrearNaves()
 {

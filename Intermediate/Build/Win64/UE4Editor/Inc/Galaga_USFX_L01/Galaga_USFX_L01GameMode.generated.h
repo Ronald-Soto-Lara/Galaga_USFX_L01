@@ -63,7 +63,10 @@ public: \
 	FORCEINLINE static uint32 __PPO__Emisor() { return STRUCT_OFFSET(AGalaga_USFX_L01GameMode, Emisor); } \
 	FORCEINLINE static uint32 __PPO__Receptor() { return STRUCT_OFFSET(AGalaga_USFX_L01GameMode, Receptor); } \
 	FORCEINLINE static uint32 __PPO__CSaltar() { return STRUCT_OFFSET(AGalaga_USFX_L01GameMode, CSaltar); } \
-	FORCEINLINE static uint32 __PPO__CDisparar() { return STRUCT_OFFSET(AGalaga_USFX_L01GameMode, CDisparar); }
+	FORCEINLINE static uint32 __PPO__CDisparar() { return STRUCT_OFFSET(AGalaga_USFX_L01GameMode, CDisparar); } \
+	FORCEINLINE static uint32 __PPO__Capsula() { return STRUCT_OFFSET(AGalaga_USFX_L01GameMode, Capsula); } \
+	FORCEINLINE static uint32 __PPO__Bridge1() { return STRUCT_OFFSET(AGalaga_USFX_L01GameMode, Bridge1); } \
+	FORCEINLINE static uint32 __PPO__Bridge2() { return STRUCT_OFFSET(AGalaga_USFX_L01GameMode, Bridge2); }
 
 
 #define Galaga_USFX_L01_Source_Galaga_USFX_L01_Galaga_USFX_L01GameMode_h_30_PROLOG

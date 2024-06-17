@@ -4,9 +4,9 @@
 #include "NaveEspia.h"
 
 ANaveEspia::ANaveEspia() {
-	static ConstructorHelpers::FObjectFinder<UStaticMesh> 
-	ShipMesh(TEXT("StaticMesh'/Game/Meshes/Nodriza2.Nodriza2'"));
+	static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("StaticMesh'/Game/Meshes/Nodriza2.Nodriza2'"));
 	EnemyMesh->SetStaticMesh(ShipMesh.Object);
+	SetActorRelativeScale3D(FVector(0.40f, 0.40f, 0.40f));
 }
 void ANaveEspia::Mover(float DeltaTime) {
 	velocidad = 1.0f;

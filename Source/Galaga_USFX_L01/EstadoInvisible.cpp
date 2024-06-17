@@ -33,6 +33,7 @@ void AEstadoInvisible::PawnInvisible()
 {
 	Pawn = Cast<AGalaga_USFX_L01Pawn>(GetWorld()->GetFirstPlayerController()->GetPawn());
 	Pawn->SetActorHiddenInGame(true);
+	Pawn->MoveSpeed = 3000.0f;
 }
 
 FString AEstadoInvisible::ObtenerEstado()

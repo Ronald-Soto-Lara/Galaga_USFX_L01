@@ -73,7 +73,8 @@ public: \
 #define Galaga_USFX_L01_Source_Galaga_USFX_L01_Galaga_USFX_L01Pawn_h_13_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__ShipMeshComponent() { return STRUCT_OFFSET(AGalaga_USFX_L01Pawn, ShipMeshComponent); } \
 	FORCEINLINE static uint32 __PPO__CameraComponent() { return STRUCT_OFFSET(AGalaga_USFX_L01Pawn, CameraComponent); } \
-	FORCEINLINE static uint32 __PPO__CameraBoom() { return STRUCT_OFFSET(AGalaga_USFX_L01Pawn, CameraBoom); }
+	FORCEINLINE static uint32 __PPO__CameraBoom() { return STRUCT_OFFSET(AGalaga_USFX_L01Pawn, CameraBoom); } \
+	FORCEINLINE static uint32 __PPO__EnemyMesh() { return STRUCT_OFFSET(AGalaga_USFX_L01Pawn, EnemyMesh); }
 
 
 #define Galaga_USFX_L01_Source_Galaga_USFX_L01_Galaga_USFX_L01Pawn_h_10_PROLOG

@@ -22,6 +22,9 @@ void EmptyLinkFunctionForGeneratedCodeGalaga_USFX_L01GameMode() {}
 	GALAGA_USFX_L01_API UClass* Z_Construct_UClass_AReceptorDeOrdenes_NoRegister();
 	GALAGA_USFX_L01_API UClass* Z_Construct_UClass_AComandoDeSalto_NoRegister();
 	GALAGA_USFX_L01_API UClass* Z_Construct_UClass_AComandoDeDisparo_NoRegister();
+	GALAGA_USFX_L01_API UClass* Z_Construct_UClass_ACapsula_NoRegister();
+	GALAGA_USFX_L01_API UClass* Z_Construct_UClass_AImplementationConcrect_NoRegister();
+	GALAGA_USFX_L01_API UClass* Z_Construct_UClass_AImplementationConcrect_1_NoRegister();
 // End Cross Module References
 	void AGalaga_USFX_L01GameMode::StaticRegisterNativesAGalaga_USFX_L01GameMode()
 	{
@@ -56,6 +59,18 @@ void EmptyLinkFunctionForGeneratedCodeGalaga_USFX_L01GameMode() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_CDisparar_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_CDisparar;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Capsula_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_Capsula;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Bridge1_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_Bridge1;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Bridge2_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_Bridge2;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -109,12 +124,38 @@ void EmptyLinkFunctionForGeneratedCodeGalaga_USFX_L01GameMode() {}
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGalaga_USFX_L01GameMode_Statics::NewProp_CDisparar = { "CDisparar", nullptr, (EPropertyFlags)0x0020080000020001, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AGalaga_USFX_L01GameMode, CDisparar), Z_Construct_UClass_AComandoDeDisparo_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AGalaga_USFX_L01GameMode_Statics::NewProp_CDisparar_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AGalaga_USFX_L01GameMode_Statics::NewProp_CDisparar_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGalaga_USFX_L01GameMode_Statics::NewProp_Capsula_MetaData[] = {
+		{ "Category", "Game mode" },
+		{ "Comment", "//Punteros del patron bridge\n" },
+		{ "ModuleRelativePath", "Galaga_USFX_L01GameMode.h" },
+		{ "ToolTip", "Punteros del patron bridge" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGalaga_USFX_L01GameMode_Statics::NewProp_Capsula = { "Capsula", nullptr, (EPropertyFlags)0x0020080000020001, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AGalaga_USFX_L01GameMode, Capsula), Z_Construct_UClass_ACapsula_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AGalaga_USFX_L01GameMode_Statics::NewProp_Capsula_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AGalaga_USFX_L01GameMode_Statics::NewProp_Capsula_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGalaga_USFX_L01GameMode_Statics::NewProp_Bridge1_MetaData[] = {
+		{ "Category", "Game mode" },
+		{ "ModuleRelativePath", "Galaga_USFX_L01GameMode.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGalaga_USFX_L01GameMode_Statics::NewProp_Bridge1 = { "Bridge1", nullptr, (EPropertyFlags)0x0020080000020001, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AGalaga_USFX_L01GameMode, Bridge1), Z_Construct_UClass_AImplementationConcrect_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AGalaga_USFX_L01GameMode_Statics::NewProp_Bridge1_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AGalaga_USFX_L01GameMode_Statics::NewProp_Bridge1_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGalaga_USFX_L01GameMode_Statics::NewProp_Bridge2_MetaData[] = {
+		{ "Category", "Game mode" },
+		{ "ModuleRelativePath", "Galaga_USFX_L01GameMode.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGalaga_USFX_L01GameMode_Statics::NewProp_Bridge2 = { "Bridge2", nullptr, (EPropertyFlags)0x0020080000020001, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AGalaga_USFX_L01GameMode, Bridge2), Z_Construct_UClass_AImplementationConcrect_1_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AGalaga_USFX_L01GameMode_Statics::NewProp_Bridge2_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AGalaga_USFX_L01GameMode_Statics::NewProp_Bridge2_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AGalaga_USFX_L01GameMode_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGalaga_USFX_L01GameMode_Statics::NewProp_calculadora,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGalaga_USFX_L01GameMode_Statics::NewProp_Emisor,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGalaga_USFX_L01GameMode_Statics::NewProp_Receptor,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGalaga_USFX_L01GameMode_Statics::NewProp_CSaltar,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGalaga_USFX_L01GameMode_Statics::NewProp_CDisparar,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGalaga_USFX_L01GameMode_Statics::NewProp_Capsula,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGalaga_USFX_L01GameMode_Statics::NewProp_Bridge1,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGalaga_USFX_L01GameMode_Statics::NewProp_Bridge2,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AGalaga_USFX_L01GameMode_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AGalaga_USFX_L01GameMode>::IsAbstract,
@@ -143,7 +184,7 @@ void EmptyLinkFunctionForGeneratedCodeGalaga_USFX_L01GameMode() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AGalaga_USFX_L01GameMode, 4066639096);
+	IMPLEMENT_CLASS(AGalaga_USFX_L01GameMode, 3732892524);
 	template<> GALAGA_USFX_L01_API UClass* StaticClass<AGalaga_USFX_L01GameMode>()
 	{
 		return AGalaga_USFX_L01GameMode::StaticClass();

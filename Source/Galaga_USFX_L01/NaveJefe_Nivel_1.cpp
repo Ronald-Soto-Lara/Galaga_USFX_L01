@@ -30,25 +30,21 @@ void ANaveJefe_Nivel_1::Tick(float DeltaTime)
 void ANaveJefe_Nivel_1::BuilCrearBase(int j)
 {
 	naveJefe_1->ImplementarBase(j);
-	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Base"));
 }
 
 void ANaveJefe_Nivel_1::BuilCrearSegundoPiso(int k)
 {
 	naveJefe_1->ImplementarSegundoPiso(k);
-	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("SegundoPiso"));
 }
 
 void ANaveJefe_Nivel_1::BuildTiradores(int l)
 {
 	naveJefe_1->ImplementarTiradores(l);
-	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Tiradores"));
 }
 
 void ANaveJefe_Nivel_1::BuildCant_Balas(int m)
 {
 	naveJefe_1->ImplementarCantBalas(m);
-	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("CantBalas"));
 }
 
 AConstruirNaveJefe* ANaveJefe_Nivel_1::CrearNaveJefe()

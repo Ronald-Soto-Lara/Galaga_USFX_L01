@@ -3,8 +3,8 @@
 
 #include "NaveCaza.h"
 #include "NaveCaza_1.h"
-#include "NaveEspia_1.h"
 #include "NaveCaza_2.h"
+#include "NaveEspia.h"
 #include "ConstruirNaveJefe.h"
 
 
@@ -158,7 +158,7 @@ void AConstruirNaveJefe::ImplementarCantBalas(int z)
 	case 1:
 		for (int i = 0; i < 2; i++)
 		{
-			Cabeza = GetWorld()->SpawnActor<ANaveEspia_1>(ANaveEspia_1::StaticClass());
+			Cabeza = GetWorld()->SpawnActor<ANaveEspia>(ANaveEspia::StaticClass());
 			Cabeza->SetActorRotation(RotArmas);
 			Cabeza->SetActorLocation(PosArmas);
 			PosArmas.Y = PosArmas.Y + 200.0f;
@@ -171,7 +171,7 @@ void AConstruirNaveJefe::ImplementarCantBalas(int z)
 	case 3:
 		for (int i = 0; i < 4; i++)
 		{
-			Cabeza = GetWorld()->SpawnActor<ANaveEspia_1>(ANaveEspia_1::StaticClass());
+			Cabeza = GetWorld()->SpawnActor<ANaveEspia>(ANaveEspia::StaticClass());
 			Cabeza->SetActorRotation(RotArmas1);
 			Cabeza->SetActorLocation(PosArmas1);
 			if (i == 1)

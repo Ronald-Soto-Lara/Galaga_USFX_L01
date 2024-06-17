@@ -19,7 +19,7 @@ public:
 	class ANaveCaza* Base;
 	class ANaveCaza_1* SegundoPiso;
 	class ANaveCaza_2* Tiradores;
-	class ANaveEspia_1* Cabeza;
+	class ANaveEspia* Cabeza;
 	
 
 protected:

@@ -474,6 +474,18 @@ void AGalaga_USFX_L01Pawn::ResSpeed()
 	MoveSpeed = 500.0f;
 }
 
+void AGalaga_USFX_L01Pawn::CambiarMallaPawn()
+{
+	//static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("StaticMesh'/Game/Meshes/Nodriza2.Nodriza2'"));
+	EnemyMesh=CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StaticMesh'/Game/Meshes/Nodriza2.Nodriza2'"));
+	/*ShipMeshComponent->SetupAttachment(RootComponent);
+	RootComponent = ShipMeshComponent;*/
+//	ShipMeshComponent->SetStaticMesh(ShipMesh.Object);
+//	EnemyMesh->SetStaticMesh(ShipMesh.Object);
+
+	SetActorRelativeScale3D(FVector(0.40f, 0.40f, 0.40f));
+}
+
 
 IEstados* AGalaga_USFX_L01Pawn::N_ObtenerEstadoNormal()
 {

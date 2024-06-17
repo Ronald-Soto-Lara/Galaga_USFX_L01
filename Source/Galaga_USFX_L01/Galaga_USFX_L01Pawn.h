@@ -24,7 +24,8 @@ class AGalaga_USFX_L01Pawn : public APawn
 	UPROPERTY(Category = Camera, VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
 	class USpringArmComponent* CameraBoom;
 
-
+	UPROPERTY(Category = Mesh, VisibleDefaultsOnly, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
+	class UStaticMeshComponent* EnemyMesh;
 
 
 public:
@@ -139,10 +140,6 @@ public:
 	IEstados* EstadoLento;
 	IEstados* EstadoInvisible;
 	IEstados* EstadoInvencible;
-	/*AEstadoBase* EstadoBase1;
-	AEstadoLento* EstadoLento1;
-	AEstadoInvisible* EstadoInvisible1;
-	AEstadoInvencible* EstadoInvencible1;*/
 
 	//Funciones pa cambiar los estados.
 	FORCEINLINE void SetEstado(IEstados* _Estado);
@@ -152,6 +149,7 @@ public:
 	void PawnInvisibiliando();
 	void PawnInvenciblepapidios();
 	void ResSpeed();
+	void CambiarMallaPawn();
 
 	//Funciones para obtener el estado.
 	FORCEINLINE IEstados* N_ObtenerEstadoNormal();

@@ -6,8 +6,9 @@
 ANaveTransporte::ANaveTransporte() {
     // Inicializar la malla de la nave caza
     // Por ejemplo:
-    static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_Cube.Shape_Cube'"));
+    static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("StaticMesh'/Game/Meshes/Nodriza5.Nodriza5'"));
     EnemyMesh->SetStaticMesh(ShipMesh.Object);
+    SetActorRelativeScale3D(FVector(0.35f, 0.35f, 0.35f));
 }
 void ANaveTransporte::Mover(float DeltaTime) {
     velocidad = 1.0f;

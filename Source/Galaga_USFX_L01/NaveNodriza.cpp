@@ -4,9 +4,9 @@
 #include "NaveNodriza.h"
 
 ANaveNodriza::ANaveNodriza() {
-	static ConstructorHelpers::FObjectFinder<UStaticMesh> 
-	ShipMesh(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_WideCapsule.Shape_WideCapsule'"));
+	static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("StaticMesh'/Game/Meshes/Nodriza3.Nodriza3'"));
 	EnemyMesh->SetStaticMesh(ShipMesh.Object);
+	SetActorRelativeScale3D(FVector(0.35f, 0.35f, 0.35f));
 }
 void ANaveNodriza::Mover(float DeltaTime) {
 	velocidad = 1.0f;

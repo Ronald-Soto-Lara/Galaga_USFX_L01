@@ -4,9 +4,9 @@
 #include "NaveReabastecimiento.h"
 
 ANaveReabastecimiento::ANaveReabastecimiento() {
-	static ConstructorHelpers::FObjectFinder<UStaticMesh> 
-	ShipMesh(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_WideCapsule.Shape_WideCapsule'"));
+	static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("StaticMesh'/Game/Meshes/Nodriza4.Nodriza4'"));
 	EnemyMesh->SetStaticMesh(ShipMesh.Object);
+	SetActorRelativeScale3D(FVector(0.35f, 0.35f, 0.35f));
 }
 void ANaveReabastecimiento::Mover(float DeltaTime) {
 	velocidad = 1.0f;

@@ -5,9 +5,9 @@
 #include "ProyectilEnemigo.h"
 
 ANaveCaza::ANaveCaza() {
-	static ConstructorHelpers::FObjectFinder<UStaticMesh>ShipMesh(TEXT("StaticMesh'/Game/Meshes/Nodriza5.Nodriza5'"));
-	SetActorRelativeScale3D(FVector(0.4f, 0.4f, 0.4f));
+	static ConstructorHelpers::FObjectFinder<UStaticMesh>ShipMesh(TEXT("StaticMesh'/Game/Meshes/Nodriza1.Nodriza1'"));
 	EnemyMesh->SetStaticMesh(ShipMesh.Object);
+	SetActorRelativeScale3D(FVector(0.35f, 0.35f, 0.35f));
 	ActDisparo = true;
 	cadencia = 1.0f;
 }

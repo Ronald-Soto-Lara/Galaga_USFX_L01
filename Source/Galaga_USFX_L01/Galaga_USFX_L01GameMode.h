@@ -61,6 +61,18 @@ protected:
 	UPROPERTY(VisibleAnywhere, Category = "Game mode")
 	class AComandoDeDisparo* CDisparar;
 
+
+	//Punteros del patron bridge
+	UPROPERTY(VisibleAnywhere, Category = "Game mode")
+	class ACapsula* Capsula;
+
+	UPROPERTY(VisibleAnywhere, Category = "Game mode")
+	class AImplementationConcrect* Bridge1;
+
+	UPROPERTY(VisibleAnywhere, Category = "Game mode")
+	class AImplementationConcrect_1* Bridge2;
+
+
 	void EjecutarComandoSaltar();
 	void EjecutarComandoDisparar();
 	void DeshacerComando();
@@ -81,8 +93,14 @@ public:
 	ANaveJefe_Nivel_1* Jefe;
 	ANaveJefe_Nivel_2* Jefe_2;
 	ANaveJefe_Nivel_3* Jefe_3;
+	AConstruirNaveJefe* naveJefe1;
+	AConstruirNaveJefe* naveJefe2;
 	ADirector_NJ* Director;
-	int score;
+	AEstadoBase* EstadoBase;
+	AEstadoInvisible* EstadoInvisible;
+	AEstadoInvencible* EstadoInvencible;
+	AEstadoLento* EstadoLento;
+	int RECORD;
 	int POWER_UP_DOUBLE_SHOT_ID;
 	FString powerUp;
 	TMap<int, FString>TMapPowerUp;
