@@ -34,8 +34,9 @@ void AEstadoLento::SetPawn(AGalaga_USFX_L01Pawn* _Pawn)
 void AEstadoLento::PawnLento()
 {
 	Pawn = Cast<AGalaga_USFX_L01Pawn>(GetWorld()->GetFirstPlayerController()->GetPawn());
-	Pawn->CambiarMallaPawn();
-	Pawn->MoveSpeed = 100.0f;
+	Pawn->SetActorEnableCollision(true);
+	Pawn->SetActorHiddenInGame(false);
+	Pawn->MoveSpeed = 50.0f;
 }
 
 FString AEstadoLento::ObtenerEstado()

@@ -34,9 +34,9 @@ void AEstadoBase::SetPawn(AGalaga_USFX_L01Pawn* _Pawn)
 void AEstadoBase::PawnNormal()
 {
 	Pawn = Cast<AGalaga_USFX_L01Pawn>(GetWorld()->GetFirstPlayerController()->GetPawn());
-	/*Pawn->ResSpeed();
+	Pawn->SetActorEnableCollision(true);
 	Pawn->SetActorHiddenInGame(false);
-	Pawn->SetActorEnableCollision(true);*/
+	Pawn->MoveSpeed = 1000.0f;
 	Pawn->Salto();
 }
 

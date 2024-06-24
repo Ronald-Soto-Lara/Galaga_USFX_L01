@@ -33,7 +33,9 @@ public:
 	//Mientras que 'override' asegura que estemos sobreescribiendo una funcion de la clase base.
 	virtual void Tick(float DeltaTime) override;
 	virtual void Disparar();
-	virtual void DeshacerDisparo();
 	virtual void DeshacerSalto();
-
+	int recordCaza;
+	int LimiteInferior;
+	int LimiteSuperior;
+	bool bMoviendoHaciaArriba;
 };

@@ -25,7 +25,6 @@ void AReceptorDeOrdenes::BeginPlay()
 void AReceptorDeOrdenes::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
 }
 
 void AReceptorDeOrdenes::Disparar()
@@ -47,7 +46,7 @@ void AReceptorDeOrdenes::DeshacerOrden(FString _orden)
 	{
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Deshacer Disparo"));
 		ANaveCaza* NaveCazaDisparo = GetWorld()->SpawnActor<ANaveCaza>(ANaveCaza::StaticClass());
-		NaveCazaDisparo->DeshacerDisparo();
+		//deshacer orden
 	}
 	else if (_orden == "Salto")
 	{

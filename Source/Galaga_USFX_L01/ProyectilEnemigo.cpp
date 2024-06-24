@@ -19,8 +19,9 @@ AProyectilEnemigo::AProyectilEnemigo()
 	ProyecEnemy = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ProjectileMesh0"));
 	ProyecEnemy->SetStaticMesh(ProjectileMeshAsset.Object);
 	ProyecEnemy->SetupAttachment(RootComponent);
-
+	ProyecEnemy->SetWorldScale3D(FVector(1.5f, 1.5f, 1.f));
 	vel = 1000;
+	n = 10;
 }
 void AProyectilEnemigo::BeginPlay()
 {
@@ -44,6 +45,11 @@ void AProyectilEnemigo::NotifyHit(UPrimitiveComponent* MyComp, AActor* Other, UP
 	AGalaga_USFX_L01Pawn* Pawn = Cast<AGalaga_USFX_L01Pawn>(GetWorld()->GetFirstPlayerController()->GetPawn());
 	if (Pawn)
 	{
-		Pawn->Destruir();
+		n-=1;
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("La vida del Pawn reducioó a %d"), n));
+		if (n == 0) {
+			Pawn->Destruir();
+			n = 10;
+		}
 	}
 }

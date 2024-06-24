@@ -53,4 +53,6 @@ protected:
 	virtual void Escudo();
 public:
 	virtual void Tick(float DeltaTime) override;
+	virtual void Disparar();
+	int recordCaza;
 };

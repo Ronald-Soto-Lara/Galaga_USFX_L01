@@ -14,6 +14,20 @@
 #include "Engine/Engine.h"
 #include "Galaga_USFX_L01Pawn.h"
 #include "LetreroBienvenida.h"
+#include "EscuadronesFacade.h"
+#include "Director_NJ.h"
+#include "ConstruirNaveJefe.h"
+#include "NaveJefe_Nivel_1.h"
+#include "NaveJefe_Nivel_2.h"
+#include "NaveJefe_Nivel_3.h"
+#include "NaveEspia_1.h"
+#include "NaveEspia_2.h"
+#include "NaveCaza_1.h"
+#include "NaveCaza_2.h"
+#include "EstadoInvencible.h"
+#include "Capsulas.h"
+#include "Bomba.h"
+#include "ClaseExtra.h"
 
 
 AGalaga_USFX_L01Projectile::AGalaga_USFX_L01Projectile() 
@@ -41,6 +55,7 @@ AGalaga_USFX_L01Projectile::AGalaga_USFX_L01Projectile()
 	InitialLifeSpan = 3.0f;
 }
 int n = 0;
+int EscDestruidas = 0;
 
 void AGalaga_USFX_L01Projectile::NotifyHit(UPrimitiveComponent* MyComp, AActor* Other, UPrimitiveComponent* OtherComp, bool bSelfMoved, FVector HitLocation, FVector HitNormal, FVector NormalImpulse, const FHitResult& Hit)
 {
@@ -49,72 +64,109 @@ void AGalaga_USFX_L01Projectile::NotifyHit(UPrimitiveComponent* MyComp, AActor* 
 	ANaveTransporte* NaveTransCol = Cast<ANaveTransporte>(Other);
 	ANaveCaza* NaveCaza = Cast<ANaveCaza>(Other);
 	ANaveNodriza* NaveNodriza = Cast<ANaveNodriza>(Other);
+	ACapsulas* Capsulas = Cast<ACapsulas>(Other);
+	ABomba* Bomba = Cast<ABomba>(Other);
+	AClaseExtra* ClaseExtra = Cast<AClaseExtra>(Other);
 
-	if (NaveReabastecimiento != nullptr) {
-		NaveReabastecimiento->Destroy();
-		n += 1;
-		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("Naves Reabastecimiento destruidas: %d"), n));
-		if (n == 25) {
-		AGalaga_USFX_L01Pawn* GalagaPawn1 = Cast<AGalaga_USFX_L01Pawn>(GetWorld()->GetFirstPlayerController()->GetPawn());
-			if (GalagaPawn1)
-			{
+	if (EscDestruidas == 5) {
+		EstadoInvencible = GetWorld()->SpawnActor<AEstadoInvencible>(AEstadoInvencible::StaticClass());
+		EstadoInvencible->PawnInvencible();
+	}
+	if (EscDestruidas == 10) {
+		Jefe = GetWorld()->SpawnActor<ANaveJefe_Nivel_1>(ANaveJefe_Nivel_1::StaticClass());
+		Director = GetWorld()->SpawnActor<ADirector_NJ>(ADirector_NJ::StaticClass());
+		Director->ConstruirBaseJefe(Jefe);
+		Director->ConstruirSegundoPisoJefe();
+		Jefe = GetWorld()->SpawnActor<ANaveJefe_Nivel_1>(ANaveJefe_Nivel_1::StaticClass());
+		Director = GetWorld()->SpawnActor<ADirector_NJ>(ADirector_NJ::StaticClass());
+		Director->ConstruirBaseJefe(Jefe);
+		Director->ConstruirSegundoPisoJefe();
+		Jefe_2 = GetWorld()->SpawnActor<ANaveJefe_Nivel_2>(ANaveJefe_Nivel_2::StaticClass());
+		Director->ConstruirBaseJefe(Jefe_2);
+		Director->ConstruirTiradoresJefe();
+		Jefe_3 = GetWorld()->SpawnActor<ANaveJefe_Nivel_3>(ANaveJefe_Nivel_3::StaticClass());
+		Director->ConstruirBaseJefe(Jefe_3);
+		Director->ConstruirCantBalasJefe();
+	}
+	if (Capsulas) {
+		Capsulas->Destroy();
+	}
+	if (Bomba) {
+		Bomba->Destroy();
+	}
+	if (ClaseExtra) {
+		ClaseExtra->Destroy();
+	}
+		if (NaveReabastecimiento != nullptr) {
+			NaveReabastecimiento->Destroy();
+			n += 1;
+			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("Naves Reabastecimiento destruidas: %d"), n));
+			if (n == 9) {
 				n = 0;
-				GalagaPawn1->Destruir();
+				EscDestruidas += 1;
+				if (EscDestruidas < 10) {
+					int32 EjecutarNave = FMath::RandRange(1, 5);
+					Naves = GetWorld()->SpawnActor<AEscuadronesFacade>(AEscuadronesFacade::StaticClass());
+					Naves->CrearEscuadrones(EjecutarNave);
+				}
 			}
 		}
-	}
-	if (NaveEspiaCol != nullptr) {
-		NaveEspiaCol->Destroy();
-		n += 1;
-		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("Naves Espia destruidas: %d"), n));
-		if (n == 25) {
-			AGalaga_USFX_L01Pawn* GalagaPawn1 = Cast<AGalaga_USFX_L01Pawn>(GetWorld()->GetFirstPlayerController()->GetPawn());
-			if (GalagaPawn1)
-			{
+		if (NaveEspiaCol != nullptr) {
+			NaveEspiaCol->Destroy();
+			n += 1;
+			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Orange, FString::Printf(TEXT("Naves Espia destruidas: %d"), n));
+			if (n == 9) {
 				n = 0;
-				GalagaPawn1->Destroy();
+				EscDestruidas += 1;
+				if (EscDestruidas < 10) {
+					int32 EjecutarNave = FMath::RandRange(1, 5);
+					Naves = GetWorld()->SpawnActor<AEscuadronesFacade>(AEscuadronesFacade::StaticClass());
+					Naves->CrearEscuadrones(EjecutarNave);
+				}
 			}
 		}
-	}
-	if (NaveTransCol != nullptr) {
-		NaveTransCol->Destroy();
-		n += 1;
-		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("Naves Transporte destruidas: %d"), n));
-		if (n== 25) {
-			AGalaga_USFX_L01Pawn* GalagaPawn1 = Cast<AGalaga_USFX_L01Pawn>(GetWorld()->GetFirstPlayerController()->GetPawn());
-			if (GalagaPawn1)
-			{
+		if (NaveTransCol != nullptr) {
+			NaveTransCol->Destroy();
+			n += 1;
+			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::White, FString::Printf(TEXT("Naves Transporte destruidas: %d"), n));
+			if (n == 9) {
 				n = 0;
-				GalagaPawn1->Destroy();
+				EscDestruidas += 1;
+				if (EscDestruidas < 10) {
+					int32 EjecutarNave = FMath::RandRange(1, 5);
+					Naves = GetWorld()->SpawnActor<AEscuadronesFacade>(AEscuadronesFacade::StaticClass());
+					Naves->CrearEscuadrones(EjecutarNave);
+				}
 			}
 		}
-	}
-	if (NaveCaza != nullptr) {
-		NaveCaza->Destroy();
-		n += 1;
-		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("Naves Caza destruidas: %d"), n));
-		if (n == 25) {
-			AGalaga_USFX_L01Pawn* GalagaPawn1 = Cast<AGalaga_USFX_L01Pawn>(GetWorld()->GetFirstPlayerController()->GetPawn());
-			if (GalagaPawn1)
-			{
+		if (NaveCaza != nullptr) {
+			NaveCaza->Destroy();
+			n += 1;
+			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Black, FString::Printf(TEXT("Naves Caza destruidas: %d"), n));
+			if (n == 9) {
 				n = 0;
-				GalagaPawn1->Destroy();
+				EscDestruidas += 1;
+				if (EscDestruidas < 10) {
+					int32 EjecutarNave = FMath::RandRange(1, 5);
+					Naves = GetWorld()->SpawnActor<AEscuadronesFacade>(AEscuadronesFacade::StaticClass());
+					Naves->CrearEscuadrones(EjecutarNave);
+				}
 			}
 		}
-	}
-	if (NaveNodriza != nullptr) {
-		NaveNodriza->Destroy();
-		n += 1;
-		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("Naves Nodriza destruidas: %d"), n));
-		if (n == 25) {
-			AGalaga_USFX_L01Pawn* GalagaPawn1 = Cast<AGalaga_USFX_L01Pawn>(GetWorld()->GetFirstPlayerController()->GetPawn());
-			if (GalagaPawn1)
-			{
+		if (NaveNodriza != nullptr) {
+			NaveNodriza->Destroy();
+			n += 1;
+			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Purple, FString::Printf(TEXT("Naves Nodriza destruidas: %d"), n));
+			if (n == 9) {
 				n = 0;
-				GalagaPawn1->Destroy();
+				EscDestruidas += 1;
+				if (EscDestruidas < 10) {
+					int32 EjecutarNave = FMath::RandRange(1, 5);
+					Naves = GetWorld()->SpawnActor<AEscuadronesFacade>(AEscuadronesFacade::StaticClass());
+					Naves->CrearEscuadrones(EjecutarNave);
+				}
 			}
 		}
-	}
 }
 
 void AGalaga_USFX_L01Projectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)

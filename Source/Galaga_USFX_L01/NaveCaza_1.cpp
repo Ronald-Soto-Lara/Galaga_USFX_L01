@@ -4,8 +4,7 @@
 #include "NaveCaza_1.h"
 
 ANaveCaza_1::ANaveCaza_1() {
-	static ConstructorHelpers::FObjectFinder<UStaticMesh> 
-	ShipMesh(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_Sphere.Shape_Sphere'"));
+	static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("StaticMesh'/Game/Meshes/SM_Rock.SM_Rock'"));
 	EnemyMesh->SetStaticMesh(ShipMesh.Object);
 }
 void ANaveCaza_1::Mover(float DeltaTime) {

@@ -34,8 +34,9 @@ void AEstadoInvencible::SetPawn(AGalaga_USFX_L01Pawn* _Pawn)
 void AEstadoInvencible::PawnInvencible()
 {
 	Pawn = Cast<AGalaga_USFX_L01Pawn>(GetWorld()->GetFirstPlayerController()->GetPawn());
-	Pawn->SetActorHiddenInGame(false);
 	Pawn->SetActorEnableCollision(false);
+	Pawn->SetActorHiddenInGame(false);
+	Pawn->MoveSpeed = 1000.0f;
 }
 
 FString AEstadoInvencible::ObtenerEstado()

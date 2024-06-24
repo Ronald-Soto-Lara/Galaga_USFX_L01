@@ -32,4 +32,6 @@ protected:
 	virtual void Reabastecer();
 public:
 	virtual void Tick(float DeltaTime) override;
+	virtual void Disparar();
+	int recordReabastecimiento;
 };

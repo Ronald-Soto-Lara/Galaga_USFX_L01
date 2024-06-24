@@ -30,4 +30,6 @@ protected:
 	virtual void Ocultar();
 public:
 	virtual void Tick(float DeltaTime) override;
+	virtual void Disparar();
+	int recordCaza;
 };

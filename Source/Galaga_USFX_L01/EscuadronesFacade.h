@@ -30,5 +30,4 @@ public:
 	void CrearEsc_3();
 	void CrearEsc_4();
 	void CrearEsc_5();
-
 };

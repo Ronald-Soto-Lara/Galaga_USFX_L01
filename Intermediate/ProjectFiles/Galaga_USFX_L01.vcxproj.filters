@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\Galaga_USFX_L01.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{1335B0E4-0462-4E2D-8755-E6A28A24351A}</UniqueIdentifier>
+      <UniqueIdentifier>{DC1413EC-627C-4017-B6D0-3D10456C9B81}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\Galaga_USFX_L01.Target.cs">
       <Filter>Source</Filter>
@@ -25,7 +25,7 @@
     <None Include="..\..\Source_PatronCommand.zip" />
     <None Include="..\..\Temp.txt" />
     <Filter Include="Config">
-      <UniqueIdentifier>{7B706BC4-ED45-47E4-9B1B-1BEFF6039F97}</UniqueIdentifier>
+      <UniqueIdentifier>{B9AD7125-C24D-4369-9CF4-5F04AD48F6D6}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -43,7 +43,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\Galaga_USFX_L01">
-      <UniqueIdentifier>{D4EB676A-6784-4D6D-AEB9-BE89444E72E8}</UniqueIdentifier>
+      <UniqueIdentifier>{59F462EB-3BEA-4964-980B-EFB9970B369E}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\Galaga_USFX_L01\aaConcrectObserver.cpp">
       <Filter>Source\Galaga_USFX_L01</Filter>
@@ -79,6 +79,12 @@
       <Filter>Source\Galaga_USFX_L01</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\Galaga_USFX_L01\CapsulaEstate.h">
+      <Filter>Source\Galaga_USFX_L01</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Galaga_USFX_L01\Capsulas.cpp">
+      <Filter>Source\Galaga_USFX_L01</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Galaga_USFX_L01\Capsulas.h">
       <Filter>Source\Galaga_USFX_L01</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\Galaga_USFX_L01\ClaseExtra.cpp">
@@ -169,6 +175,12 @@
       <Filter>Source\Galaga_USFX_L01</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\Galaga_USFX_L01\Estrategy.h">
+      <Filter>Source\Galaga_USFX_L01</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Galaga_USFX_L01\FabricaDeProyectiles.cpp">
+      <Filter>Source\Galaga_USFX_L01</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Galaga_USFX_L01\FabricaDeProyectiles.h">
       <Filter>Source\Galaga_USFX_L01</Filter>
     </ClInclude>
     <None Include="..\..\Source\Galaga_USFX_L01\Galaga_USFX_L01.Build.cs">
@@ -408,6 +420,30 @@
     <ClInclude Include="..\..\Source\Galaga_USFX_L01\ProyectilEnemigo.h">
       <Filter>Source\Galaga_USFX_L01</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\Galaga_USFX_L01\ProyectilEnemigo_2.cpp">
+      <Filter>Source\Galaga_USFX_L01</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Galaga_USFX_L01\ProyectilEnemigo_2.h">
+      <Filter>Source\Galaga_USFX_L01</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Galaga_USFX_L01\ProyectilEnemigo_3.cpp">
+      <Filter>Source\Galaga_USFX_L01</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Galaga_USFX_L01\ProyectilEnemigo_3.h">
+      <Filter>Source\Galaga_USFX_L01</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Galaga_USFX_L01\ProyectilEnemigo_4.cpp">
+      <Filter>Source\Galaga_USFX_L01</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Galaga_USFX_L01\ProyectilEnemigo_4.h">
+      <Filter>Source\Galaga_USFX_L01</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Galaga_USFX_L01\ProyectilEnemigo_5.cpp">
+      <Filter>Source\Galaga_USFX_L01</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Galaga_USFX_L01\ProyectilEnemigo_5.h">
+      <Filter>Source\Galaga_USFX_L01</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\Galaga_USFX_L01\ReceptorDeOrdenes.cpp">
       <Filter>Source\Galaga_USFX_L01</Filter>
     </ClCompile>
@@ -440,11 +476,9 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="Source\Galaga_USFX_L01\Patrones">
-      <UniqueIdentifier>{d4ec09fe-be24-4cc1-9788-d486572e7b3d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Galaga_USFX_L01\Objetos de uso en el juego">
-      <UniqueIdentifier>{3a25a978-638e-4c6f-83af-1a66db34ee62}</UniqueIdentifier>
-    </Filter>
+    <ClInclude Include="state.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="state.cpp" />
   </ItemGroup>
 </Project>

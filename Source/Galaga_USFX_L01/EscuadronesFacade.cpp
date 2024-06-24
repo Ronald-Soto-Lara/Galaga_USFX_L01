@@ -103,13 +103,13 @@ void AEscuadronesFacade::CrearEsc_2()
 				//Recordemos declarar a 'TipoNavAlea' como referencia de las subclases de 'AEnemy'.
 				TSubclassOf<ANaveEnemiga>TipoNavAlea = TipoNaves1[FMath::RandRange(0, TipoNaves1.Num() - 1)];//Esto asigna una nave aleatoria de nuestro array de naves.
 				//Verificamos si el Tmap tiene la llave (TipoNavAlea) que recordemos que es una subclase especifica de 'Enemy'.
-				//Contains es un metodo que se llama en un TMap para verificar si contiene una clave específica (TipoNavAlea).
+				//Contains es un metodo que se llama en un TMap para verificar si contiene una clave espec?fica (TipoNavAlea).
 				if (MaxNav1.Contains(TipoNavAlea)) {
 					int NavesGeneradas = MaxNav1[TipoNavAlea];//Asignanos la nave aleatoria como un entero a la variable 'NavesGeneradas'.
 					if (NavesGeneradas > 0) {
 						FVector PActualNaves = FVector(Posicion.X + i * 180, Posicion.Y + j * 180, Posicion.Z);//Esto solo controla la distancia entre las naves
 						ANaveEnemiga* NavesInst = World->SpawnActor<ANaveEnemiga>(TipoNavAlea, PActualNaves, Rotacion);//Esto spawnea las naves en el mundo.
-						Enemigos.Push(NavesInst);//Esto añade las naves al array de enemigos.
+						Enemigos.Push(NavesInst);//Esto a?ade las naves al array de enemigos.
 						NavesGeneradas--;//Cada vez que se crea una nave, se reduce el contador de naves disponibles para ese tipo.
 					}
 				}
@@ -138,13 +138,13 @@ void AEscuadronesFacade::CrearEsc_3()
 				//Recordemos declarar a 'TipoNavAlea' como referencia de las subclases de 'AEnemy'.
 				TSubclassOf<ANaveEnemiga>TipoNavAlea = TipoNaves2[FMath::RandRange(0, TipoNaves2.Num() - 1)];//Esto asigna una nave aleatoria de nuestro array de naves.
 				//Verificamos si el Tmap tiene la llave (TipoNavAlea) que recordemos que es una subclase especifica de 'Enemy'.
-				//Contains es un metodo que se llama en un TMap para verificar si contiene una clave específica (TipoNavAlea).
+				//Contains es un metodo que se llama en un TMap para verificar si contiene una clave espec?fica (TipoNavAlea).
 				if (MaxNav2.Contains(TipoNavAlea)) {
 					int NavesGeneradas = MaxNav2[TipoNavAlea];//Asignanos la nave aleatoria como un entero a la variable 'NavesGeneradas'.
 					if (NavesGeneradas > 0) {
 						FVector PActualNaves = FVector(Posicion.X + i * 180, Posicion.Y + j * 180, Posicion.Z);//Esto solo controla la distancia entre las naves
 						ANaveEnemiga* NavesInst = World->SpawnActor<ANaveEnemiga>(TipoNavAlea, PActualNaves, Rotacion);//Esto spawnea las naves en el mundo.
-						Enemigos.Push(NavesInst);//Esto añade las naves al array de enemigos.
+						Enemigos.Push(NavesInst);//Esto a?ade las naves al array de enemigos.
 						NavesGeneradas--;//Cada vez que se crea una nave, se reduce el contador de naves disponibles para ese tipo.
 					}
 				}
@@ -173,13 +173,13 @@ void AEscuadronesFacade::CrearEsc_4()
 				//Recordemos declarar a 'TipoNavAlea' como referencia de las subclases de 'AEnemy'.
 				TSubclassOf<ANaveEnemiga>TipoNavAlea = TipoNaves3[FMath::RandRange(0, TipoNaves3.Num() - 1)];//Esto asigna una nave aleatoria de nuestro array de naves.
 				//Verificamos si el Tmap tiene la llave (TipoNavAlea) que recordemos que es una subclase especifica de 'Enemy'.
-				//Contains es un metodo que se llama en un TMap para verificar si contiene una clave específica (TipoNavAlea).
+				//Contains es un metodo que se llama en un TMap para verificar si contiene una clave espec?fica (TipoNavAlea).
 				if (MaxNav3.Contains(TipoNavAlea)) {
 					int NavesGeneradas = MaxNav3[TipoNavAlea];//Asignanos la nave aleatoria como un entero a la variable 'NavesGeneradas'.
 					if (NavesGeneradas > 0) {
 						FVector PActualNaves = FVector(Posicion.X + i * 200, Posicion.Y + j * 200, Posicion.Z);//Esto solo controla la distancia entre las naves
 						ANaveEnemiga* NavesInst = World->SpawnActor<ANaveEnemiga>(TipoNavAlea, PActualNaves, Rotacion);//Esto spawnea las naves en el mundo.
-						Enemigos.Push(NavesInst);//Esto añade las naves al array de enemigos.
+						Enemigos.Push(NavesInst);//Esto a?ade las naves al array de enemigos.
 						NavesGeneradas--;//Cada vez que se crea una nave, se reduce el contador de naves disponibles para ese tipo.
 					}
 				}
@@ -208,13 +208,13 @@ void AEscuadronesFacade::CrearEsc_5()
 				//Recordemos declarar a 'TipoNavAlea' como referencia de las subclases de 'AEnemy'.
 				TSubclassOf<ANaveEnemiga>TipoNavAlea = TipoNaves4[FMath::RandRange(0, TipoNaves4.Num() - 1)];//Esto asigna una nave aleatoria de nuestro array de naves.
 				//Verificamos si el Tmap tiene la llave (TipoNavAlea) que recordemos que es una subclase especifica de 'Enemy'.
-				//Contains es un metodo que se llama en un TMap para verificar si contiene una clave específica (TipoNavAlea).
+				//Contains es un metodo que se llama en un TMap para verificar si contiene una clave espec?fica (TipoNavAlea).
 				if (MaxNav4.Contains(TipoNavAlea)) {
 					int NavesGeneradas = MaxNav4[TipoNavAlea];//Asignanos la nave aleatoria como un entero a la variable 'NavesGeneradas'.
 					if (NavesGeneradas > 0) {
 						FVector PActualNaves = FVector(Posicion.X + i * 180, Posicion.Y + j * 180, Posicion.Z);//Esto solo controla la distancia entre las naves
 						ANaveEnemiga* NavesInst = World->SpawnActor<ANaveEnemiga>(TipoNavAlea, PActualNaves, Rotacion);//Esto spawnea las naves en el mundo.
-						Enemigos.Push(NavesInst);//Esto añade las naves al array de enemigos.
+						Enemigos.Push(NavesInst);//Esto a?ade las naves al array de enemigos.
 						NavesGeneradas--;//Cada vez que se crea una nave, se reduce el contador de naves disponibles para ese tipo.
 					}
 				}

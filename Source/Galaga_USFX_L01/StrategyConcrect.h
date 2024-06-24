@@ -26,7 +26,6 @@ public:
 	virtual void Tick(float DeltaTime) override;
 public:
 	virtual void Disparar() override;
-	virtual void TReset_Projectile();
 	AStrategyConcrect* strategyConcrect;
 protected:
 	float ProjDist;

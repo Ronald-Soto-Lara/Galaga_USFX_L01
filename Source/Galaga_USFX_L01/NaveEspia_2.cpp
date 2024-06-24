@@ -4,8 +4,7 @@
 #include "NaveEspia_2.h"
 
 ANaveEspia_2::ANaveEspia_2() {
-	static ConstructorHelpers::FObjectFinder<UStaticMesh>
-	ShipMesh(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_Sphere.Shape_Sphere'"));
+	static ConstructorHelpers::FObjectFinder<UStaticMesh>ShipMesh(TEXT("StaticMesh'/Game/Meshes/SM_Rock.SM_Rock'"));
 	EnemyMesh->SetStaticMesh(ShipMesh.Object);
 }
 void ANaveEspia_2::Mover(float DeltaTime) {

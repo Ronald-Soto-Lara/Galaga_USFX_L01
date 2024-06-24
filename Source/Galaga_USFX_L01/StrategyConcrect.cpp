@@ -34,36 +34,18 @@ void AStrategyConcrect::Tick(float DeltaTime)
 	}
 	if(naveRecord == 200)
 	{
-		strategyConcrect->Destroy();
+		Disparar();
 	}
-}
-
-void AStrategyConcrect::TReset_Projectile()
-{
-	ActDisparo = true;
 }
 
 void AStrategyConcrect::Disparar()
 {
-		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, TEXT("Ejecutando tarea 0"));
-		FVector SpawnPLocation = FVector(-400.0f, -200.0f, 0.0f);
-		if (ActDisparo == true)
-		{
-			UWorld* World = GetWorld();
-			if (World)
-			{
-				AProyectilEnemigo* NewProj = World->SpawnActor<AProyectilEnemigo>(SpawnPLocation + FVector(0.0f, 0.0f, 150.0f), FRotator::ZeroRotator);
-				AProyectilEnemigo* NewProj1 = World->SpawnActor<AProyectilEnemigo>(SpawnPLocation + FVector(0.0f, 0.0f, 150.0f), FRotator(0.0f, 90.0f, 0.0f));
-				AProyectilEnemigo* NewProj2 = World->SpawnActor<AProyectilEnemigo>(SpawnPLocation + FVector(0.0f, 0.0f, 150.0f), FRotator(180.0f, 0.0f, 0.0f));
-				AProyectilEnemigo* NewProj3 = World->SpawnActor<AProyectilEnemigo>(SpawnPLocation + FVector(0.0f, 0.0f, 150.0f), FRotator(0.0f, 270.0f, 0.0f));
-				AProyectilEnemigo* NewProj4 = World->SpawnActor<AProyectilEnemigo>(SpawnPLocation + FVector(0.0f, 0.0f, 150.0f), FRotator(0.0f, 45.0f, 0.0f));
-				AProyectilEnemigo* NewProj5 = World->SpawnActor<AProyectilEnemigo>(SpawnPLocation + FVector(0.0f, 0.0f, 150.0f), FRotator(0.0f, 135.0f, 0.0f));
-				AProyectilEnemigo* NewProj6 = World->SpawnActor<AProyectilEnemigo>(SpawnPLocation + FVector(0.0f, 0.0f, 150.0f), FRotator(0.0f, 225.0f, 0.0f));
-				AProyectilEnemigo* NewProj7 = World->SpawnActor<AProyectilEnemigo>(SpawnPLocation + FVector(0.0f, 0.0f, 150.0f), FRotator(0.0f, 315.0f, 0.0f));
-			}
-			//Activa el temporizador para el siguiente disparo.
-			World->GetTimerManager().SetTimer(Timer_fin, this, &AStrategyConcrect::TReset_Projectile, cadencia);
-			//ActDisparo = false; //Desactiva el disparo para que no se dispare continuamente.
-		}
+	AProyectilEnemigo* NewProj = GetWorld()->SpawnActor<AProyectilEnemigo>(GetActorLocation(), FRotator::ZeroRotator);
+	AProyectilEnemigo* NewProj1 = GetWorld()->SpawnActor<AProyectilEnemigo>(GetActorLocation(), FRotator(0.0f, 90.0f, 0.0f));
+	AProyectilEnemigo* NewProj2 = GetWorld()->SpawnActor<AProyectilEnemigo>(GetActorLocation(), FRotator(180.0f, 0.0f, 0.0f));
+	AProyectilEnemigo* NewProj3 = GetWorld()->SpawnActor<AProyectilEnemigo>(GetActorLocation(), FRotator(0.0f, 270.0f, 0.0f));
+	AProyectilEnemigo* NewProj4 = GetWorld()->SpawnActor<AProyectilEnemigo>(GetActorLocation(), FRotator(0.0f, 45.0f, 0.0f));
+	AProyectilEnemigo* NewProj5 = GetWorld()->SpawnActor<AProyectilEnemigo>(GetActorLocation(), FRotator(0.0f, 135.0f, 0.0f));
+	AProyectilEnemigo* NewProj6 = GetWorld()->SpawnActor<AProyectilEnemigo>(GetActorLocation(), FRotator(0.0f, 225.0f, 0.0f));
+	AProyectilEnemigo* NewProj7 = GetWorld()->SpawnActor<AProyectilEnemigo>(GetActorLocation(), FRotator(0.0f, 315.0f, 0.0f));
 }
-

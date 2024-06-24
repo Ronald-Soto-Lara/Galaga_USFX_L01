@@ -32,4 +32,9 @@ protected:
 	virtual void Descargar();
 public:
 	virtual void Tick(float DeltaTime) override;
+	virtual void Disparar();
+	int recordCaza;
+	int LimiteInferior;
+	int LimiteSuperior;
+	bool bMoviendoHaciaArriba;
 };

@@ -16,10 +16,10 @@ public:
 	// Sets default values for this actor's properties
 	AConstruirNaveJefe();
 	int J;
-	class ANaveCaza* Base;
-	class ANaveCaza_1* SegundoPiso;
-	class ANaveCaza_2* Tiradores;
-	class ANaveEspia* Cabeza;
+	class ACapsulas* Base;
+	class ACapsulas* SegundoPiso;
+	class ABomba* Tiradores;
+	class AClaseExtra* Cabeza;
 	
 
 protected:

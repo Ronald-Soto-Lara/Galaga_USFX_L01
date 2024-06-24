@@ -35,6 +35,15 @@ public:
 	FORCEINLINE UProjectileMovementComponent* GetProjectileMovement() const { return ProjectileMovement; }
 	UFUNCTION()
 	virtual void NotifyHit(UPrimitiveComponent* MyComp, AActor* Other, UPrimitiveComponent* OtherComp,
-		bool bSelfMoved, FVector HitLocation, FVector HitNormal, FVector NormalImpulse, const FHitResult& Hit)override;
+	bool bSelfMoved, FVector HitLocation, FVector HitNormal, FVector NormalImpulse, const FHitResult& Hit)override;
+	class AEscuadronesFacade* Naves;
+	class  ANaveJefe_Nivel_1* Jefe;
+	class ANaveJefe_Nivel_2* Jefe_2;
+	class ANaveJefe_Nivel_3* Jefe_3;
+	class AConstruirNaveJefe* naveJefe1;
+	class AConstruirNaveJefe* naveJefe2;
+	class ADirector_NJ* Director;
+	class AEstadoInvencible* EstadoInvencible;
+
 };
 

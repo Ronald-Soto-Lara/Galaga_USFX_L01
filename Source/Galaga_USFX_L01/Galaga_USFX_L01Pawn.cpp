@@ -30,6 +30,8 @@
 #include "StrategyConcrect_2.h"
 #include "Estrategy.h"
 #include "NaveEstrategy.h"
+#include "NaveEspia.h"
+#include "NaveNodriza.h"
 #include "GameFramework/PlayerInput.h"
 #include "GameFramework/CharacterMovementComponent.h"
 
@@ -46,7 +48,7 @@ AGalaga_USFX_L01Pawn::AGalaga_USFX_L01Pawn()
 	RootComponent = ShipMeshComponent;
 	ShipMeshComponent->SetCollisionProfileName(UCollisionProfile::Pawn_ProfileName);
 	ShipMeshComponent->SetStaticMesh(ShipMesh.Object);
-	ShipMeshComponent->SetWorldScale3D(FVector(1.5f, 1.5f, 1.5f));
+	ShipMeshComponent->SetWorldScale3D(FVector(1.2f, 1.2f, 1.2f));
 
 	// Cache our sound effect
 	static ConstructorHelpers::FObjectFinder<USoundBase> FireAudio(TEXT("/Game/TwinStick/Audio/TwinStickFire.TwinStickFire"));
@@ -63,11 +65,8 @@ AGalaga_USFX_L01Pawn::AGalaga_USFX_L01Pawn()
 	// Create a camera...
 	CameraComponent = CreateDefaultSubobject<UCameraComponent>(TEXT("TopDownCamera"));
 	CameraComponent->SetupAttachment(CameraBoom, USpringArmComponent::SocketName);
-	CameraComponent->bUsePawnControlRotation = false;	// Camera does not rotate relative to arm
-
-	// Movement
-	MoveSpeed = 3000.0f;
-	// Weapon
+	CameraComponent->bUsePawnControlRotation = false;
+	MoveSpeed = 1000.0f;
 	GunOffset = FVector(90.f, 0.f, 0.f);
 	GunOffset2 = FVector(90.f, 90.f, 0.f);
 	FireRate = 0.1f;
@@ -81,11 +80,6 @@ AGalaga_USFX_L01Pawn::AGalaga_USFX_L01Pawn()
 }
 void AGalaga_USFX_L01Pawn::NotifyHit(UPrimitiveComponent* MyComp, AActor* Other, UPrimitiveComponent* OtherComp, bool bSelfMoved, FVector HitLocation, FVector HitNormal, FVector NormalImpulse, const FHitResult& Hit)
 {
-	ANaveReabastecimiento* NaveReabastecimiento = Cast<ANaveReabastecimiento>(Other);
-	ANaveEspia* NaveCazaCol = Cast<ANaveEspia>(Other);
-	ANaveTransporte* NaveTransCol = Cast<ANaveTransporte>(Other);
-	ANaveCaza* NaveCaza = Cast<ANaveCaza>(Other);
-	ANaveNodriza* NaveNodriza = Cast<ANaveNodriza>(Other);
 	ACapsulaEstate* CapsulaEstate = Cast<ACapsulaEstate>(Other);
 	AClaseExtra* ClaseExtra = Cast<AClaseExtra>(Other);
 	if (ClaseExtra != nullptr)
@@ -98,50 +92,9 @@ void AGalaga_USFX_L01Pawn::NotifyHit(UPrimitiveComponent* MyComp, AActor* Other,
 	}	
 	if (CapsulaEstate != nullptr)
 	{
-		/*AGalaga_USFX_L01GameMode* GameMode = Cast<AGalaga_USFX_L01GameMode>(GetWorld()->GetAuthGameMode());
-		GameMode->CrearEstate();*/
-		AEstadoBase* EstadosBase1 = GetWorld()->SpawnActor<AEstadoBase>();
-		AEstadoLento* EstadosLento1 = GetWorld()->SpawnActor<AEstadoLento>();
-		AEstadoInvisible* EstadosInvisible1 = GetWorld()->SpawnActor<AEstadoInvisible>();
 		AEstadoInvencible* EstadosInvencible1 = GetWorld()->SpawnActor<AEstadoInvencible>();
-		int32 one = FMath::RandRange(1, 4);
-		if (one == 1) {
-			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Estado Lento"));
-			EstadosLento1->PawnLento();
-		}
-		if (one == 2) {
-			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Estado Invisible"));
-			EstadosInvisible1->PawnInvisible();
-		}
-		if (one == 3) {
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Estado Invencible"));
 			EstadosInvencible1->PawnInvencible();
-		}
-		if (one == 4) {
-			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Estado Normal"));
-			EstadosBase1->PawnNormal();
-		}
-	}
-	if (NaveReabastecimiento != nullptr){
-		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, TEXT("Chocaste con la nave de reabastecimiento"));
-
-	}
-	if (NaveCazaCol != nullptr) {
-		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Black, TEXT("Chocaste con la nave espia"));
-
-	}
-	if (NaveTransCol != nullptr) {
-		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Purple, TEXT("Chocaste con la nave de transporte"));
-
-	
-	}
-	if (NaveCaza != nullptr) {
-		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Orange, TEXT("Chocaste con la nave caza"));
-
-	}
-	if (NaveNodriza != nullptr) {
-		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::White, TEXT("Chocaste con la nave nodriza"));
-
 	}
 }
 void AGalaga_USFX_L01Pawn::BeginPlay()
@@ -476,14 +429,7 @@ void AGalaga_USFX_L01Pawn::ResSpeed()
 
 void AGalaga_USFX_L01Pawn::CambiarMallaPawn()
 {
-	//static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("StaticMesh'/Game/Meshes/Nodriza2.Nodriza2'"));
-	EnemyMesh=CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StaticMesh'/Game/Meshes/Nodriza2.Nodriza2'"));
-	/*ShipMeshComponent->SetupAttachment(RootComponent);
-	RootComponent = ShipMeshComponent;*/
-//	ShipMeshComponent->SetStaticMesh(ShipMesh.Object);
-//	EnemyMesh->SetStaticMesh(ShipMesh.Object);
-
-	SetActorRelativeScale3D(FVector(0.40f, 0.40f, 0.40f));
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Cambiando malla del pawn"));
 }
 
 
