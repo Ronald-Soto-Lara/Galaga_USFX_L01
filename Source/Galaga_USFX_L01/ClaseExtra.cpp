@@ -9,9 +9,8 @@ AClaseExtra::AClaseExtra()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 	mallaClaseExtra = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("MallaClaseExtra"));
-	static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("StaticMesh'/Game/Meshes/Speed.Speed'"));
+	static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("StaticMesh'/Game/Meshes/Shapes/Shape_Sphere.Shape_Sphere'"));
 	mallaClaseExtra->SetStaticMesh(ShipMesh.Object);
-	mallaClaseExtra->SetWorldScale3D(FVector(5.0f, 5.0f, 5.0f));
 }
 
 // Called when the game starts or when spawned

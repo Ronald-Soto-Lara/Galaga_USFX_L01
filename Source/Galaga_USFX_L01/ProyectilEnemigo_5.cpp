@@ -15,6 +15,7 @@ AProyectilEnemigo_5::AProyectilEnemigo_5()
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 	static ConstructorHelpers::FObjectFinder<UStaticMesh> ProjectileMeshAsset(TEXT("StaticMesh'/Game/Meshes/BulletEnemyLevel1.BulletEnemyLevel1'"));
+	/*StaticMesh'/Game/Meshes/BulletLevel2.BulletLevel2'*/
 	ProyecEnemy = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ProjectileMesh0"));
 	ProyecEnemy->SetStaticMesh(ProjectileMeshAsset.Object);
 	ProyecEnemy->SetupAttachment(RootComponent);

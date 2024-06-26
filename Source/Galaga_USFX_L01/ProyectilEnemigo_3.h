@@ -15,7 +15,7 @@ public:
 	// Sets default values for this actor's properties
 	AProyectilEnemigo_3();
 	UStaticMeshComponent* ProyecEnemy;
-	float vel;
+	float velocidad;
 
 protected:
 	// Called when the game starts or when spawned
@@ -24,9 +24,9 @@ protected:
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-	virtual void Mover();
-	FORCEINLINE float GetVelocidad() const { return vel; }
-	FORCEINLINE void SetVelocidad(float _vel) { vel = _vel; }
+	virtual void Mover(float DeltaTime);
+	FORCEINLINE float GetVelocidad() const { return velocidad; }
+	FORCEINLINE void SetVelocidad(float _vel) { velocidad = _vel; }
 	int n;
-
+	virtual void NotifyHit(class UPrimitiveComponent* MyComp, AActor* Other, class UPrimitiveComponent* OtherComp, bool bSelfMoved, FVector HitLocation, FVector HitNormal, FVector NormalImpulse, const FHitResult& Hit);
 };

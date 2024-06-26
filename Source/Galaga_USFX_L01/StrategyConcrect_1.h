@@ -25,14 +25,9 @@ public:
 	virtual void Tick(float DeltaTime) override;
 public:
 	virtual void Disparar() override;
-	virtual void TReset_Projectile();
 	AStrategyConcrect* mano1;
 
 protected:
-	float ProjDist;
-	bool ActDisparo;
-	FVector GunOffset;
-	FTimerHandle Timer_fin;
 	float cadencia;
 	int naveRecord;
 };

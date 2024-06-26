@@ -8,6 +8,7 @@
 #include "Galaga_USFX_L01Pawn.h"
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "Engine/StaticMesh.h"
+#include "Kismet/GameplayStatics.h"
 
 // Sets default values
 AProyectilEnemigo_3::AProyectilEnemigo_3()
@@ -19,7 +20,7 @@ AProyectilEnemigo_3::AProyectilEnemigo_3()
 	ProyecEnemy->SetStaticMesh(ProjectileMeshAsset.Object);
 	ProyecEnemy->SetupAttachment(RootComponent);
 	ProyecEnemy->SetWorldScale3D(FVector(1.5f, 1.5f, 1.f));
-	vel = 1000;
+	velocidad = 1000;
 	n = 10;
 
 }
@@ -28,19 +29,28 @@ AProyectilEnemigo_3::AProyectilEnemigo_3()
 void AProyectilEnemigo_3::BeginPlay()
 {
 	Super::BeginPlay();
-
 }
 
 // Called every frame
 void AProyectilEnemigo_3::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	Mover();
+	Mover(DeltaTime);
 }
 
-void AProyectilEnemigo_3::Mover()
+void AProyectilEnemigo_3::Mover(float DeltaTime)
 {
-	FVector NewLocation = GetActorLocation() + -GetActorForwardVector() * vel * GetWorld()->GetDeltaSeconds();
+	FVector NewLocation = GetActorLocation() + -GetActorForwardVector() * velocidad * GetWorld()->GetDeltaSeconds();
 	SetActorLocation(NewLocation);
+}
+
+void AProyectilEnemigo_3::NotifyHit(UPrimitiveComponent* MyComp, AActor* Other, UPrimitiveComponent* OtherComp, bool bSelfMoved, FVector HitLocation, FVector HitNormal, FVector NormalImpulse, const FHitResult& Hit)
+{
+	AGalaga_USFX_L01Pawn* Jugador = Cast<AGalaga_USFX_L01Pawn>(Other);
+	if (Jugador) {
+		Destroy();
+		Jugador->ModificarVida("Disminuir", 1);
+		Destroy();
+	}
 }
 

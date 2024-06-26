@@ -66,7 +66,9 @@ public: \
 	FORCEINLINE static uint32 __PPO__CDisparar() { return STRUCT_OFFSET(AGalaga_USFX_L01GameMode, CDisparar); } \
 	FORCEINLINE static uint32 __PPO__Capsula() { return STRUCT_OFFSET(AGalaga_USFX_L01GameMode, Capsula); } \
 	FORCEINLINE static uint32 __PPO__Bridge1() { return STRUCT_OFFSET(AGalaga_USFX_L01GameMode, Bridge1); } \
-	FORCEINLINE static uint32 __PPO__Bridge2() { return STRUCT_OFFSET(AGalaga_USFX_L01GameMode, Bridge2); }
+	FORCEINLINE static uint32 __PPO__Bridge2() { return STRUCT_OFFSET(AGalaga_USFX_L01GameMode, Bridge2); } \
+	FORCEINLINE static uint32 __PPO__Capsulas() { return STRUCT_OFFSET(AGalaga_USFX_L01GameMode, Capsulas); } \
+	FORCEINLINE static uint32 __PPO__NaveEstrategy() { return STRUCT_OFFSET(AGalaga_USFX_L01GameMode, NaveEstrategy); }
 
 
 #define Galaga_USFX_L01_Source_Galaga_USFX_L01_Galaga_USFX_L01GameMode_h_13_PROLOG

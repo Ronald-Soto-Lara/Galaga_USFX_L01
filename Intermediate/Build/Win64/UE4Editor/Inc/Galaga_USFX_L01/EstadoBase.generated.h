@@ -60,10 +60,7 @@ public: \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AEstadoBase)
 
 
-#define Galaga_USFX_L01_Source_Galaga_USFX_L01_EstadoBase_h_13_PRIVATE_PROPERTY_OFFSET \
-	FORCEINLINE static uint32 __PPO__Pawn() { return STRUCT_OFFSET(AEstadoBase, Pawn); }
-
-
+#define Galaga_USFX_L01_Source_Galaga_USFX_L01_EstadoBase_h_13_PRIVATE_PROPERTY_OFFSET
 #define Galaga_USFX_L01_Source_Galaga_USFX_L01_EstadoBase_h_10_PROLOG
 #define Galaga_USFX_L01_Source_Galaga_USFX_L01_EstadoBase_h_13_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \

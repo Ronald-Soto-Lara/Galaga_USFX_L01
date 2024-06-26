@@ -17,7 +17,6 @@ void EmptyLinkFunctionForGeneratedCodeaaConcrectObserver() {}
 	GALAGA_USFX_L01_API UClass* Z_Construct_UClass_AaaConcrectObserver();
 	ENGINE_API UClass* Z_Construct_UClass_AActor();
 	UPackage* Z_Construct_UPackage__Script_Galaga_USFX_L01();
-	GALAGA_USFX_L01_API UClass* Z_Construct_UClass_ABomba_NoRegister();
 	GALAGA_USFX_L01_API UClass* Z_Construct_UClass_USuscriptorInterfaz_NoRegister();
 // End Cross Module References
 	void AaaConcrectObserver::StaticRegisterNativesAaaConcrectObserver()
@@ -33,11 +32,6 @@ void EmptyLinkFunctionForGeneratedCodeaaConcrectObserver() {}
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_agregar_MetaData[];
-#endif
-		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_agregar;
-		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const UE4CodeGen_Private::FImplementedInterfaceParams InterfaceParams[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -52,16 +46,6 @@ void EmptyLinkFunctionForGeneratedCodeaaConcrectObserver() {}
 		{ "ModuleRelativePath", "aaConcrectObserver.h" },
 	};
 #endif
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AaaConcrectObserver_Statics::NewProp_agregar_MetaData[] = {
-		{ "Category", "Arsenal" },
-		{ "ModuleRelativePath", "aaConcrectObserver.h" },
-	};
-#endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AaaConcrectObserver_Statics::NewProp_agregar = { "agregar", nullptr, (EPropertyFlags)0x0040000000020001, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AaaConcrectObserver, agregar), Z_Construct_UClass_ABomba_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AaaConcrectObserver_Statics::NewProp_agregar_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AaaConcrectObserver_Statics::NewProp_agregar_MetaData)) };
-	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AaaConcrectObserver_Statics::PropPointers[] = {
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AaaConcrectObserver_Statics::NewProp_agregar,
-	};
 		const UE4CodeGen_Private::FImplementedInterfaceParams Z_Construct_UClass_AaaConcrectObserver_Statics::InterfaceParams[] = {
 			{ Z_Construct_UClass_USuscriptorInterfaz_NoRegister, (int32)VTABLE_OFFSET(AaaConcrectObserver, ISuscriptorInterfaz), false },
 		};
@@ -74,11 +58,11 @@ void EmptyLinkFunctionForGeneratedCodeaaConcrectObserver() {}
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
 		nullptr,
-		Z_Construct_UClass_AaaConcrectObserver_Statics::PropPointers,
+		nullptr,
 		InterfaceParams,
 		UE_ARRAY_COUNT(DependentSingletons),
 		0,
-		UE_ARRAY_COUNT(Z_Construct_UClass_AaaConcrectObserver_Statics::PropPointers),
+		0,
 		UE_ARRAY_COUNT(InterfaceParams),
 		0x009000A4u,
 		METADATA_PARAMS(Z_Construct_UClass_AaaConcrectObserver_Statics::Class_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UClass_AaaConcrectObserver_Statics::Class_MetaDataParams))
@@ -92,7 +76,7 @@ void EmptyLinkFunctionForGeneratedCodeaaConcrectObserver() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AaaConcrectObserver, 2281729134);
+	IMPLEMENT_CLASS(AaaConcrectObserver, 3684588964);
 	template<> GALAGA_USFX_L01_API UClass* StaticClass<AaaConcrectObserver>()
 	{
 		return AaaConcrectObserver::StaticClass();

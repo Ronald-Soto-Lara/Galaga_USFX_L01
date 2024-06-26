@@ -16,11 +16,11 @@
 #include "EscudoEscena.h"
 #include "Components/SceneComponent.h"
 #include "EscudoActor.h"
-#include "NaveAlatoriaAerea.h"
-#include "NaveReabastecimiento.h"
 #include "Estados.h"
 #include "CapsulaEstate.h"
 #include "ClaseExtra.h"
+#include "Bomba.h"
+#include "Capsulas.h"
 #include "EstadoBase.h"
 #include "EstadoLento.h"
 #include "EstadoInvisible.h"
@@ -32,8 +32,17 @@
 #include "NaveEstrategy.h"
 #include "NaveEspia.h"
 #include "NaveNodriza.h"
+#include "NaveCaza.h"
+#include "NaveTransporte.h"
+#include "ProyectilEnemigo.h"
+#include "ProyectilEnemigo_2.h"
+#include "ProyectilEnemigo_3.h"
+#include "ProyectilEnemigo_4.h"
+#include "ProyectilEnemigo_5.h"
+#include "NaveReabastecimiento.h"
 #include "GameFramework/PlayerInput.h"
 #include "GameFramework/CharacterMovementComponent.h"
+#include "CapsulaVida.h"
 
 const FName AGalaga_USFX_L01Pawn::MoveForwardBinding("MoveForward");
 const FName AGalaga_USFX_L01Pawn::MoveRightBinding("MoveRight");
@@ -82,6 +91,56 @@ void AGalaga_USFX_L01Pawn::NotifyHit(UPrimitiveComponent* MyComp, AActor* Other,
 {
 	ACapsulaEstate* CapsulaEstate = Cast<ACapsulaEstate>(Other);
 	AClaseExtra* ClaseExtra = Cast<AClaseExtra>(Other);
+	AProyectilEnemigo* ProyectilEnemigo = Cast<AProyectilEnemigo>(Other);
+	AProyectilEnemigo_2* ProyectilEnemigo_2 = Cast<AProyectilEnemigo_2>(Other);
+	AProyectilEnemigo_3* ProyectilEnemigo_3 = Cast<AProyectilEnemigo_3>(Other);
+	AProyectilEnemigo_4* ProyectilEnemigo_4 = Cast<AProyectilEnemigo_4>(Other);
+	AProyectilEnemigo_5* ProyectilEnemigo_5 = Cast<AProyectilEnemigo_5>(Other);
+	ACapsulaVida* Capsulas = Cast<ACapsulaVida>(Other);
+	ABomba* Bomba = Cast<ABomba>(Other);
+	ACapsulas* Capsula_2 = Cast<ACapsulas>(Other);
+	if (Capsula_2 != nullptr)
+	{
+		Capsula_2->Destroy();
+	}
+	if (Bomba != nullptr)
+	{
+		Bomba->Destroy();
+	}
+	if (ClaseExtra != nullptr)
+	{
+		ClaseExtra->Destroy();
+	}
+	if(Capsulas != nullptr)
+	{
+		Capsulas->Destroy();
+		ModificarVida("Aumentar", 10);
+	}
+	if(ProyectilEnemigo != nullptr)
+	{
+		ProyectilEnemigo->Destroy();
+		ModificarVida("Disminuir", 1);
+	}
+	if (ProyectilEnemigo_2 != nullptr)
+	{
+		ProyectilEnemigo_2->Destroy();
+		ModificarVida("Disminuir", 1);
+	}
+	if (ProyectilEnemigo_3 != nullptr)
+	{
+		ProyectilEnemigo_3->Destroy();
+		ModificarVida("Disminuir", 1);
+	}
+	if (ProyectilEnemigo_4 != nullptr)
+	{
+		ProyectilEnemigo_4->Destroy();
+		ModificarVida("Disminuir", 1);
+	}
+	if (ProyectilEnemigo_5 != nullptr)
+	{
+		ProyectilEnemigo_5->Destroy();
+		ModificarVida("Aumentar",10);
+	}
 	if (ClaseExtra != nullptr)
 	{
 		Puntaje+=100;
@@ -103,6 +162,7 @@ void AGalaga_USFX_L01Pawn::BeginPlay()
 	PosicionInicio = GetActorLocation();
 	UbicacionInicioX = GetActorLocation().X;
 	UbicacionInicioY = GetActorLocation().Y;
+	Vida = 100;
 }
 
 void AGalaga_USFX_L01Pawn::Destruir()
@@ -212,6 +272,28 @@ void AGalaga_USFX_L01Pawn::Salto()
 
 		GetWorldTimerManager().SetTimer(TimerHandle_Salto, this, &AGalaga_USFX_L01Pawn::descender, 0.4f, false);
 
+}
+
+void AGalaga_USFX_L01Pawn::ModificarVida(FString ModificarVida, int _Vida)
+{
+	if(ModificarVida == "Aumentar")
+	{
+		Vida += _Vida;
+		GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Emerald, TEXT("La vida aumentó a: " + FString::FromInt(Vida)));
+	}
+	if (ModificarVida == "Disminuir")
+	{
+		Vida -= _Vida;
+		GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Emerald, TEXT("La vida disminuyó a: " + FString::FromInt(Vida)));
+		if (Vida ==50)
+		{
+
+		}
+		if (Vida <= 0)
+		{
+			Destruir();
+		}
+	}
 }
 
 void AGalaga_USFX_L01Pawn::descender()

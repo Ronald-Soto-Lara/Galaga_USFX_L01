@@ -4,6 +4,7 @@
 #include "StrategyConcrect_2.h"
 #include "ProyectilEnemigo.h"
 #include "NaveEstrategy.h"
+#include "FabricaDeProyectiles.h"
 
 // Sets default values
 AStrategyConcrect_2::AStrategyConcrect_2()
@@ -40,20 +41,8 @@ void AStrategyConcrect_2::TReset_Projectile()
 
 void AStrategyConcrect_2::Disparar()
 {
-	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, TEXT("Ejecutando tarea 2"));
-	FVector SpawnPLocation = FVector(-400.0f, 200.0f, 0.0f);
-	if (ActDisparo == true)
-	{
-		UWorld* World = GetWorld();
-		if (World)
-		{
-			AProyectilEnemigo* NewProj0 = World->SpawnActor<AProyectilEnemigo>(FVector(-400.0f, 170.0f, 150.0f), FRotator::ZeroRotator);
-			AProyectilEnemigo* NewProj = World->SpawnActor<AProyectilEnemigo>(SpawnPLocation + FVector(0.0f, 0.0f, 150.0f), FRotator::ZeroRotator);
-			AProyectilEnemigo* NewProj1 = World->SpawnActor<AProyectilEnemigo>(FVector(-400.0f, 230.0f, 150.0f), FRotator::ZeroRotator);
-		}
-		//Activa el temporizador para el siguiente disparo.
-		World->GetTimerManager().SetTimer(Timer_fin, this, &AStrategyConcrect_2::TReset_Projectile, cadencia);
-		ActDisparo = false; //Desactiva el disparo para que no se dispare continuamente.
-	}
+	AProyectilEnemigo* NewProj0  = GetWorld()->SpawnActor<AProyectilEnemigo>(FVector(-1200.0f,250.0f,150.0f), FRotator(180.0f,0.0f,0.0f));
+	AProyectilEnemigo* NewProj1  = GetWorld()->SpawnActor<AProyectilEnemigo>(FVector(-1200.0f, 250.0f, 150.0f)+FVector(0.0f,30.0f,0.0f), FRotator(180.0f, 0.0f, 0.0f));
+	AProyectilEnemigo* NewProj2  = GetWorld()->SpawnActor<AProyectilEnemigo>(FVector(-1200.0f, 250.0f, 150.0f) + FVector(0.0f, -30.0f, 0.0f), FRotator(180.0f, 0.0f, 0.0f));
 }
 

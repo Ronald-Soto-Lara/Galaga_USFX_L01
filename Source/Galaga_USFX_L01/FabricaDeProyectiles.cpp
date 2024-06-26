@@ -7,6 +7,7 @@
 #include "ProyectilEnemigo_3.h"
 #include "ProyectilEnemigo_4.h"
 #include "ProyectilEnemigo_5.h"
+#include "ProyectilEnemigo_6.h"
 
 // Sets default values
 AFabricaDeProyectiles::AFabricaDeProyectiles()
@@ -51,6 +52,10 @@ void AFabricaDeProyectiles::FabricarProyectil(FString NombreProyectil, FVector _
 	if (NombreProyectil == "Proyectil_5")
 	{
 		Proyectil_5 = GetWorld()->SpawnActor<AProyectilEnemigo_5>(_location, _rotation);
+	}
+	if (NombreProyectil == "Proyectil_6")
+	{
+		Proyectil_6 = GetWorld()->SpawnActor<AProyectilEnemigo_6>(_location, _rotation);
 	}
 }
 

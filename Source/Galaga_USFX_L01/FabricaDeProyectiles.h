@@ -28,4 +28,5 @@ public:
 	class AProyectilEnemigo_3* Proyectil_3;
 	class AProyectilEnemigo_4* Proyectil_4;
 	class AProyectilEnemigo_5* Proyectil_5;
+	class AProyectilEnemigo_6* Proyectil_6;
 };

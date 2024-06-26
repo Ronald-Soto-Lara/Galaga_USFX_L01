@@ -13,9 +13,9 @@
 #include "NaveNodriza.h"
 #include "Engine/Engine.h"
 #include "Galaga_USFX_L01Pawn.h"
-#include "LetreroBienvenida.h"
 #include "EscuadronesFacade.h"
 #include "Director_NJ.h"
+#include "Proteccion.h"
 #include "ConstruirNaveJefe.h"
 #include "NaveJefe_Nivel_1.h"
 #include "NaveJefe_Nivel_2.h"
@@ -28,6 +28,8 @@
 #include "Capsulas.h"
 #include "Bomba.h"
 #include "ClaseExtra.h"
+#include "aaConcrectObserver.h"
+#include "Escolta.h"
 
 
 AGalaga_USFX_L01Projectile::AGalaga_USFX_L01Projectile() 
@@ -56,6 +58,7 @@ AGalaga_USFX_L01Projectile::AGalaga_USFX_L01Projectile()
 }
 int n = 0;
 int EscDestruidas = 0;
+int ObserverContador = 0;
 
 void AGalaga_USFX_L01Projectile::NotifyHit(UPrimitiveComponent* MyComp, AActor* Other, UPrimitiveComponent* OtherComp, bool bSelfMoved, FVector HitLocation, FVector HitNormal, FVector NormalImpulse, const FHitResult& Hit)
 {
@@ -67,6 +70,22 @@ void AGalaga_USFX_L01Projectile::NotifyHit(UPrimitiveComponent* MyComp, AActor* 
 	ACapsulas* Capsulas = Cast<ACapsulas>(Other);
 	ABomba* Bomba = Cast<ABomba>(Other);
 	AClaseExtra* ClaseExtra = Cast<AClaseExtra>(Other);
+	AProteccion* Proteccion = Cast<AProteccion>(Other);
+	AaaConcrectObserver* Observer = Cast<AaaConcrectObserver>(Other);
+	AEscolta* Escolta = Cast<AEscolta>(Other);
+	if (Escolta!=nullptr) {
+		Escolta->Destroy();
+	}
+	if (Observer != nullptr) {
+		GEngine-> AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("se disparo al observer"));
+		ObserverContador++;
+		if (ObserverContador == 10) {
+		Observer->Destroy();
+		}
+	}
+	if (Proteccion) {
+		Proteccion->DecrementarVida(5);
+	}
 
 	if (EscDestruidas == 5) {
 		EstadoInvencible = GetWorld()->SpawnActor<AEstadoInvencible>(AEstadoInvencible::StaticClass());

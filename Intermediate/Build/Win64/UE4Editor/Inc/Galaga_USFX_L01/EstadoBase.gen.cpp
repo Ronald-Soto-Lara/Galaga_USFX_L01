@@ -58,7 +58,7 @@ void EmptyLinkFunctionForGeneratedCodeEstadoBase() {}
 		{ "ModuleRelativePath", "EstadoBase.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AEstadoBase_Statics::NewProp_Pawn = { "Pawn", nullptr, (EPropertyFlags)0x0020080000020001, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AEstadoBase, Pawn), Z_Construct_UClass_AGalaga_USFX_L01Pawn_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AEstadoBase_Statics::NewProp_Pawn_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AEstadoBase_Statics::NewProp_Pawn_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AEstadoBase_Statics::NewProp_Pawn = { "Pawn", nullptr, (EPropertyFlags)0x0010000000020001, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AEstadoBase, Pawn), Z_Construct_UClass_AGalaga_USFX_L01Pawn_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AEstadoBase_Statics::NewProp_Pawn_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AEstadoBase_Statics::NewProp_Pawn_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AEstadoBase_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEstadoBase_Statics::NewProp_Pawn,
 	};
@@ -92,7 +92,7 @@ void EmptyLinkFunctionForGeneratedCodeEstadoBase() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AEstadoBase, 443933345);
+	IMPLEMENT_CLASS(AEstadoBase, 824038061);
 	template<> GALAGA_USFX_L01_API UClass* StaticClass<AEstadoBase>()
 	{
 		return AEstadoBase::StaticClass();

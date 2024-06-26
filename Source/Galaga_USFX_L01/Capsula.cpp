@@ -11,7 +11,7 @@ ACapsula::ACapsula()
 	PrimaryActorTick.bCanEverTick = true;
 
 }
-
+	
 // Called when the game starts or when spawned
 void ACapsula::BeginPlay()
 {

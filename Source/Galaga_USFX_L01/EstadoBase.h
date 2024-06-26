@@ -24,12 +24,14 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 protected:
-	UPROPERTY(VisibleAnywhere, Category = "PawnNormalito")
-	class AGalaga_USFX_L01Pawn* Pawn;
 public:
 	void SetPawn(class AGalaga_USFX_L01Pawn* _Pawn) override;
 	void PawnNormal() override;
+	void PawnSalto();
 	FORCEINLINE FString ObtenerEstado() override;
+	UPROPERTY(VisibleAnywhere, Category = "PawnNormalito")
+	class AGalaga_USFX_L01Pawn* Pawn;
+	class AGalaga_USFX_L01Pawn* Pawn1;
 private:
 	void PawnLento() override {};
 	void PawnInvisible() override {};

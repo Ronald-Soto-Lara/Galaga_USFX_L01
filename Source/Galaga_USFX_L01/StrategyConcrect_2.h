@@ -33,4 +33,5 @@ protected:
 	FTimerHandle Timer_fin;
 	float cadencia;
 	int naveRecord;
+	class AFabricaDeProyectiles* Fabrica;
 };

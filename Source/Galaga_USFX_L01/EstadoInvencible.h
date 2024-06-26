@@ -23,6 +23,7 @@ protected:
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
 protected:
 	UPROPERTY(VisibleAnywhere, Category = "PawnInvencible")
 	class AGalaga_USFX_L01Pawn* Pawn;

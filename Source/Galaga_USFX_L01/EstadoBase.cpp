@@ -37,10 +37,15 @@ void AEstadoBase::PawnNormal()
 	Pawn->SetActorEnableCollision(true);
 	Pawn->SetActorHiddenInGame(false);
 	Pawn->MoveSpeed = 1000.0f;
-	Pawn->Salto();
+	Pawn ->Salto();
 }
 
 FString AEstadoBase::ObtenerEstado()
 {
 	return "Estado Normal";
+}
+
+void AEstadoBase::PawnSalto()
+{
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Salto"));
 }

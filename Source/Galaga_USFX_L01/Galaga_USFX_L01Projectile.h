@@ -44,6 +44,5 @@ public:
 	class AConstruirNaveJefe* naveJefe2;
 	class ADirector_NJ* Director;
 	class AEstadoInvencible* EstadoInvencible;
-
 };
 

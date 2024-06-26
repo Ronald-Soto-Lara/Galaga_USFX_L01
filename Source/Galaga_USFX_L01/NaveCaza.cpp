@@ -75,16 +75,16 @@ void ANaveCaza::Disparar()
 		switch (i)
 		{
 		case 1:
-			Fabrica->FabricarProyectil("Proyectil_3", GetActorLocation(), FRotator(0.0f, 45.0f, 0.0f));
+			Fabrica->FabricarProyectil("Proyectil_1", GetActorLocation(), FRotator(0.0f, 45.0f, 0.0f));
 			break;
 		case 2:
-			Fabrica->FabricarProyectil("Proyectil_3", GetActorLocation(), FRotator(0.0f, 135.0f, 0.0f));
+			Fabrica->FabricarProyectil("Proyectil_1", GetActorLocation(), FRotator(0.0f, 135.0f, 0.0f));
 			break;
 		case 3:
-			Fabrica->FabricarProyectil("Proyectil_3", GetActorLocation(), FRotator(0.0f, -45.0f, 0.0f));
+			Fabrica->FabricarProyectil("Proyectil_1", GetActorLocation(), FRotator(0.0f, -45.0f, 0.0f));
 			break;
 		case 4:
-			Fabrica->FabricarProyectil("Proyectil_3", GetActorLocation(), FRotator(0.0f, -135.0f, 0.0f));
+			Fabrica->FabricarProyectil("Proyectil_1", GetActorLocation(), FRotator(0.0f, -135.0f, 0.0f));
 			break;
 		}
 	}

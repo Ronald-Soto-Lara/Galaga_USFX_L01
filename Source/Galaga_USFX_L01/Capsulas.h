@@ -14,6 +14,8 @@ class GALAGA_USFX_L01_API ACapsulas : public AActor
 public:	
 	// Sets default values for this actor's properties
 	ACapsulas();
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Capsula")
+	UStaticMeshComponent* MallaDeLaCapsula;
 
 protected:
 	// Called when the game starts or when spawned

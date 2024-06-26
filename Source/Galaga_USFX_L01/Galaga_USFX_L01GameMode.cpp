@@ -3,24 +3,7 @@
 #include "Galaga_USFX_L01GameMode.h"
 #include "Galaga_USFX_L01Pawn.h"
 #include "NaveEnemiga.h"
-#include "NaveTransporte.h"
-#include "NaveTransporte_1.h"
-#include "NaveTransporte_2.h"
-#include "NaveCaza.h"
-#include "NaveCaza_1.h"
-#include "NaveCaza_2.h"
-#include "NaveEspia.h"
-#include "NaveEspia_1.h"
-#include "NaveEspia_2.h"
-#include "NaveNodriza.h"
-#include "NaveNodriza_1.h"
-#include "NaveNodriza_2.h"
-#include "NaveReabastecimiento.h"
-#include "NaveReab_1.h"
-#include "NaveReab_2.h"
-#include "NaveAleatoriaAcuatica.h"
-#include "NaveAlatoriaAerea.h"
-#include "NaveAleatoriaTerrestre.h"
+#include "Capsula.h"
 #include "Director_NJ.h"
 #include "ConstruirNaveJefe.h"
 #include "NaveJefe_Nivel_1.h"
@@ -29,25 +12,21 @@
 #include "EscuadronesFacade.h"
 #include "Components/SceneComponent.h"
 #include "EscudoEscena.h"
-#include "ClaseExtra.h"
 #include "EstadoBase.h"
 #include "EstadoLento.h"
 #include "EstadoInvisible.h"
 #include "EstadoInvencible.h"
-#include "CapsulaEstate.h"
-#include "Calculator.h"
 #include "aaConcrectObserver.h"
-#include "LetreroBienvenida.h"
 #include "NaveEstrategy.h"
-#include "NavesCucarachas.h"
 #include "ComandoDeSalto.h"
 #include "ComandoDeDisparo.h"
 #include "ReceptorDeOrdenes.h"
 #include "EmisorDeOrdenes.h"
-#include "Capsula.h"
 #include "ImplementationConcrect.h"
 #include "ImplementationConcrect_1.h"
 #include "TimerManager.h"
+#include "CapsulaVida.h"
+#include "NaveCaza.h"
 
 
 AGalaga_USFX_L01GameMode::AGalaga_USFX_L01GameMode()
@@ -59,7 +38,6 @@ AGalaga_USFX_L01GameMode::AGalaga_USFX_L01GameMode()
 	DefaultPawnClass = AGalaga_USFX_L01Pawn::StaticClass();
 	naves = true;
 	TimeDay = 0.0f;
-	HUDClass = ALetreroBienvenida::StaticClass();
 }
 
 void AGalaga_USFX_L01GameMode::BeginPlay()
@@ -79,22 +57,20 @@ void AGalaga_USFX_L01GameMode::BeginPlay()
 	Capsula = GetWorld()->SpawnActor<ACapsula>(ACapsula::StaticClass());
 	
 	EstadoLento = GetWorld()->SpawnActor<AEstadoLento>(AEstadoLento::StaticClass());
-	/*EstadoLento->PawnLento();*/
-
-	/*calculadora = GetWorld()->SpawnActor<ACalculator>(ACalculator::StaticClass());*/
-	/*Observer->EstablecerTiempo(calculadora);*/
-	UWorld* const World = GetWorld();
-	if (World != nullptr)
+	EstadoLento->PawnLento();
+	for (int i = 0; i <= 4; i++)
 	{
-		ANaveEstrategy* NaveStrategy_0 = World->SpawnActor<ANaveEstrategy>(ANaveEstrategy::StaticClass());
-		if (NaveStrategy_0)
-		{
-			ANaveEstrategy*NaveEstrategy = GetWorld()->SpawnActor<ANaveEstrategy>(FVector(-400.0f, 200.0f, 150.0f), FRotator(180.0f, 0.0f, 0.0f));
-			ANaveEstrategy*NaveEstrategy_1 = GetWorld()->SpawnActor<ANaveEstrategy>(FVector(-400.0f, 0.0f, 150.0f), FRotator(180.0f, 0.0f, 0.0f));
-			ANaveEstrategy*NaveEstrategy_2 = GetWorld()->SpawnActor<ANaveEstrategy>(FVector(-400.0f, -200.0f, 150.0f), FRotator(180.0f, 0.0f, 0.0f));
-		}
-		/*AaaConcrectObserver* Observer = World->SpawnActor<AaaConcrectObserver>();*/
+		Capsulas = GetWorld()->SpawnActor<ACapsulaVida>(FVector(-1000.0f, -500.0f, 150.0f)+FVector(0.0f, 250.0f * i,0.0f), FRotator::ZeroRotator);
 	}
+
+	//Patron Observer
+	AaaConcrectObserver* Observer = GetWorld()->SpawnActor<AaaConcrectObserver>(FVector(0.0f, 0.0f, 150.0f), FRotator(0.0f, 90.0f, 90.0f));
+	ANaveEstrategy*NaveStrategy_0  = GetWorld()->SpawnActor<ANaveEstrategy>(ANaveEstrategy::StaticClass());
+	for (int i=0 ; i<=2; i++)
+	{
+		NaveEstrategy = GetWorld()->SpawnActor<ANaveEstrategy>(FVector(-1200.0f, -250.0f, 150.0f)+FVector(0.0f,250.0f*i,0.0f), FRotator(0.0f, 0.0f, 0.0f));
+	}
+
 	TMapPowerUp.Add(3000, "escudo");
 	TMapPowerUp.Add(200, "doble tiro");
 	TMapPowerUp.Add(1000, "vida extra");
@@ -123,53 +99,53 @@ void AGalaga_USFX_L01GameMode::Tick(float DeltaTime)
 	}
 
 	//Patrón Bridge
-	//if (RECORD == 100)
-	//{
-	//	Capsula->EstablecerPersonaje(Bridge1);
-	//	Capsula->VerificarCapsulaConsumida("consumida", 5.0f);
-	//	Capsula->TiposCapsulas("Salto");
-	//	Capsula->EmplearCapsula();
-	//}
-	//if (RECORD == 150)
-	//{
-	//	Capsula->EstablecerPersonaje(Bridge2);
-	//	Capsula->VerificarCapsulaConsumida("consumida", 10.0f);
-	//	Capsula->TiposCapsulas("Vida");
-	//	Capsula->EmplearCapsula();
-	//}
-	///*if(RECORD == 200)
-	//{
-	//	Capsula->EstablecerPersonaje(Bridge2);
-	//	Capsula->VerificarCapsulaConsumida("noconsumida", 15.0f);
-	//	Capsula->TiposCapsulas("Fuerza");
-	//	Capsula->EmplearCapsula();
-	//}*/
+	if (RECORD == 100)
+	{
+		Capsula->EstablecerPersonaje(Bridge1);
+		Capsula->VerificarCapsulaConsumida("consumida", 5.0f);
+		Capsula->TiposCapsulas("Salto");
+		Capsula->EmplearCapsula();
+	}
+	if (RECORD == 150)
+	{
+		Capsula->EstablecerPersonaje(Bridge2);
+		Capsula->VerificarCapsulaConsumida("consumida", 10.0f);
+		Capsula->TiposCapsulas("Vida");
+		Capsula->EmplearCapsula();
+	}
+	if(RECORD == 200)
+	{
+		Capsula->EstablecerPersonaje(Bridge2);
+		Capsula->VerificarCapsulaConsumida("noconsumida", 15.0f);
+		Capsula->TiposCapsulas("Fuerza");
+		Capsula->EmplearCapsula();
+	}
 
 	//Patrón Command
-	if (RECORD == 300)
+	if (RECORD == 1300)
 	{
 		EjecutarComandoDisparar();
 	}
-	if (RECORD == 400)
+	if (RECORD == 1400)
 	{
 		DeshacerComando();
 	}
-	if (RECORD == 500)
+	if (RECORD == 1500)
 	{
-		/*EjecutarComandoSaltar();*/
+		EjecutarComandoSaltar();
 	}
-	if (RECORD == 600)
+	if (RECORD == 1600)
 	{
 		DeshacerComando();
 	}
 
 	//Patrón State
-	if (RECORD == 1600)
+	if (RECORD == 250)
 	{
 		EstadoInvisible = GetWorld()->SpawnActor<AEstadoInvisible>(AEstadoInvisible::StaticClass());
 		EstadoInvisible->PawnInvisible();
 	}
-	if (RECORD == 2000)
+	if (RECORD == 1250)
 	{
 		EstadoBase = GetWorld()->SpawnActor<AEstadoBase>(AEstadoBase::StaticClass());
 		EstadoBase->PawnNormal();
@@ -228,6 +204,7 @@ void AGalaga_USFX_L01GameMode::EjecutarComandoDisparar()
 {
 	if (Emisor)
 	{
+		ANaveCaza* NaveCazaDisparo = GetWorld()->SpawnActor<ANaveCaza>(FVector(-500.0f, 0.0f, 150.0f), FRotator(0.0f, 0.0f, 0.0f));
 		CDisparar = GetWorld()->SpawnActor<AComandoDeDisparo>(AComandoDeDisparo::StaticClass());
 		Emisor->EstablecerOrden(CDisparar);
 		Emisor->EjecutarOrden();

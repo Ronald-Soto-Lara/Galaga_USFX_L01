@@ -48,6 +48,12 @@ protected:
 	UPROPERTY(VisibleAnywhere, Category = "Game mode")
 	class AImplementationConcrect_1* Bridge2;
 
+	UPROPERTY(VisibleAnywhere, Category = "Game mode")
+	class ACapsulaVida* Capsulas;
+
+	UPROPERTY(VisibleAnywhere, Category = "Game mode")
+	class ANaveEstrategy* NaveEstrategy;
+
 
 	void EjecutarComandoSaltar();
 	void EjecutarComandoDisparar();

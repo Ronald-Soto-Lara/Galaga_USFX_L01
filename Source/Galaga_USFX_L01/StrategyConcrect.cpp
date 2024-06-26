@@ -30,22 +30,18 @@ void AStrategyConcrect::Tick(float DeltaTime)
 	naveRecord += 2;
 	if (naveRecord>=100)
 	{
-		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::White, TEXT("LISTOOOOOOOOOOOOOOOOOOOOO"));
-	}
-	if(naveRecord == 200)
-	{
 		Disparar();
 	}
 }
 
 void AStrategyConcrect::Disparar()
 {
-	AProyectilEnemigo* NewProj = GetWorld()->SpawnActor<AProyectilEnemigo>(GetActorLocation(), FRotator::ZeroRotator);
-	AProyectilEnemigo* NewProj1 = GetWorld()->SpawnActor<AProyectilEnemigo>(GetActorLocation(), FRotator(0.0f, 90.0f, 0.0f));
-	AProyectilEnemigo* NewProj2 = GetWorld()->SpawnActor<AProyectilEnemigo>(GetActorLocation(), FRotator(180.0f, 0.0f, 0.0f));
-	AProyectilEnemigo* NewProj3 = GetWorld()->SpawnActor<AProyectilEnemigo>(GetActorLocation(), FRotator(0.0f, 270.0f, 0.0f));
-	AProyectilEnemigo* NewProj4 = GetWorld()->SpawnActor<AProyectilEnemigo>(GetActorLocation(), FRotator(0.0f, 45.0f, 0.0f));
-	AProyectilEnemigo* NewProj5 = GetWorld()->SpawnActor<AProyectilEnemigo>(GetActorLocation(), FRotator(0.0f, 135.0f, 0.0f));
-	AProyectilEnemigo* NewProj6 = GetWorld()->SpawnActor<AProyectilEnemigo>(GetActorLocation(), FRotator(0.0f, 225.0f, 0.0f));
-	AProyectilEnemigo* NewProj7 = GetWorld()->SpawnActor<AProyectilEnemigo>(GetActorLocation(), FRotator(0.0f, 315.0f, 0.0f));
+	AProyectilEnemigo* NewProj = GetWorld()->SpawnActor<AProyectilEnemigo>(FVector(-1200.0f,-250.0f,150.0f), FRotator::ZeroRotator);
+	AProyectilEnemigo* NewProj1 = GetWorld()->SpawnActor<AProyectilEnemigo>(FVector(-1200.0f, -250.0f, 150.0f), FRotator(0.0f, 90.0f, 0.0f));
+	AProyectilEnemigo* NewProj2 = GetWorld()->SpawnActor<AProyectilEnemigo>(FVector(-1200.0f, -250.0f, 150.0f), FRotator(180.0f, 0.0f, 0.0f));
+	AProyectilEnemigo* NewProj3 = GetWorld()->SpawnActor<AProyectilEnemigo>(FVector(-1200.0f, -250.0f, 150.0f), FRotator(0.0f, 270.0f, 0.0f));
+	AProyectilEnemigo* NewProj4 = GetWorld()->SpawnActor<AProyectilEnemigo>(FVector(-1200.0f, -250.0f, 150.0f), FRotator(0.0f, 45.0f, 0.0f));
+	AProyectilEnemigo* NewProj5 = GetWorld()->SpawnActor<AProyectilEnemigo>(FVector(-1200.0f, -250.0f, 150.0f), FRotator(0.0f, 135.0f, 0.0f));
+	AProyectilEnemigo* NewProj6 = GetWorld()->SpawnActor<AProyectilEnemigo>(FVector(-1200.0f, -250.0f, 150.0f), FRotator(0.0f, 225.0f, 0.0f));
+	AProyectilEnemigo* NewProj7 = GetWorld()->SpawnActor<AProyectilEnemigo>(FVector(-1200.0f, -250.0f, 150.0f), FRotator(0.0f, 315.0f, 0.0f));
 }

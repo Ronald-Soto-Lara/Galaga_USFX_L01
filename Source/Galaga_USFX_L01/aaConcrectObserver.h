@@ -5,11 +5,6 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "SuscriptorInterfaz.h"
-#include "ArmarObserver.h"
-#include "SuscriptorInterfaz.h"
-#include "Bomba.h"
-#include "ClaseExtra.h"
-#include "EscudoActor.h"
 #include "aaConcrectObserver.generated.h"
 
 UCLASS()
@@ -33,7 +28,7 @@ public:
 	void DetenerObjeto();
 	void ReforzarBarreras();
 	void DestruirBarreras();
-	void Actualizar(AArmarObserver* Observer)override;
+	void Actualizar(class AArmarObserver* Observer)override;
 	void Destruir();
 	int arma;
 	int escudo;
@@ -42,13 +37,10 @@ public:
 	int scoreee;
 	int n;
 protected:
-	AEscudoActor* BarreraObserver;
-	AArmarObserver* agregar1;
-	AArmarObserver* agregar2;
-	AArmarObserver* agregar3;
-	AClaseExtra* clasee;
-	AClaseExtra* clasee1;
-private:
-	UPROPERTY(VisibleAnywhere, Category = "Arsenal")
-	class ABomba* agregar;
+	class AProteccion* BarreraObserver;
+	class AArmarObserver* agregar1;
+	class AArmarObserver* agregar2;
+	class AArmarObserver* agregar3;
+	class AEscolta* clasee;
+	class AEscolta* clasee1;
 };

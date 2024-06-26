@@ -127,6 +127,7 @@ public:
 	float UbicacionInicioY;
 	float Puntaje;
 	int RecordPawn;
+	int Vida;
 	UFUNCTION()
 	virtual void NotifyHit(UPrimitiveComponent* MyComp, AActor* Other, UPrimitiveComponent* OtherComp,
 	bool bSelfMoved, FVector HitLocation, FVector HitNormal, FVector NormalImpulse, const FHitResult& Hit)override;
@@ -135,6 +136,7 @@ public:
 	virtual void Destruir();
 	void Estados(FString _Estados);
 	virtual void Salto();
+	virtual void ModificarVida(FString ModificarVida, int _Vida);
 	IEstados* Estado;
 	IEstados* EstadoNormal;
 	IEstados* EstadoLento;
